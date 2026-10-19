@@ -12,6 +12,11 @@ export default function CapabilitiesCarousel() {
   const totalSlides = services.length;
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Mobile Touch Swipe Handling
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+  const minSwipeDistance = 45;
+
   function nextSlide() {
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
   }
@@ -24,7 +29,33 @@ export default function CapabilitiesCarousel() {
     setCurrentIndex(index);
   }
 
-  // Autoplay with pause on hover
+  function handleTouchStart(e: React.TouchEvent) {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+    setIsPaused(true);
+  }
+
+  function handleTouchMove(e: React.TouchEvent) {
+    touchEndX.current = e.targetTouches[0].clientX;
+  }
+
+  function handleTouchEnd() {
+    if (!touchStartX.current || !touchEndX.current) {
+      setIsPaused(false);
+      return;
+    }
+    const distance = touchStartX.current - touchEndX.current;
+    if (distance > minSwipeDistance) {
+      nextSlide();
+    } else if (distance < -minSwipeDistance) {
+      prevSlide();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+    setIsPaused(false);
+  }
+
+  // Autoplay with pause on hover/touch
   useEffect(() => {
     if (isPaused) return;
     timeoutRef.current = setTimeout(() => {
@@ -46,6 +77,9 @@ export default function CapabilitiesCarousel() {
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
       onBlur={() => setIsPaused(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       <div className="carousel-topline">
         <div className="carousel-header-copy">
@@ -77,7 +111,7 @@ export default function CapabilitiesCarousel() {
         </div>
       </div>
 
-      {/* Carousel Track */}
+      {/* Carousel Track with smooth touch transitions */}
       <div className="carousel-viewport">
         <div
           className="carousel-track"
@@ -97,9 +131,9 @@ export default function CapabilitiesCarousel() {
                 <div className="carousel-card">
                   <div className="carousel-card-header">
                     <span className="carousel-icon-box">
-                      <ServiceIcon name={service.icon} size={24} />
+                      <ServiceIcon name={service.icon} size={22} />
                     </span>
-                    <span className="carousel-slide-num">0{index + 1}</span>
+                    <span className="carousel-slide-num">0{index + 1} / 0{totalSlides}</span>
                   </div>
 
                   <div className="carousel-card-body">

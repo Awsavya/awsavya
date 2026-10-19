@@ -69,24 +69,24 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
     }, 1400);
   }
 
-  // Lumen Data
+  // Lumen Telemetry Data (Index based, avoiding huge budget amounts)
   const lumenData = {
     "1M": {
-      balance: "₹ 2,48,650",
-      gain: "↗ 8.4% this month",
-      spend: "₹ 18,420",
+      balance: "2,480",
+      gain: "↗ 8.4% monthly index",
+      spend: "320 ops",
       bars: [24, 38, 32, 48, 42, 60, 48, 72, 56, 80, 64, 88, 70, 96, 82, 100, 84, 92],
     },
     "6M": {
-      balance: "₹ 8,92,400",
-      gain: "↗ 24.1% over 6 mo",
-      spend: "₹ 1,12,300",
+      balance: "8,920",
+      gain: "↗ 24.1% index gain",
+      spend: "1,140 ops",
       bars: [30, 44, 40, 56, 52, 68, 60, 78, 68, 86, 75, 92, 82, 98, 88, 100, 90, 96],
     },
     "1Y": {
-      balance: "₹ 19,45,200",
+      balance: "18,450",
       gain: "↗ 58.7% annualized",
-      spend: "₹ 2,45,000",
+      spend: "2,450 ops",
       bars: [35, 48, 45, 62, 58, 74, 66, 82, 74, 90, 82, 95, 88, 100, 92, 98, 94, 99],
     },
   }[lumenTimeframe];
