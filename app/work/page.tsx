@@ -1,0 +1,82 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowDownRight, ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
+import Reveal from "@/components/Reveal";
+import WorkShowcase from "@/components/WorkShowcase";
+
+export const metadata: Metadata = {
+  title: "Work & Concepts",
+  description:
+    "Explore interactive concept studies from AWSAVYA across product design, high-density data, applied AI, and operations.",
+};
+
+export default function WorkPage() {
+  return (
+    <>
+      <section className="page-hero page-hero-work">
+        <div className="container page-hero-inner">
+          <Reveal>
+            <span className="eyebrow">
+              <span className="eyebrow-dot" /> PROOF OF CRAFT &amp; ARCHITECTURAL DISCIPLINE
+            </span>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h1>
+              Digital products designed with<br />
+              <span>intention and clarity.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p>
+              A series of functional concept studies demonstrating how we architect high-density dashboards,
+              source-grounded AI assistants, and resilient operational pipelines.
+            </p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="page-hero-meta-row">
+              <span className="hero-status-pill">
+                <span className="pulse-dot-mini" /> ALL THREE STUDIES TESTABLE LIVE
+              </span>
+              <span className="hero-pill-note">
+                Labelled as Concept study • Zero fictional client claims
+              </span>
+            </div>
+          </Reveal>
+          <div className="page-hero-scroll">
+            <span>
+              <ArrowDownRight size={14} /> Test interactive prototypes below
+            </span>
+            <span>01 — 03 SELECTED STUDIES</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Work Showcase Section */}
+      <section className="section work-showcase-section">
+        <div className="container">
+          <Reveal>
+            <WorkShowcase />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Conversion Section without intimidating budget figures */}
+      <section className="simple-cta-section">
+        <div className="container simple-cta-inner">
+          <div>
+            <span className="eyebrow">
+              <span className="eyebrow-dot" /> FLEXIBLE, SPRINT-BASED ENGAGEMENT
+            </span>
+            <h2>Have an idea you want to make real?</h2>
+            <p>
+              We don&apos;t lock you into rigid, inflated agency retainers. From an initial 1-week architecture spike to a full MVP launch, we build around your specific timeline and scope.
+            </p>
+          </div>
+          <Link href="/contact" className="button button-dark">
+            Start a conversation <ArrowUpRight size={16} />
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}
