@@ -38,6 +38,7 @@ export default function ContactForm() {
   const [feedback, setFeedback] = useState("");
   const [activeStep, setActiveStep] = useState<1 | 2>(1);
 
+  const [attachedScope, setAttachedScope] = useState<string | null>(null);
   const errorSummaryId = useId();
 
   // Read URL query params on mount for pre-filling service
@@ -55,6 +56,7 @@ export default function ContactForm() {
       }
       const noteParam = params.get("note");
       if (noteParam) {
+        setAttachedScope(noteParam);
         setForm((f) => ({ ...f, message: `[Scope note: ${noteParam}]\n\n` }));
       }
     }
@@ -120,6 +122,12 @@ export default function ContactForm() {
         <span className="eyebrow"><span className="eyebrow-dot" /> PROJECT ENQUIRY</span>
         <h2>Tell us a little<br /><span>about your idea.</span></h2>
         <p>Choose your focus area and share a few details to get the conversation started.</p>
+        {attachedScope && (
+          <div className="attached-scope-banner">
+            <span><Sparkles size={13} className="text-blue" /> Configured scope attached: <strong>{attachedScope}</strong></span>
+            <button type="button" onClick={() => setAttachedScope(null)} aria-label="Dismiss scope banner">×</button>
+          </div>
+        )}
       </div>
 
       {/* Interactive Service Selector Pills */}
@@ -238,7 +246,9 @@ export default function ContactForm() {
       <div className="form-submit-row">
         <p>
           By submitting, you agree that AWSAVYA may contact you regarding this enquiry. See our{" "}
-          <Link href="/privacy" className="form-privacy-link">Privacy Policy</Link>.
+          <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="form-privacy-link">
+            Privacy Policy
+          </Link>.
         </p>
         <button type="submit" className="button button-dark" disabled={status === "sending"}>
           {status === "sending" ? (

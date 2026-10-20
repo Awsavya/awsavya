@@ -17,15 +17,22 @@ export default function CapabilitiesCarousel() {
   const touchEndX = useRef<number | null>(null);
   const minSwipeDistance = 45;
 
+  function resetTimer() {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  }
+
   function nextSlide() {
+    resetTimer();
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
   }
 
   function prevSlide() {
+    resetTimer();
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   }
 
   function goToSlide(index: number) {
+    resetTimer();
     setCurrentIndex(index);
   }
 

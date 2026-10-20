@@ -3,7 +3,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://awsavya.in",
   description:
     "AWSAVYA builds apps, websites, custom software, AI-powered products and automation for ambitious businesses.",
-  email: "", // Add a real public contact email here once you have configured it.
+  email: "hello@awsavya.in",
 };
 
 export const navigation = [

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, ArrowUp, Sparkles } from "lucide-react";
+import { ArrowUpRight, ArrowUp, Sparkles, Mail } from "lucide-react";
 
 export default function SiteFooter() {
   function scrollToTop(e: React.MouseEvent) {
@@ -23,6 +23,9 @@ export default function SiteFooter() {
           <div className="footer-side">
             <Link href="/" className="footer-brand">AWSAVYA<span>.</span></Link>
             <p>Digital products, custom software, AI and automated systems made with intention.</p>
+            <a href="mailto:hello@awsavya.in" className="footer-email-link">
+              <Mail size={13} /> hello@awsavya.in
+            </a>
             <div className="footer-links">
               <Link href="/services">Services</Link>
               <Link href="/work">Work</Link>
