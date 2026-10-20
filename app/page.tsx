@@ -3,17 +3,16 @@ import { ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
 import HeroVisual from "@/components/HeroVisual";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
-import CapabilitiesCarousel from "@/components/CapabilitiesCarousel";
+import ServicesShowcase from "@/components/ServicesShowcase";
 import InteractiveProcessExplorer from "@/components/InteractiveProcessExplorer";
 import InteractiveScopeBuilder from "@/components/InteractiveScopeBuilder";
-import { projects, services } from "@/lib/site";
+import { projects, studioDifferentiators } from "@/lib/site";
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
+      {/* 1. Hero Section */}
       <section className="hero-section">
         <div className="container hero-grid">
           <div className="hero-copy">
@@ -30,15 +29,15 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.16} y={18}>
               <p className="hero-description">
-                We design and build thoughtful apps, websites, custom software and AI-powered systems that make ambitious ideas useful.
+                AWSAVYA builds apps, websites, custom software, AI solutions, and automations that help businesses solve real problems.
               </p>
             </Reveal>
             <Reveal delay={0.24} y={14}>
               <div className="hero-actions">
                 <Link href="/contact" className="button button-dark">
-                  Let&apos;s build something <ArrowUpRight size={16} />
+                  Start a project <ArrowUpRight size={16} />
                 </Link>
-                <Link href="/services" className="text-link">
+                <Link href="#services" className="text-link">
                   Explore capabilities <ArrowRight size={15} />
                 </Link>
               </div>
@@ -46,7 +45,7 @@ export default function HomePage() {
             <Reveal delay={0.32} y={10}>
               <div className="hero-proofline">
                 <span className="proof-avatars"><i>A</i><i>W</i><i>S</i></span>
-                <span>From first sketch to real-world product</span>
+                <span>From initial scoping to launch-ready software</span>
               </div>
             </Reveal>
           </div>
@@ -60,41 +59,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Capabilities Carousel Section */}
-      <section className="capabilities-carousel-section" aria-label="AWSAVYA Capabilities Carousel">
-        <div className="container">
-          <CapabilitiesCarousel />
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="section section-services">
+      {/* 2. One Comprehensive Interactive Services Section */}
+      <section className="section section-services" id="services">
         <div className="container">
           <Reveal>
             <div className="section-heading-row">
               <SectionHeading
                 eyebrow="WHAT WE DO"
-                title="Technology, without"
-                accent="the unnecessary."
+                title="Interactive capabilities,"
+                accent="built around your goals."
               >
-                <span>One connected team for the digital work that helps your business move forward.</span>
+                <span>One connected studio for the digital disciplines that help your business move forward. Select a discipline below to inspect architecture highlights and sprint deliverables.</span>
               </SectionHeading>
               <Link href="/services" className="text-link desktop-only">
-                All capabilities <ArrowUpRight size={15} />
+                All service details <ArrowUpRight size={15} />
               </Link>
             </div>
           </Reveal>
-          <div className="services-grid">
-            {services.map((service, index) => (
-              <Reveal key={service.number} delay={index * 0.055}>
-                <ServiceCard service={service} featured={index === 2} />
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.08}>
+            <ServicesShowcase />
+          </Reveal>
         </div>
       </section>
 
-      {/* Work Section */}
+      {/* 3. Selected Work & Concept Studies */}
       <section className="section section-work">
         <div className="container">
           <Reveal>
@@ -104,7 +92,7 @@ export default function HomePage() {
                 title="Good ideas deserve"
                 accent="good execution."
               >
-                <span>A look at the kinds of digital experiences we like to shape. These are concept studies, not client case studies.</span>
+                <span>A look at the kinds of digital experiences we like to shape. These are concept studies demonstrating high-density data, applied AI, and operations pipelines.</span>
               </SectionHeading>
               <Link href="/work" className="text-link desktop-only">
                 View all work <ArrowUpRight size={15} />
@@ -121,7 +109,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Interactive Process Section */}
+      {/* 4. Process / Working-Method Section */}
       <section className="section section-approach">
         <div className="container">
           <Reveal>
@@ -131,10 +119,10 @@ export default function HomePage() {
                 title="Less noise."
                 accent="More progress."
               >
-                <span>Good technology starts with understanding the problem. We keep the process clear, the collaboration close and the solution grounded in what people actually need.</span>
+                <span>Good technology starts with understanding the problem. We keep the process clear, the collaboration close, and the solution grounded in what people actually need.</span>
               </SectionHeading>
               <Link href="/about" className="text-link desktop-only">
-                A little about us <ArrowUpRight size={15} />
+                About our team <ArrowUpRight size={15} />
               </Link>
             </div>
           </Reveal>
@@ -144,7 +132,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Interactive Scope Configurator Section */}
+      {/* 5. Differentiating Section: Why Clients Work With AWSAVYA */}
+      <section className="section section-differentiators">
+        <div className="container">
+          <Reveal>
+            <div className="section-heading-row">
+              <SectionHeading
+                eyebrow="WHY PARTNER WITH US"
+                title="Direct studio engagement,"
+                accent="built on clarity."
+              >
+                <span>We combine senior design, clean architecture, and transparent communication so you always know where your project stands.</span>
+              </SectionHeading>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="differentiators-grid">
+              {studioDifferentiators.map((diff, index) => (
+                <div key={diff.title} className="differentiator-card">
+                  <span className="differentiator-num">0{index + 1}</span>
+                  <h3>{diff.title}</h3>
+                  <p>{diff.description}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 6. Indicative Scope Estimator Section */}
       <section className="section section-scope-builder">
         <div className="container">
           <Reveal>
@@ -153,7 +169,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
+      {/* 7. Clear Final Project-Enquiry Call to Action */}
       <section className="final-cta-section">
         <div className="container">
           <Reveal>
@@ -165,9 +181,9 @@ export default function HomePage() {
                   <span className="eyebrow-dot" /> YOUR NEXT CHAPTER STARTS HERE
                 </span>
                 <h2>Have a problem<br />worth <span>solving?</span></h2>
-                <p>Bring us the idea, the friction, or the thing that could work better. We&apos;ll help you find the next step.</p>
+                <p>Bring us the idea, the friction, or the process that could work better. We&apos;ll help you find the next step.</p>
                 <Link href="/contact" className="button button-dark">
-                  Tell us about it <ArrowUpRight size={16} />
+                  Start a project <ArrowUpRight size={16} />
                 </Link>
               </div>
               <div className="cta-art" aria-hidden="true">

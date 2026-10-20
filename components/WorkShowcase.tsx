@@ -4,21 +4,16 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  BarChart3,
-  Bot,
   CheckCircle2,
   Code2,
   Cpu,
   Layers,
   ShieldCheck,
   Sparkles,
-  Workflow,
   Zap,
 } from "lucide-react";
 import ProjectVisual from "@/components/ProjectVisual";
 import { projects } from "@/lib/site";
-
-type Project = (typeof projects)[number];
 
 interface StudyDetail {
   architecturePattern: string;
@@ -36,9 +31,9 @@ const studyDetails: Record<string, StudyDetail> = {
     problemHypothesis:
       "Most financial dashboards overwhelm users with excessive tabular data and chaotic color coding. This concept explores how progressive disclosure and calm typographic hierarchy reduce cognitive fatigue.",
     architecturalDecisions: [
-      "Optimistic client caching for instantaneous timeframe switching without layout thrashing",
-      "Accessible SVG-based responsive data curves calibrated for WCAG 2.2 AA contrast",
-      "Hierarchical spending category aggregation computed on low-overhead micro-workers",
+      "Optimistic client state caching for snappy timeframe switching without layout thrashing",
+      "Accessible SVG-based data curves calibrated for high contrast and legible data density",
+      "Hierarchical spending category aggregation computed on lightweight client workers",
     ],
     techStack: ["Next.js App Router", "TypeScript", "SVG Data Graphs", "Tailored CSS", "Motion"],
     takeaway:
@@ -50,8 +45,8 @@ const studyDetails: Record<string, StudyDetail> = {
     problemHypothesis:
       "Enterprise AI tools often act as black boxes where users cannot verify answers. Relay AI demonstrates how strict source attribution and cited document snippets build immediate institutional trust.",
     architecturalDecisions: [
-      "Bi-directional citation links pairing every generated claim with exact snippet coordinates",
-      "Sub-50ms UI response time through streamed token chunking and optimistic state",
+      "Bi-directional citation links pairing generated answers with source document references",
+      "Streamed token chunking and optimistic UI state for responsive real-time feedback",
       "Scoped contextual filters allowing users to restrict retrieval to verified department docs",
     ],
     techStack: ["React 19", "Vector Embeddings", "Streaming Tokens", "TypeScript", "FastAPI"],
@@ -114,9 +109,9 @@ export default function WorkShowcase() {
             <div className="work-preview-wrap">
               <div className="preview-top-status">
                 <span className="preview-status-pill">
-                  <span className="pulse-dot-mini" /> INTERACTIVE PROTOTYPE
+                  <span className="pulse-dot-mini" /> INTERACTIVE CONCEPT PROTOTYPE
                 </span>
-                <span className="preview-indicator-meta">TEST CONTROLS LIVE</span>
+                <span className="preview-indicator-meta">SAMPLE DATA</span>
               </div>
 
               {/* Renders Interactive Visual Mockup */}
@@ -126,7 +121,7 @@ export default function WorkShowcase() {
 
               <div className="preview-hint-bar">
                 <Sparkles size={13} className="text-blue" />
-                <span>Interact with buttons, filters, and toggles above</span>
+                <span>Interact with sample controls, toggles, and filters above</span>
               </div>
             </div>
 
@@ -154,10 +149,10 @@ export default function WorkShowcase() {
 
               <div className="spec-item">
                 <span className="spec-label">
-                  <ShieldCheck size={13} className="text-blue" /> ACCESSIBILITY & STANDARDS
+                  <ShieldCheck size={13} className="text-blue" /> ACCESSIBILITY &amp; STANDARDS
                 </span>
                 <p className="spec-value-small">
-                  WCAG 2.2 AA compliant contrast, zero layout shift (CLS &lt; 0.05), keyboard navigation support.
+                  Accessible high-contrast typography, stable layout structures, and full keyboard navigation support.
                 </p>
               </div>
             </div>
@@ -227,9 +222,9 @@ export default function WorkShowcase() {
             <div className="pillar-icon-box">
               <Zap size={20} className="text-blue" />
             </div>
-            <h4>Sub-Second Performance</h4>
+            <h4>Performance-Minded Builds</h4>
             <p>
-              Zero unnecessary bundle overhead. Optimized images, server-rendered layouts, and snappy client interactions.
+              Lean bundle sizes, responsive image delivery, server-rendered components, and snappy client interactions.
             </p>
           </div>
 
@@ -239,7 +234,7 @@ export default function WorkShowcase() {
             </div>
             <h4>End-to-End Type Safety</h4>
             <p>
-              Strict TypeScript from database schemas to client components, catching breaking regressions at compile time.
+              Strict TypeScript from database schemas to client components, catching regressions at compile time.
             </p>
           </div>
 
@@ -247,9 +242,9 @@ export default function WorkShowcase() {
             <div className="pillar-icon-box">
               <ShieldCheck size={20} className="text-blue" />
             </div>
-            <h4>Human Ergonomics &amp; A11y</h4>
+            <h4>Ergonomics &amp; Accessibility</h4>
             <p>
-              Full keyboard navigability, WCAG 2.2 AA compliant contrast, touch-friendly 48px hit areas, and reduced-motion care.
+              Targeting WCAG 2.2 AA standards, touch-friendly 44px+ hit targets, clear keyboard focus indicators, and reduced-motion care.
             </p>
           </div>
 
@@ -257,9 +252,9 @@ export default function WorkShowcase() {
             <div className="pillar-icon-box">
               <Cpu size={20} className="text-blue" />
             </div>
-            <h4>100% Client IP Ownership</h4>
+            <h4>Full Code Handover</h4>
             <p>
-              Clean documentation, standard repository setups, and zero proprietary lock-in. You own every line of code.
+              Clean repository structure, comprehensive documentation, and complete ownership of custom project deliverables governed by the client agreement.
             </p>
           </div>
         </div>

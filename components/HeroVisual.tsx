@@ -2,13 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Activity, ArrowUpRight, Bot, CircleCheck, Code2, Layers3, Sparkles, TrendingUp, Zap } from "lucide-react";
+import { Activity, ArrowUpRight, Bot, CircleCheck, Code2, Layers3, Sparkles, TrendingUp } from "lucide-react";
 
 interface StatusPreset {
   label: string;
   workflows: string;
-  completion: string;
-  uptime: string;
+  windowLabel: string;
   path: string;
 }
 
@@ -16,22 +15,19 @@ const statusPresets: Record<string, StatusPreset> = {
   "24h": {
     label: "24h",
     workflows: "04",
-    completion: "98.2%",
-    uptime: "99.98%",
+    windowLabel: "Daily sample",
     path: "M0 37 C15 37 18 19 31 24 S49 35 64 21 S83 27 98 17 S122 28 139 13 S166 22 178 9 S204 18 216 6 S231 10 240 3",
   },
   "7d": {
     label: "7d",
     workflows: "12",
-    completion: "99.4%",
-    uptime: "100%",
+    windowLabel: "Weekly sample",
     path: "M0 40 C20 40 30 25 50 28 S80 18 100 22 S130 14 160 16 S190 8 215 10 S230 4 240 2",
   },
   "30d": {
     label: "30d",
     workflows: "28",
-    completion: "99.8%",
-    uptime: "99.99%",
+    windowLabel: "Monthly sample",
     path: "M0 42 C25 42 45 30 70 32 S110 20 135 24 S175 12 195 15 S225 6 240 3",
   },
 };
@@ -39,20 +35,20 @@ const statusPresets: Record<string, StatusPreset> = {
 const aiQueries = [
   {
     q: "Context search",
-    title: "AI assistant",
-    ans: "Context found · 6 linked models",
+    title: "AI assistant (Concept)",
+    ans: "Sample source linked · 4 document chunks",
     lines: [92, 78, 54],
   },
   {
     q: "API synthesis",
-    title: "Code intelligence",
-    ans: "Pipeline verified · 0 regressions",
+    title: "Code intelligence (Concept)",
+    ans: "Sample schema mapped · 0 conflicts",
     lines: [88, 65, 72],
   },
   {
     q: "Workflow map",
-    title: "Automation engine",
-    ans: "4 handoffs optimized",
+    title: "Automation model (Concept)",
+    ans: "4 pipeline handoffs mapped",
     lines: [95, 82, 40],
   },
 ];
@@ -68,7 +64,7 @@ export default function HeroVisual() {
   return (
     <div
       className="hero-visual"
-      aria-label="Interactive digital product ecosystem visual"
+      aria-label="Interactive digital product ecosystem visual (illustrative demonstration)"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -107,7 +103,7 @@ export default function HeroVisual() {
         <div className="sphere-inner">A<span>.</span></div>
       </motion.div>
 
-      {/* Interactive Top Card: AI Assistant & Query Switcher */}
+      {/* Interactive Top Card: AI Assistant Concept Preview */}
       <motion.div
         className="floating-card floating-card-top"
         initial={{ opacity: 0, x: 18, y: 10 }}
@@ -117,7 +113,9 @@ export default function HeroVisual() {
         <div className="floating-card-head">
           <span className="card-icon blue"><Sparkles size={14} /></span>
           <span>{currentAi.title}</span>
-          <span className="mini-live"><span className="pulse-dot-mini" />LIVE</span>
+          <span className="mini-live mini-demo" title="Interactive concept study demonstration">
+            <span className="pulse-dot-mini" />DEMO · SAMPLE DATA
+          </span>
         </div>
 
         {/* Interactive mini query tabs */}
@@ -148,7 +146,7 @@ export default function HeroVisual() {
         </div>
       </motion.div>
 
-      {/* Interactive Bottom Card: Metrics & Live Timeframe Sparkline */}
+      {/* Interactive Bottom Card: Illustrative Telemetry Sparkline */}
       <motion.div
         className="floating-card floating-card-bottom"
         initial={{ opacity: 0, x: -18, y: 10 }}
@@ -157,8 +155,8 @@ export default function HeroVisual() {
       >
         <div className="floating-card-head">
           <span className="card-icon blue"><Activity size={14} /></span>
-          <span>System metrics</span>
-          <div className="timeframe-selector" role="group" aria-label="Metrics timeframe">
+          <span>Simulated telemetry</span>
+          <div className="timeframe-selector" role="group" aria-label="Sample timeframe">
             {(["24h", "7d", "30d"] as const).map((preset) => (
               <button
                 key={preset}
@@ -175,16 +173,16 @@ export default function HeroVisual() {
         <div className="status-metrics">
           <div>
             <strong>{currentStatus.workflows}</strong>
-            <span>Active flows</span>
+            <span>Sample flows</span>
           </div>
           <div>
-            <strong>{currentStatus.completion}</strong>
-            <span className="metric-tag"><TrendingUp size={10} /> Optimal</span>
+            <strong>{currentStatus.label}</strong>
+            <span className="metric-tag"><TrendingUp size={10} /> {currentStatus.windowLabel}</span>
           </div>
         </div>
 
         {/* Sparkline curve */}
-        <div className="mini-chart-wrap" title={`Trend for ${activePreset}`}>
+        <div className="mini-chart-wrap" title={`Illustrative trend pattern for ${activePreset}`}>
           <svg className="mini-chart" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true">
             <path
               d={currentStatus.path}
@@ -203,7 +201,7 @@ export default function HeroVisual() {
         whileHover={{ scale: 1.08, y: -2 }}
         transition={{ type: "spring", stiffness: 400, damping: 20 }}
       >
-        <Code2 size={13} /> Software & Web
+        <Code2 size={13} /> Software &amp; Web
       </motion.div>
       
       <motion.div
@@ -211,12 +209,12 @@ export default function HeroVisual() {
         whileHover={{ scale: 1.08, y: -2 }}
         transition={{ type: "spring", stiffness: 400, damping: 20 }}
       >
-        <Bot size={13} /> Applied AI & Agents
+        <Bot size={13} /> Applied AI &amp; Agents
       </motion.div>
 
       <div className="hero-visual-caption">
         <Layers3 size={13} />
-        <span>Click cards to interact · One connected ecosystem</span>
+        <span>Click cards to interact · Illustrative interface model</span>
         <ArrowUpRight size={12} />
       </div>
     </div>

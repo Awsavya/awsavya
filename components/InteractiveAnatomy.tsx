@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Sparkles, Smartphone, Globe2, Code2, Bot, Users, Cog, ArrowUpRight } from "lucide-react";
-import Link from "next/link";
+import { Check, Smartphone, Globe2, Code2, Bot, Users, Cog } from "lucide-react";
 
 interface AnatomyLetter {
   char: string;
@@ -19,31 +18,35 @@ const anatomyLetters: AnatomyLetter[] = [
     name: "Apps",
     role: "Touch-First Product Engineering",
     icon: Smartphone,
-    description: "Intuitive mobile and cross-platform applications with fluid gestures, offline state tolerance, and performance tuned for everyday use.",
-    skills: ["React Native", "iOS & Android", "PWA Architecture", "Fluid Animations"],
+    description:
+      "Cross-platform mobile apps built with React Native and installable progressive web apps designed with fluid gestures and offline tolerance.",
+    skills: ["React Native", "iOS & Android", "Installable PWAs", "Touch Ergonomics"],
   },
   {
     char: "W",
     name: "Web",
-    role: "Flagship Web Experiences",
+    role: "Performant Web Experiences",
     icon: Globe2,
-    description: "Websites that load in milliseconds, respect accessibility standards, and marry editorial typography with high-conversion structure.",
-    skills: ["Next.js App Router", "Sub-second LCP", "WCAG AA Compliance", "SEO Hierarchy"],
+    description:
+      "Fast, thoughtfully designed websites and web platforms that combine editorial typography with clean Next.js architecture and accessible contrast.",
+    skills: ["Next.js App Router", "Performance Optimization", "Accessible Contrast", "Structured SEO"],
   },
   {
     char: "S",
     name: "Software",
     role: "Custom Internal Systems",
     icon: Code2,
-    description: "Bespoke portals, administrative dashboards, and operations backends built specifically around your team's real operational workflows.",
+    description:
+      "Bespoke portals, administrative dashboards, and operations backends built specifically around your team's real operational workflows.",
     skills: ["PostgreSQL & Prisma", "Secure Role Auth", "High-Density UI", "Data Pipelines"],
   },
   {
     char: "A",
     name: "AI",
-    role: "Applied Intelligence & Agents",
+    role: "Applied Intelligence & Search",
     icon: Bot,
-    description: "Practical language models, semantic document search, and workflow-specific assistants that eliminate repetitive knowledge work.",
+    description:
+      "Practical language model integrations, semantic document search, and workflow-specific assistants that surface verified source citations.",
     skills: ["LLM Orchestration", "Vector RAG", "Fallback Guardrails", "Embeddings Search"],
   },
   {
@@ -51,7 +54,8 @@ const anatomyLetters: AnatomyLetter[] = [
     name: "Founders",
     role: "Direct Principal Engagement",
     icon: Users,
-    description: "Vivek and Yash. You work directly with the builders and decision-makers who design and ship the software—no middle management overhead.",
+    description:
+      "Vivek and Yash. You work directly with the builders and decision-makers who design and ship the software—no middle management overhead.",
     skills: ["Product Vision", "Direct Communication", "Full Accountability", "Hands-on Code"],
   },
   {
@@ -59,7 +63,8 @@ const anatomyLetters: AnatomyLetter[] = [
     name: "Automation",
     role: "Connected Operations",
     icon: Cog,
-    description: "Connecting databases, third-party services, APIs, and communication channels so repetitive handoffs run automatically in the background.",
+    description:
+      "Connecting databases, third-party services, APIs, and communication channels so repeatable handoffs run reliably in the background.",
     skills: ["Webhook Listeners", "Multi-Service Sync", "Error Telemetry", "Event Triggers"],
   },
 ];
@@ -107,7 +112,7 @@ export default function InteractiveAnatomy() {
         </div>
 
         <div className="anatomy-skills-section">
-          <span className="anatomy-skills-label">DISCIPLINES & PRACTICES</span>
+          <span className="anatomy-skills-label">DISCIPLINES &amp; PRACTICES</span>
           <div className="anatomy-skills-chips">
             {current.skills.map((skill) => (
               <span key={skill} className="anatomy-skill-pill">

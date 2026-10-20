@@ -6,7 +6,6 @@ import {
   BarChart3,
   Bot,
   Check,
-  CircleHelp,
   Clock3,
   Command,
   Play,
@@ -32,24 +31,24 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
   const relayPrompts = [
     {
       q: "What did we decide about onboarding?",
-      title: "Onboarding notes",
-      source: "Product team · 4 sources",
-      match: "94% match",
+      title: "Onboarding notes (Sample)",
+      source: "Product team · 4 sample sources",
+      match: "Sample match",
       snippet: "Keep the first-run flow focused on one primary action at a time...",
     },
     {
       q: "Where is the API authentication spec?",
-      title: "API Security & Auth",
-      source: "Engineering · 2 sources",
-      match: "99% match",
-      snippet: "Use scoped JWTs with server-side rotation and 15-minute expiry...",
+      title: "API Security & Auth (Sample)",
+      source: "Engineering · 2 sample sources",
+      match: "Sample match",
+      snippet: "Use scoped tokens with server-side rotation and short expiry windows...",
     },
     {
       q: "What are our design token standards?",
-      title: "Design System Guidelines",
-      source: "Design Ops · 5 sources",
-      match: "96% match",
-      snippet: "Precision blue tokens with 8pt spatial grid and semantic CSS variables...",
+      title: "Design System Guidelines (Sample)",
+      source: "Design Ops · 5 sample sources",
+      match: "Sample match",
+      snippet: "Neutral silver and white palette with purposeful violet accents and 8pt grid...",
     },
   ];
   const [activeRelayIndex, setActiveRelayIndex] = useState(0);
@@ -73,19 +72,19 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
   const lumenData = {
     "1M": {
       balance: "2,480",
-      gain: "↗ 8.4% monthly index",
+      gain: "↗ 8.4% sample index",
       spend: "320 ops",
       bars: [24, 38, 32, 48, 42, 60, 48, 72, 56, 80, 64, 88, 70, 96, 82, 100, 84, 92],
     },
     "6M": {
       balance: "8,920",
-      gain: "↗ 24.1% index gain",
+      gain: "↗ 24.1% sample index",
       spend: "1,140 ops",
       bars: [30, 44, 40, 56, 52, 68, 60, 78, 68, 86, 75, 92, 82, 98, 88, 100, 90, 96],
     },
     "1Y": {
       balance: "18,450",
-      gain: "↗ 58.7% annualized",
+      gain: "↗ 58.7% sample index",
       spend: "2,450 ops",
       bars: [35, 48, 45, 62, 58, 74, 66, 82, 74, 90, 82, 95, 88, 100, 92, 98, 94, 99],
     },
@@ -97,7 +96,8 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
         <div className="visual-window">
           <div className="window-top">
             <span className="window-dots"><i /><i /><i /></span>
-            <span className="window-top-label">LUMEN / WEALTH INTELLIGENCE</span>
+            <span className="window-top-label">LUMEN / WEALTH CONCEPT</span>
+            <span className="window-sample-tag">DEMO · SAMPLE DATA</span>
             <div className="window-timeframes" role="group" aria-label="Timeframe selector">
               {(["1M", "6M", "1Y"] as const).map((tf) => (
                 <button
@@ -125,18 +125,18 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
             <div className="lumen-content">
               <div className="lumen-welcome">
                 <span>
-                  <small>MONDAY, 09:41 AM</small>
+                  <small>SAMPLE INTERFACE · MONDAY</small>
                   <b>Your money, in focus.</b>
                 </span>
                 <span className="lumen-avatar">JD</span>
               </div>
               <div className="lumen-balance">
-                <small>Total balance ({lumenTimeframe})</small>
+                <small>Illustrative balance ({lumenTimeframe})</small>
                 <b>{lumenData.balance}<span>.00</span></b>
                 <span className="lumen-gain">{lumenData.gain}</span>
 
                 {/* Interactive bar chart */}
-                <div className="lumen-bars" role="img" aria-label="Monthly cashflow chart">
+                <div className="lumen-bars" role="img" aria-label="Monthly cashflow chart (sample data)">
                   {lumenData.bars.map((height, i) => (
                     <i
                       key={i}
@@ -144,16 +144,16 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
                       className={hoveredBarIndex === i ? "is-hovered" : ""}
                       onMouseEnter={() => setHoveredBarIndex(i)}
                       onMouseLeave={() => setHoveredBarIndex(null)}
-                      title={`Week ${i + 1}: ${height}%`}
+                      title={`Sample Week ${i + 1}: ${height}%`}
                     />
                   ))}
                 </div>
               </div>
               <div className="lumen-bottom-cards">
                 <div>
-                  <small>Monthly spend</small>
+                  <small>Sample monthly spend</small>
                   <b>{lumenData.spend}</b>
-                  <span className="text-green">On track · Under budget</span>
+                  <span className="text-green">Sample trend · On track</span>
                 </div>
                 <div
                   className="interactive-savings-card"
@@ -163,7 +163,7 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
                   }}
                   title="Click to toggle savings goal progress"
                 >
-                  <small>Savings goal (click to adjust)</small>
+                  <small>Savings goal target (click to test)</small>
                   <b>{savingsGoal}%</b>
                   <span className="lumen-progress">
                     <i style={{ width: `${savingsGoal}%` }} />
@@ -185,17 +185,17 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
         <div className="relay-window">
           <div className="relay-top">
             <span className="relay-symbol"><Bot size={13} /></span>
-            <span>relay / workspace intelligence</span>
-            <span className="relay-top-dot" />
+            <span>relay / workspace concept</span>
+            <span className="window-sample-tag">CONCEPT DEMO</span>
           </div>
           <div className="relay-greeting">
-            <small>KNOWLEDGE GRAPH ENGINE</small>
+            <small>KNOWLEDGE ASSISTANT PROTOTYPE</small>
             <b>Find the thread.</b>
-            <span>Ask questions across team documents & notes.</span>
+            <span>Ask questions across sample documents and notes.</span>
           </div>
 
           {/* Interactive prompt pills */}
-          <div className="relay-prompt-suggestions" role="tablist" aria-label="Suggested questions">
+          <div className="relay-prompt-suggestions" role="tablist" aria-label="Suggested sample questions">
             {relayPrompts.map((p, idx) => (
               <button
                 key={p.title}
@@ -228,14 +228,14 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
             </div>
             <p>“{currentRelay.snippet}”</p>
             <div className="relay-source-row">
-              <span><Check size={11} className="text-blue" /> Verified against source</span>
-              <span className="relay-open-link">Open document <ArrowUpRight size={11} /></span>
+              <span><Check size={11} className="text-blue" /> Sample citation linked</span>
+              <span className="relay-open-link">Open sample doc <ArrowUpRight size={11} /></span>
             </div>
           </div>
 
           <div className="relay-mini-row">
-            <div><Sparkles size={12} className="text-blue" /><span>Synthesized answer</span></div>
-            <div><Clock3 size={12} /><span>Auto-synced</span></div>
+            <div><Sparkles size={12} className="text-blue" /><span>Synthesized answer (demo)</span></div>
+            <div><Clock3 size={12} /><span>Sample sync</span></div>
           </div>
         </div>
       </div>
@@ -248,6 +248,7 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
       <div className="flow-window">
         <div className="flow-top">
           <span className="flow-brand"><Workflow size={14} /> FLOWLINE OPS</span>
+          <span className="window-sample-tag">SIMULATOR · DEMO</span>
           <div className="flow-top-actions">
             <button
               type="button"
@@ -274,8 +275,8 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
 
         <div className="flow-heading">
           <span>
-            <small>PIPELINE HEALTH</small>
-            <b>Autonomous workflows.</b>
+            <small>SIMULATED PIPELINE</small>
+            <b>Illustrative workflow.</b>
           </span>
           <button
             type="button"
@@ -285,28 +286,28 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
               triggerFlowSimulation();
             }}
             disabled={isSimulating}
-            title="Click to simulate live workflow execution"
+            title="Click to simulate workflow execution"
           >
             {isSimulating ? <RotateCcw size={11} className="spin-icon" /> : <Play size={11} />}
-            <span>{isSimulating ? "Executing..." : "Run test"}</span>
+            <span>{isSimulating ? "Simulating..." : "Test pipeline"}</span>
           </button>
         </div>
 
         <div className="flow-kpis">
           <div>
-            <small>Active flows</small>
+            <small>Configured nodes</small>
             <b>{flowRange === "7D" ? "18" : "34"}</b>
-            <span className="text-blue">↗ All healthy</span>
+            <span className="text-blue">Demo queue</span>
           </div>
           <div>
-            <small>Tasks ran</small>
+            <small>Sample events</small>
             <b>{flowRange === "7D" ? "1,284" : "6,410"}</b>
-            <span className="text-blue">↗ 12.8%</span>
+            <span className="text-blue">Batch test</span>
           </div>
           <div>
-            <small>Time saved</small>
-            <b>{flowRange === "7D" ? "34.5h" : "162h"}</b>
-            <span>Across teams</span>
+            <small>Simulation</small>
+            <b>Active</b>
+            <span>Scenario state</span>
           </div>
         </div>
 
@@ -326,8 +327,8 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
         </div>
 
         <div className="flow-bottom">
-          <span><BarChart3 size={12} className="text-blue" /> Automation uptime</span>
-          <span className="text-green">99.98% operational <i /></span>
+          <span><BarChart3 size={12} className="text-blue" /> Pipeline simulator</span>
+          <span className="text-green">All sample stages clear <i /></span>
         </div>
       </div>
     </div>

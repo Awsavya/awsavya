@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import WorkShowcase from "@/components/WorkShowcase";
 
@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Work & Concepts",
   description:
     "Explore interactive concept studies from AWSAVYA across product design, high-density data, applied AI, and operations.",
+  alternates: {
+    canonical: "/work",
+  },
 };
 
 export default function WorkPage() {
@@ -60,7 +63,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Conversion Section without intimidating budget figures */}
+      {/* Conversion Section with grounded sprint wording */}
       <section className="simple-cta-section">
         <div className="container simple-cta-inner">
           <div>
@@ -69,7 +72,7 @@ export default function WorkPage() {
             </span>
             <h2>Have an idea you want to make real?</h2>
             <p>
-              We don&apos;t lock you into rigid, inflated agency retainers. From an initial 1-week architecture spike to a full MVP launch, we build around your specific timeline and scope.
+              From an initial architecture sprint to a focused MVP launch, we tailor our process around your specific timeline and scope with clear milestones and direct collaboration.
             </p>
           </div>
           <Link href="/contact" className="button button-dark">

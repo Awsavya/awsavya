@@ -8,6 +8,9 @@ import InteractiveAnatomy from "@/components/InteractiveAnatomy";
 export const metadata: Metadata = {
   title: "About AWSAVYA",
   description: "Learn about AWSAVYA's approach to useful technology, digital products, software and automation.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const principles = [

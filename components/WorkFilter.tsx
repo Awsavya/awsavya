@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Sparkles, Layers } from "lucide-react";
 import ProjectVisual from "@/components/ProjectVisual";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import type { projects } from "@/lib/site";
 
 type Project = (typeof projects)[number];
@@ -13,7 +12,7 @@ interface WorkFilterProps {
   projects: Project[];
 }
 
-export default function WorkFilter({ projects }: { projects: Project[] }) {
+export default function WorkFilter({ projects }: WorkFilterProps) {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
 
   const categories = [

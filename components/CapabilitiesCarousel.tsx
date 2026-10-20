@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import ServiceIcon from "@/components/ServiceIcon";
 import { services } from "@/lib/site";
 
@@ -66,13 +66,13 @@ export default function CapabilitiesCarousel() {
   useEffect(() => {
     if (isPaused) return;
     timeoutRef.current = setTimeout(() => {
-      nextSlide();
+      setCurrentIndex((prev) => (prev + 1) % totalSlides);
     }, 4500);
 
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [currentIndex, isPaused]);
+  }, [currentIndex, isPaused, totalSlides]);
 
   return (
     <div

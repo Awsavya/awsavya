@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowDownRight, Clock3, MessageCircle, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowDownRight, Clock3, MessageCircle, ShieldCheck } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import InteractiveFaq from "@/components/InteractiveFaq";
@@ -7,6 +7,9 @@ import InteractiveFaq from "@/components/InteractiveFaq";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Tell AWSAVYA about your app, website, software, AI or automation project.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

@@ -4,18 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  Bot,
   Check,
   CheckCircle2,
-  Code2,
-  Cog,
   Cpu,
-  Globe2,
-  Layers,
-  ShieldCheck,
-  Smartphone,
-  Sparkles,
-  Zap,
 } from "lucide-react";
 import ServiceIcon from "@/components/ServiceIcon";
 import { services } from "@/lib/site";
@@ -33,51 +24,54 @@ interface ServiceDetailConfig {
 const serviceConfigs: Record<string, ServiceDetailConfig> = {
   app: {
     icon: "app",
-    subtitle: "Touch-First Native & Responsive Web Applications",
-    problemSolved: "Most apps are bloated, slow to respond, and frustrating on mobile screens. We build fluid, touch-optimized experiences that respect mobile battery and offline states.",
+    subtitle: "Touch-First Cross-Platform Apps & Installable PWAs",
+    problemSolved:
+      "Many applications suffer from unresponsive interfaces, poor battery ergonomics, and brittle offline handling. We design and build cross-platform mobile apps using React Native, and installable progressive web apps when a web-first approach fits the product goal.",
     architectureHighlights: [
-      "Offline-first local caching & optimistic UI updates",
-      "Native iOS & Android performance via React Native or PWA",
-      "Adaptive gestures with haptic feedback and safe-area geometry",
+      "Cross-platform mobile apps built with React Native for native device capabilities",
+      "Installable progressive web apps (PWAs) when lightweight web distribution is the right fit",
+      "Offline-aware local caching, safe-area geometry, and touch-optimised ergonomics",
     ],
     deliverables: [
       "Figma design system & interactive component library",
-      "Type-safe mobile / web client codebase",
-      "App Store & Google Play deployment preparation",
+      "Type-safe mobile client or PWA codebase",
+      "Store deployment preparation & release guidance",
     ],
-    techStack: ["React Native", "Next.js", "TypeScript", "Tailwind CSS", "Expo"],
-    prototypeTitle: "Touch Ergonomics & Fluid Gestures",
+    techStack: ["React Native", "Expo", "TypeScript", "Next.js", "Tailored CSS"],
+    prototypeTitle: "Touch Ergonomics & Native Gestures",
   },
   web: {
     icon: "web",
-    subtitle: "High-Performance Flagships & Web Platforms",
-    problemSolved: "Slow websites lose visitors and drop conversion. We combine clean editorial typography with sub-second page loads, accessible contrast, and high-converting flow.",
+    subtitle: "Performance-Focused Websites & Web Platforms",
+    problemSolved:
+      "Cluttered layouts and bloated client scripts increase bounce rates and damage credibility. We combine clear typography, accessible contrast, and server-rendered Next.js architecture to keep pages fast and readable.",
     architectureHighlights: [
-      "Sub-second Largest Contentful Paint (LCP < 0.8s)",
-      "Zero Cumulative Layout Shift (CLS < 0.05)",
-      "Semantic HTML5 & WCAG 2.2 AA accessibility standards",
+      "Next.js App Router with server-side rendering and static pre-rendering",
+      "Accessible typography targeting WCAG 2.2 AA contrast standards",
+      "Semantic HTML5 hierarchy and structured metadata for search engines",
     ],
     deliverables: [
-      "Custom responsive design system & typography tokens",
-      "Next.js App Router static/dynamic hybrid setup",
-      "Automated SEO metadata, sitemap & OpenGraph generator",
+      "Custom responsive design system and typographic tokens",
+      "Production-ready Next.js web application",
+      "Structured SEO metadata, sitemap, and Open Graph cards",
     ],
     techStack: ["Next.js 16", "React 19", "Motion", "Vanilla CSS", "Vercel"],
-    prototypeTitle: "Sub-Second LCP & Accessible Typography",
+    prototypeTitle: "Accessible Typography & Lean Layouts",
   },
   software: {
     icon: "software",
-    subtitle: "Bespoke Portals, Internal Tools & Ops Backends",
-    problemSolved: "Generic SaaS tools rarely match your team's real operational workflows. We design custom software that eliminates disconnected spreadsheets and repetitive manual handoffs.",
+    subtitle: "Custom Portals, Operations Backends & Internal Tools",
+    problemSolved:
+      "Off-the-shelf software rarely fits how a specialized business actually operates, forcing teams into manual workarounds. We build custom software shaped specifically around your team's real operational workflows.",
     architectureHighlights: [
-      "Strict role-based access control (RBAC) & session audits",
-      "High-density data tables with sorting, filtering & CSV export",
+      "Role-based access control (RBAC) and audited session management",
+      "High-density data tables with sorting, filtering, and export capabilities",
       "Resilient database schemas with automated migrations",
     ],
     deliverables: [
       "Database schema & API architecture documentation",
-      "Administrative dashboard & employee portal",
-      "Staging environment & automated CI/CD deployment",
+      "Administrative dashboard & team operations portal",
+      "Staging environment and automated deployment configuration",
     ],
     techStack: ["Node.js", "PostgreSQL", "Prisma ORM", "REST / GraphQL", "Docker"],
     prototypeTitle: "High-Density Data Architecture & Auth",
@@ -85,36 +79,38 @@ const serviceConfigs: Record<string, ServiceDetailConfig> = {
   ai: {
     icon: "ai",
     subtitle: "Applied AI, Domain Assistants & Document Intelligence",
-    problemSolved: "AI without context generates generic hallucinations. We connect language models to your proprietary documents and databases to surface verified, source-linked answers.",
+    problemSolved:
+      "Generic AI chatbots often hallucinate and lack organizational context. We connect language models to your documents and structured data to surface source-grounded answers with fallback guardrails.",
     architectureHighlights: [
-      "Retrieval-Augmented Generation (RAG) with vector embeddings",
-      "Strict fallback guardrails & source citation tracking",
-      "Streaming token responses with low input latency (< 50ms)",
+      "Retrieval-Augmented Generation (RAG) referencing proprietary document collections",
+      "Source citation tracking and fallback guardrails when certainty is low",
+      "Streamed token responses and optimistic client UI updates",
     ],
     deliverables: [
-      "Context ingestion pipeline & vector database index",
-      "Custom conversational UI & prompt engineering suite",
-      "Telemetry dashboard tracking token costs and latency",
+      "Document ingestion pipeline & semantic search index",
+      "Conversational interface and tailored prompt templates",
+      "Monitoring telemetry for usage, latency, and failure states",
     ],
-    techStack: ["OpenAI & Anthropic APIs", "LangChain", "Vector Embeddings", "FastAPI / Next"],
+    techStack: ["OpenAI & Anthropic APIs", "Vector Indexes", "Python / FastAPI", "TypeScript"],
     prototypeTitle: "Citation-Backed Semantic Search & RAG",
   },
   automation: {
     icon: "automation",
     subtitle: "Connected Workflow Pipelines & Event Integration",
-    problemSolved: "Teams spend hours copying data between tools and sending manual notification updates. We build automated pipelines that run silently and reliably in the background.",
+    problemSolved:
+      "Teams lose valuable hours manually copying data between disparate tools and tracking handoffs. We build automated event pipelines that run reliably in the background with error logging.",
     architectureHighlights: [
-      "Webhook listeners with automated retries & error queues",
-      "Multi-service data synchronization with idempotency keys",
-      "Instant notification dispatch via email, Slack, or SMS",
+      "Webhook listeners with automated retry policies and error queues",
+      "Multi-service data synchronization with idempotency safeguards",
+      "Automated notifications via email, team chat, or SMS",
     ],
     deliverables: [
-      "Visual workflow diagram & integration matrix",
-      "Production webhook handlers & sync microservices",
-      "Telemetry alerts alerting on failures before clients notice",
+      "Visual workflow map & integration specification",
+      "Production webhook handlers and synchronization routines",
+      "Automated alerting to catch edge cases and API errors",
     ],
     techStack: ["Node.js Microservices", "Webhook Handlers", "Zapier / Make", "Event Queues"],
-    prototypeTitle: "Zero-Data-Loss Event Pipelines & Sync",
+    prototypeTitle: "Resilient Event Pipelines & Sync",
   },
 };
 
@@ -204,7 +200,7 @@ export default function ServicesShowcase() {
             <div className="panel-inner-card">
               <div className="panel-header">
                 <span className="panel-status-pill">
-                  <span className="pulse-dot-mini" /> PRODUCTION STANDARD
+                  <span className="pulse-dot-mini" /> CAPABILITY STANDARD
                 </span>
                 <span className="panel-service-code">SVC_{activeService.number}</span>
               </div>
@@ -213,12 +209,12 @@ export default function ServicesShowcase() {
                 <ServiceIcon name={activeService.icon} size={36} />
                 <div>
                   <strong>{activeConfig.prototypeTitle}</strong>
-                  <span>Engineered with precision</span>
+                  <span>Engineered with care</span>
                 </div>
               </div>
 
               <div className="panel-deliverables-box">
-                <span className="deliverables-box-title">KEY SPRINT DELIVERABLES</span>
+                <span className="deliverables-box-title">INDICATIVE SPRINT DELIVERABLES</span>
                 <ul className="deliverables-box-list">
                   {activeConfig.deliverables.map((d) => (
                     <li key={d}>

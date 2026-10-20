@@ -3,7 +3,7 @@
 import { useEffect, useState, useId } from "react";
 import type { FormEvent } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Check, CheckCircle2, LoaderCircle, Sparkles } from "lucide-react";
+import { ArrowUpRight, Check, CheckCircle2, AlertCircle, LoaderCircle, Sparkles } from "lucide-react";
 
 const initialForm = {
   name: "",
@@ -12,6 +12,7 @@ const initialForm = {
   service: "",
   budget: "",
   message: "",
+  botcheck: "", // Honeypot field for bot detection
 };
 
 type FormState = typeof initialForm;
@@ -20,35 +21,37 @@ const serviceOptions = [
   "App development",
   "Web development",
   "Custom software",
-  "AI solution",
+  "Applied AI",
   "Automation",
   "Not sure yet",
 ];
 
 const budgetOptions = [
   "Flexible / Let's discuss",
-  "Focused sprint / MVP",
-  "Milestone-based",
-  "Advisory & guidance first",
+  "Architecture Sprint (1–2 weeks)",
+  "Focused MVP (3–6 weeks)",
+  "Larger Product (8–12+ weeks)",
 ];
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [feedback, setFeedback] = useState("");
-  const [activeStep, setActiveStep] = useState<1 | 2>(1);
-
   const [attachedScope, setAttachedScope] = useState<string | null>(null);
-  const errorSummaryId = useId();
+  const feedbackId = useId();
 
-  // Read URL query params on mount for pre-filling service
+  // Read URL query params on mount for pre-filling service or attached blueprint note
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window === "undefined") return;
+
+    const timer = window.setTimeout(() => {
       const params = new URLSearchParams(window.location.search);
       const serviceParam = params.get("service");
       if (serviceParam) {
         const matched = serviceOptions.find(
-          (s) => s.toLowerCase().includes(serviceParam.toLowerCase()) || serviceParam.toLowerCase().includes(s.toLowerCase().slice(0, 3))
+          (s) =>
+            s.toLowerCase().includes(serviceParam.toLowerCase()) ||
+            serviceParam.toLowerCase().includes(s.toLowerCase().slice(0, 3))
         );
         if (matched) {
           setForm((f) => ({ ...f, service: matched }));
@@ -57,14 +60,19 @@ export default function ContactForm() {
       const noteParam = params.get("note");
       if (noteParam) {
         setAttachedScope(noteParam);
-        setForm((f) => ({ ...f, message: `[Scope note: ${noteParam}]\n\n` }));
+        setForm((f) => ({
+          ...f,
+          message: f.message ? f.message : `[Scope note: ${noteParam}]\n\n`,
+        }));
       }
-    }
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   function updateField(field: keyof FormState, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
-    if (status !== "idle") {
+    if (status !== "idle" && status !== "sending") {
       setStatus("idle");
       setFeedback("");
     }
@@ -75,57 +83,72 @@ export default function ContactForm() {
     setStatus("sending");
     setFeedback("");
 
-    const accessKey =
-      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "ee49443e-3566-4722-948f-7a54f4113e55";
-
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          access_key: accessKey,
-          name: form.name,
-          email: form.email,
-          company: form.company || "Not provided",
-          service: form.service || "General inquiry",
-          budget: form.budget || "Not provided",
-          message: form.message,
-          from_name: "AWSAVYA Website Inquiry",
-          subject: `New Project Inquiry: ${form.name} (${form.service || "General"})`,
-          botcheck: "",
-        }),
+        body: JSON.stringify(form),
       });
 
-      const data = (await response.json()) as { success?: boolean; message?: string };
+      const data = (await response.json().catch(() => ({}))) as { message?: string };
 
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || "We couldn't send your message. Please try again.");
+      if (!response.ok) {
+        throw new Error(
+          data.message ||
+            "We were unable to deliver your enquiry right now. Please try again or reach out at hello@awsavya.in."
+        );
       }
 
       setStatus("success");
-      setFeedback("Thank you! Your inquiry has been sent directly to our inbox. We'll get back to you shortly.");
+      setFeedback(
+        data.message ||
+          "Thank you for reaching out. We have received your project enquiry and will review it shortly."
+      );
       setForm(initialForm);
+      setAttachedScope(null);
     } catch (error) {
       setStatus("error");
-      setFeedback(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+      setFeedback(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong while sending your message. Please try again or email hello@awsavya.in."
+      );
     }
   }
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate={false}>
-      {/* Invisible honeypot for spam bots */}
-      <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" style={{ display: "none" }} />
+      {/* Invisible honeypot field to trap spambots */}
+      <input
+        type="text"
+        name="botcheck"
+        tabIndex={-1}
+        autoComplete="off"
+        className="sr-only"
+        aria-hidden="true"
+        value={form.botcheck}
+        onChange={(e) => updateField("botcheck", e.target.value)}
+      />
+
       <div className="form-heading">
         <span className="eyebrow"><span className="eyebrow-dot" /> PROJECT ENQUIRY</span>
         <h2>Tell us a little<br /><span>about your idea.</span></h2>
         <p>Choose your focus area and share a few details to get the conversation started.</p>
         {attachedScope && (
           <div className="attached-scope-banner">
-            <span><Sparkles size={13} className="text-blue" /> Configured scope attached: <strong>{attachedScope}</strong></span>
-            <button type="button" onClick={() => setAttachedScope(null)} aria-label="Dismiss scope banner">×</button>
+            <span>
+              <Sparkles size={13} className="text-blue" /> Configured scope attached: <strong>{attachedScope}</strong>
+            </span>
+            <button
+              type="button"
+              onClick={() => setAttachedScope(null)}
+              aria-label="Dismiss scope banner"
+            >
+              ×
+            </button>
           </div>
         )}
       </div>
@@ -134,7 +157,7 @@ export default function ContactForm() {
       <div className="form-field form-field-full">
         <label className="field-label-interactive">
           <span>What do you need help with? <b>*</b></span>
-          <small>{form.service ? "Selected" : "Tap an option"}</small>
+          <small>{form.service ? "Selected" : "Select an option"}</small>
         </label>
         <div className="service-pills-grid" role="radiogroup" aria-label="Service required">
           {serviceOptions.map((srv) => {
@@ -210,15 +233,15 @@ export default function ContactForm() {
           />
         </label>
 
-        {/* Budget Pill Selector */}
+        {/* Budget / Timeline Option */}
         <label className="form-field">
-          <span>Budget range <small>OPTIONAL</small></span>
+          <span>Indicative format <small>OPTIONAL</small></span>
           <select
             name="budget"
             value={form.budget}
             onChange={(event) => updateField("budget", event.target.value)}
           >
-            <option value="">Choose a range</option>
+            <option value="">Choose an indicative format</option>
             {budgetOptions.map((b) => (
               <option key={b} value={b}>{b}</option>
             ))}
@@ -238,7 +261,7 @@ export default function ContactForm() {
             rows={5}
             value={form.message}
             onChange={(event) => updateField("message", event.target.value)}
-            placeholder="What problem are you looking to solve? What is the desired timeline or outcome?"
+            placeholder="What challenge are you looking to solve? What is your target timeline or desired outcome?"
           />
         </label>
       </div>
@@ -246,11 +269,16 @@ export default function ContactForm() {
       <div className="form-submit-row">
         <p>
           By submitting, you agree that AWSAVYA may contact you regarding this enquiry. See our{" "}
-          <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="form-privacy-link">
+          <Link href="/privacy" className="form-privacy-link">
             Privacy Policy
           </Link>.
         </p>
-        <button type="submit" className="button button-dark" disabled={status === "sending"}>
+        <button
+          type="submit"
+          className="button button-dark"
+          disabled={status === "sending"}
+          aria-busy={status === "sending"}
+        >
           {status === "sending" ? (
             <>
               Sending <LoaderCircle className="spin-icon" size={16} />
@@ -265,12 +293,16 @@ export default function ContactForm() {
 
       {feedback && (
         <div
-          id={errorSummaryId}
+          id={feedbackId}
           className={`form-feedback ${status === "success" ? "is-success" : "is-error"}`}
           role="status"
           aria-live="polite"
         >
-          {status === "success" && <CheckCircle2 size={18} />}
+          {status === "success" ? (
+            <CheckCircle2 size={18} />
+          ) : (
+            <AlertCircle size={18} />
+          )}
           <span>{feedback}</span>
         </div>
       )}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, CircleDot, MoveUpRight, Sparkles, Workflow, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 interface ProcessDetail {

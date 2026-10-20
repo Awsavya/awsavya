@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Check, Sparkles, Cpu } from "lucide-react";
+import { ArrowUpRight, Check, Cpu } from "lucide-react";
 import ServiceIcon from "@/components/ServiceIcon";
 import type { services } from "@/lib/site";
 

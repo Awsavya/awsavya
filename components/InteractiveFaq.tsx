@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 interface FaqItem {
   q: string;
@@ -11,19 +11,19 @@ interface FaqItem {
 const faqs: FaqItem[] = [
   {
     q: "What is your typical project timeline?",
-    a: "Most focused MVP releases or core feature builds take between 3 to 6 weeks. Larger product overhauls or multi-system software suites typically run 8 to 12 weeks. We set clear week-by-week milestones so you always know what is coming next.",
+    a: "Our indicative timelines typically follow three sprint formats: approximately 1–2 weeks for an architecture & prototype sprint, approximately 3–6 weeks for a focused MVP release, and approximately 8–12 weeks or longer for larger product suites. Because every system is different, the final schedule depends on scope, integrations, and feedback cadence, and is confirmed during scoping.",
   },
   {
     q: "How do you handle scope and milestones?",
-    a: "We agree on fixed, unambiguous deliverables for each milestone before beginning. You get access to live staging environments and weekly progress checkpoints, eliminating surprise handoffs or scope creep.",
+    a: "We agree on defined sprint deliverables before development begins. You receive regular checkpoint updates with access to live staging environments, so decisions and progress remain completely transparent throughout the engagement.",
   },
   {
     q: "Can you collaborate with our existing team or codebase?",
-    a: "Yes. We frequently augment existing engineering teams, modernize legacy frontends (e.g. migrating to Next.js or React 19), or add dedicated AI and automation pipelines to established databases and APIs.",
+    a: "Yes. We frequently augment existing product teams, modernize frontend architectures (e.g. migrating to Next.js or React), or build dedicated AI and automation pipelines connected to existing APIs and databases.",
   },
   {
     q: "Who owns the code and intellectual property?",
-    a: "You do. Upon project completion, all source code, design files, architectural documentation, and production assets are 100% yours with zero vendor lock-in.",
+    a: "Project-specific ownership and handover are governed by the applicable client agreement. Upon project completion, all custom source code, documentation, and design assets developed for your project are transferred to your team. Third-party libraries, fonts, and platform services remain governed by their respective open-source or vendor licences.",
   },
 ];
 
