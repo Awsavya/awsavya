@@ -73,19 +73,38 @@ export default function ContactForm() {
     setStatus("sending");
     setFeedback("");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const payload = (await response.json()) as { message?: string };
+    const accessKey =
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "ee49443e-3566-4722-948f-7a54f4113e55";
 
-      if (!response.ok) {
-        throw new Error(payload.message || "We couldn't send your message. Please try again.");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: form.name,
+          email: form.email,
+          company: form.company || "Not provided",
+          service: form.service || "General inquiry",
+          budget: form.budget || "Not provided",
+          message: form.message,
+          from_name: "AWSAVYA Website Inquiry",
+          subject: `New Project Inquiry: ${form.name} (${form.service || "General"})`,
+          botcheck: "",
+        }),
+      });
+
+      const data = (await response.json()) as { success?: boolean; message?: string };
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "We couldn't send your message. Please try again.");
       }
+
       setStatus("success");
-      setFeedback(payload.message || "Thanks — your enquiry has been sent.");
+      setFeedback("Thank you! Your inquiry has been sent directly to our inbox. We'll get back to you shortly.");
       setForm(initialForm);
     } catch (error) {
       setStatus("error");
@@ -95,6 +114,8 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate={false}>
+      {/* Invisible honeypot for spam bots */}
+      <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" style={{ display: "none" }} />
       <div className="form-heading">
         <span className="eyebrow"><span className="eyebrow-dot" /> PROJECT ENQUIRY</span>
         <h2>Tell us a little<br /><span>about your idea.</span></h2>
