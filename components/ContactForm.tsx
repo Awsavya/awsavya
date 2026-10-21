@@ -84,18 +84,32 @@ export default function ContactForm() {
     setFeedback("");
 
     try {
-      const response = await fetch("/api/contact", {
+      const payload = {
+        access_key: "ee49443e-3566-4722-948f-7a54f4113e55",
+        subject: `AWSAVYA website enquiry — ${form.name} (${form.service})`,
+        from_name: "AWSAVYA Website",
+        replyto: form.email,
+        name: form.name,
+        email: form.email,
+        company: form.company || "Not provided",
+        service: form.service,
+        budget: form.budget || "Not provided",
+        message: form.message,
+        botcheck: form.botcheck, // Web3Forms honours this field as a honeypot
+      };
+
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
-      const data = (await response.json().catch(() => ({}))) as { message?: string };
+      const data = (await response.json().catch(() => ({}))) as { success?: boolean; message?: string };
 
-      if (!response.ok) {
+      if (!response.ok || !data.success) {
         throw new Error(
           data.message ||
             "We were unable to deliver your enquiry right now. Please try again or reach out at hello@awsavya.in."
@@ -104,8 +118,7 @@ export default function ContactForm() {
 
       setStatus("success");
       setFeedback(
-        data.message ||
-          "Thank you for reaching out. We have received your project enquiry and will review it shortly."
+        "Thank you for reaching out. Your enquiry has been received and we will get back to you shortly."
       );
       setForm(initialForm);
       setAttachedScope(null);
