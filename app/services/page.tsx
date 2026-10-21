@@ -11,7 +11,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import InteractiveProcessExplorer from "@/components/InteractiveProcessExplorer";
-import { deliveryTimelines, studioDifferentiators, timelineDisclaimer } from "@/lib/site";
+import { deliveryTimelines, siteConfig, studioDifferentiators, timelineDisclaimer } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services & Capabilities",
@@ -19,6 +19,21 @@ export const metadata: Metadata = {
     "Explore AWSAVYA services across cross-platform mobile apps, performant web platforms, custom internal software, applied AI, and automated workflows.",
   alternates: {
     canonical: "/services",
+  },
+  openGraph: {
+    title: "Services & Capabilities — AWSAVYA",
+    description:
+      "Explore AWSAVYA services across cross-platform mobile apps, performant web platforms, custom internal software, applied AI, and automated workflows.",
+    url: `${siteConfig.canonicalUrl}/services`,
+    siteName: "AWSAVYA",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services & Capabilities — AWSAVYA",
+    description:
+      "Explore AWSAVYA services across cross-platform mobile apps, performant web platforms, custom internal software, applied AI, and automated workflows.",
   },
 };
 

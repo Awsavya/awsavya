@@ -3,12 +3,26 @@ import { ArrowDownRight, Clock3, MessageCircle, ShieldCheck } from "lucide-react
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import InteractiveFaq from "@/components/InteractiveFaq";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   description: "Tell AWSAVYA about your app, website, software, AI or automation project.",
   alternates: {
     canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact — AWSAVYA",
+    description: "Tell AWSAVYA about your app, website, software, AI or automation project.",
+    url: `${siteConfig.canonicalUrl}/contact`,
+    siteName: "AWSAVYA",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact — AWSAVYA",
+    description: "Tell AWSAVYA about your app, website, software, AI or automation project.",
   },
 };
 

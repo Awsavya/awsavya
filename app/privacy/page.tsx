@@ -11,6 +11,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/privacy",
   },
+  openGraph: {
+    title: "Privacy Policy — AWSAVYA",
+    description:
+      "Learn about AWSAVYA's data practices, minimal contact data collection, and commitment to transparency.",
+    url: `${siteConfig.canonicalUrl}/privacy`,
+    siteName: "AWSAVYA",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy — AWSAVYA",
+    description:
+      "Learn about AWSAVYA's data practices, minimal contact data collection, and commitment to transparency.",
+  },
 };
 
 export default function PrivacyPage() {

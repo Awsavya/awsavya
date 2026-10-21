@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
 import HeroVisual from "@/components/HeroVisual";
@@ -7,22 +8,61 @@ import ProjectCard from "@/components/ProjectCard";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import InteractiveProcessExplorer from "@/components/InteractiveProcessExplorer";
 import InteractiveScopeBuilder from "@/components/InteractiveScopeBuilder";
-import { projects, studioDifferentiators } from "@/lib/site";
+import { projects, siteConfig, studioDifferentiators } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "AWSAVYA — Apps, Web, Software, AI & Automation",
+  description: siteConfig.description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "AWSAVYA — Technology built around your next move",
+    description: siteConfig.description,
+    url: siteConfig.canonicalUrl,
+    siteName: "AWSAVYA",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AWSAVYA — Apps, Web, Software, AI & Automation",
+    description: siteConfig.description,
+  },
+};
+
+// WebSite JSON-LD entity to establish definitive brand and site name identity in Google Search
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteConfig.canonicalUrl}/#website`,
+  name: "AWSAVYA",
+  alternateName: "awsavya.in",
+  url: `${siteConfig.canonicalUrl}/`,
+  publisher: {
+    "@id": `${siteConfig.canonicalUrl}/#organization`,
+  },
+};
 
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       {/* 1. Hero Section */}
       <section className="hero-section">
         <div className="container hero-grid">
           <div className="hero-copy">
             <Reveal y={12}>
               <span className="eyebrow">
-                <span className="eyebrow-dot pulse-dot" /> A DIGITAL PRODUCT STUDIO
+                <span className="eyebrow-dot pulse-dot" /> AWSAVYA · DIGITAL PRODUCT STUDIO
               </span>
             </Reveal>
             <Reveal delay={0.08} y={18}>
               <h1>
+                <span className="hero-brand-title">AWSAVYA<span className="brand-period">.</span></span>
                 Technology for<br />
                 your <span className="headline-accent">next move.</span>
               </h1>

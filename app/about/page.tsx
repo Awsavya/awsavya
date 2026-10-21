@@ -4,12 +4,26 @@ import { ArrowUpRight, Check, Compass, Lightbulb, ShieldCheck, Sparkles } from "
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import InteractiveAnatomy from "@/components/InteractiveAnatomy";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About AWSAVYA",
+  title: "About",
   description: "Learn about AWSAVYA's approach to useful technology, digital products, software and automation.",
   alternates: {
     canonical: "/about",
+  },
+  openGraph: {
+    title: "About — AWSAVYA",
+    description: "Learn about AWSAVYA's approach to useful technology, digital products, software and automation.",
+    url: `${siteConfig.canonicalUrl}/about`,
+    siteName: "AWSAVYA",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About — AWSAVYA",
+    description: "Learn about AWSAVYA's approach to useful technology, digital products, software and automation.",
   },
 };
 

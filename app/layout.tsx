@@ -23,6 +23,15 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: "AWSAVYA",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/icon.svg",
+  },
   openGraph: {
     type: "website",
     url: siteConfig.canonicalUrl,
@@ -52,11 +61,12 @@ export const viewport: Viewport = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${siteConfig.canonicalUrl}/#organization`,
   name: "AWSAVYA",
-  url: siteConfig.canonicalUrl,
+  url: `${siteConfig.canonicalUrl}/`,
+  logo: `${siteConfig.canonicalUrl}/favicon.svg`,
   email: siteConfig.email,
   description: siteConfig.description,
-  sameAs: [],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

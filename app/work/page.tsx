@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import WorkShowcase from "@/components/WorkShowcase";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Work & Concepts",
@@ -10,6 +11,21 @@ export const metadata: Metadata = {
     "Explore interactive concept studies from AWSAVYA across product design, high-density data, applied AI, and operations.",
   alternates: {
     canonical: "/work",
+  },
+  openGraph: {
+    title: "Work & Concepts — AWSAVYA",
+    description:
+      "Explore interactive concept studies from AWSAVYA across product design, high-density data, applied AI, and operations.",
+    url: `${siteConfig.canonicalUrl}/work`,
+    siteName: "AWSAVYA",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Work & Concepts — AWSAVYA",
+    description:
+      "Explore interactive concept studies from AWSAVYA across product design, high-density data, applied AI, and operations.",
   },
 };
 
