@@ -25,16 +25,20 @@ export const metadata: Metadata = {
   applicationName: "AWSAVYA",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48" },
+      // PNG preferred by Google Search Console for rich favicon display
+      { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-512.png", sizes: "512x512", type: "image/png" },
+      // Fallback formats
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/icon.svg", type: "image/svg+xml" },
     ],
     shortcut: "/favicon.ico",
-    apple: "/icon.svg",
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
   },
   openGraph: {
     type: "website",
-    url: siteConfig.canonicalUrl,
+    // Trailing slash matches the canonical form used in JSON-LD
+    url: `${siteConfig.canonicalUrl}/`,
     siteName: "AWSAVYA",
     title: "AWSAVYA — Technology built around your next move",
     description: siteConfig.description,
@@ -49,6 +53,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
@@ -58,13 +63,15 @@ export const viewport: Viewport = {
 };
 
 // Verified Organization structured data (strictly factual, zero invented credentials/addresses)
+// sameAs: only official verified URLs. Add real social profiles here when accounts are confirmed public.
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${siteConfig.canonicalUrl}/#organization`,
   name: "AWSAVYA",
   url: `${siteConfig.canonicalUrl}/`,
-  logo: `${siteConfig.canonicalUrl}/favicon.svg`,
+  // PNG logo preferred by Google for Knowledge Panel display
+  logo: `${siteConfig.canonicalUrl}/favicon-192.png`,
   email: siteConfig.email,
   description: siteConfig.description,
 };

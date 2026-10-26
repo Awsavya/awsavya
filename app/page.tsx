@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AWSAVYA — Technology built around your next move",
     description: siteConfig.description,
-    url: siteConfig.canonicalUrl,
+    url: `${siteConfig.canonicalUrl}/`,
     siteName: "AWSAVYA",
     locale: "en_US",
     type: "website",
