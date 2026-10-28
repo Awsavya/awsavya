@@ -137,12 +137,12 @@ export default function PrivacyPage() {
             <Reveal delay={0.12}>
               <div id="delivery" className="privacy-block">
                 <span className="privacy-block-num">05</span>
-                <h2>Email Delivery &amp; Encryption</h2>
+                <h2>Form Delivery &amp; Encryption</h2>
                 <p>
                   Form submissions are transmitted to our server endpoints over encrypted connections (HTTPS).
                 </p>
                 <p>
-                  When email delivery is active, messages are routed server-side through our email infrastructure provider (Resend) directly to our studio inbox. Server-side secrets and API keys are never exposed in client bundles.
+                  When form delivery is active, messages are routed server-side through our form-delivery processor (Web3Forms) directly to our studio inbox. Server-side secrets and access keys are never exposed in client bundles.
                 </p>
               </div>
             </Reveal>
@@ -152,7 +152,7 @@ export default function PrivacyPage() {
                 <span className="privacy-block-num">06</span>
                 <h2>Data Retention &amp; Your Choices</h2>
                 <p>
-                  We keep enquiry correspondence only as long as needed to discuss your project or maintain an active business relationship. If an enquiry does not lead to an engagement, correspondence is periodically archived or deleted.
+                  We keep enquiry correspondence only as long as needed to discuss your project or maintain an active business relationship. If an enquiry does not lead to an engagement, correspondence is kept only as long as needed to respond.
                 </p>
                 <div className="rights-grid">
                   <div className="right-card">

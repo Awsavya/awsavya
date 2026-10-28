@@ -35,12 +35,12 @@ export const metadata: Metadata = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": `${siteConfig.canonicalUrl}/#website`,
+  "@id": `${siteConfig.canonicalUrl}#website`,
   name: "AWSAVYA",
   alternateName: "awsavya.in",
   url: siteConfig.canonicalUrl,
   publisher: {
-    "@id": `${siteConfig.canonicalUrl}/#organization`,
+    "@id": `${siteConfig.canonicalUrl}#organization`,
   },
 };
 

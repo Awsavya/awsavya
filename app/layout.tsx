@@ -28,8 +28,7 @@ export const metadata: Metadata = {
       // PNG preferred by Google Search Console for rich favicon display
       { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/favicon-512.png", sizes: "512x512", type: "image/png" },
-      // Fallback formats
-      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      // Fallback format
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
     shortcut: "/favicon.ico",
@@ -66,7 +65,7 @@ export const viewport: Viewport = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": `${siteConfig.canonicalUrl}/#organization`,
+  "@id": `${siteConfig.canonicalUrl}#organization`,
   name: "AWSAVYA",
   url: siteConfig.canonicalUrl,
   // PNG logo preferred by Google for Knowledge Panel display
