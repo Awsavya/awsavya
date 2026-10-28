@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "AWSAVYA — Technology built around your next move",
+    title: "AWSAVYA — Apps, Web, Software, AI & Automation",
     description: siteConfig.description,
-    url: `${siteConfig.canonicalUrl}/`,
+    url: siteConfig.canonicalUrl,
     siteName: "AWSAVYA",
     locale: "en_US",
     type: "website",
@@ -38,7 +38,7 @@ const websiteSchema = {
   "@id": `${siteConfig.canonicalUrl}/#website`,
   name: "AWSAVYA",
   alternateName: "awsavya.in",
-  url: `${siteConfig.canonicalUrl}/`,
+  url: siteConfig.canonicalUrl,
   publisher: {
     "@id": `${siteConfig.canonicalUrl}/#organization`,
   },

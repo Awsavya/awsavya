@@ -37,10 +37,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    // Trailing slash matches the canonical form used in JSON-LD
-    url: `${siteConfig.canonicalUrl}/`,
+    url: siteConfig.canonicalUrl,
     siteName: "AWSAVYA",
-    title: "AWSAVYA — Technology built around your next move",
+    title: "AWSAVYA — Apps, Web, Software, AI & Automation",
     description: siteConfig.description,
     locale: "en_US",
   },
@@ -63,13 +62,13 @@ export const viewport: Viewport = {
 };
 
 // Verified Organization structured data (strictly factual, zero invented credentials/addresses)
-// sameAs: only official verified URLs. Add real social profiles here when accounts are confirmed public.
+// sameAs: add real social profiles here when accounts are confirmed public.
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${siteConfig.canonicalUrl}/#organization`,
   name: "AWSAVYA",
-  url: `${siteConfig.canonicalUrl}/`,
+  url: siteConfig.canonicalUrl,
   // PNG logo preferred by Google for Knowledge Panel display
   logo: `${siteConfig.canonicalUrl}/favicon-192.png`,
   email: siteConfig.email,
