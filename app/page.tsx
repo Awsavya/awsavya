@@ -12,22 +12,34 @@ import { projects, siteConfig, studioDifferentiators } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "AWSAVYA — Apps, Web, Software, AI & Automation",
-  description: siteConfig.description,
+  description:
+    "AWSAVYA builds apps, web platforms, custom software, applied AI solutions, and automations that help businesses solve real problems.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "AWSAVYA — Apps, Web, Software, AI & Automation",
-    description: siteConfig.description,
+    description:
+      "AWSAVYA builds apps, web platforms, custom software, applied AI solutions, and automations that help businesses solve real problems.",
     url: siteConfig.canonicalUrl,
     siteName: "AWSAVYA",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "AWSAVYA — Apps, Web, Software, AI & Automation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AWSAVYA — Apps, Web, Software, AI & Automation",
-    description: siteConfig.description,
+    description:
+      "AWSAVYA builds apps, web platforms, custom software, applied AI solutions, and automations that help businesses solve real problems.",
+    images: ["/opengraph-image"],
   },
 };
 
@@ -37,11 +49,13 @@ const websiteSchema = {
   "@type": "WebSite",
   "@id": `${siteConfig.canonicalUrl}#website`,
   name: "AWSAVYA",
-  alternateName: "awsavya.in",
+  alternateName: ["AWSAVYA Studio", "awsavya.in", "AWSAVYA Technologies"],
   url: siteConfig.canonicalUrl,
+  description: siteConfig.description,
   publisher: {
     "@id": `${siteConfig.canonicalUrl}#organization`,
   },
+  inLanguage: "en-US",
 };
 
 export default function HomePage() {

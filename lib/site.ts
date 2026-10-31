@@ -3,9 +3,25 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.awsavya.in",
   canonicalUrl: "https://www.awsavya.in",
   description:
-    "AWSAVYA builds apps, websites, custom software, AI solutions, and automations that help businesses solve real problems.",
+    "AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows.",
   email: "hello@awsavya.in",
-  releaseDate: "2026-10-20",
+  releaseDate: "2026-10-31",
+  keywords: [
+    "AWSAVYA",
+    "awsavya.in",
+    "custom software development",
+    "mobile app development agency",
+    "React Native app developers",
+    "Android Jetpack Compose",
+    "Next.js web development company",
+    "applied AI engineering",
+    "AI workflow automation",
+    "enterprise ERP software",
+    "digital product studio",
+    "full stack software engineering",
+    "offline-first mobile apps",
+    "API integration services",
+  ],
 };
 
 export const navigation = [

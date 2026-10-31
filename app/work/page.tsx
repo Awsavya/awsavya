@@ -6,32 +6,127 @@ import WorkShowcase from "@/components/WorkShowcase";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Work & Concepts",
+  title: "Work & Case Studies",
   description:
-    "Explore interactive concept studies from AWSAVYA across product design, high-density data, applied AI, and operations.",
+    "Explore real engineering studies from AWSAVYA: TripSplit offline Android app, Build2Buzz grounded AI publisher, Har Apparels factory ERP, and QuicklyCart.",
   alternates: {
     canonical: "/work",
   },
   openGraph: {
-    title: "Work & Concepts — AWSAVYA",
+    title: "Work & Case Studies — AWSAVYA",
     description:
-      "Explore interactive concept studies from AWSAVYA across product design, high-density data, applied AI, and operations.",
+      "Explore real engineering studies from AWSAVYA: TripSplit offline Android app, Build2Buzz grounded AI publisher, Har Apparels factory ERP, and QuicklyCart.",
     url: `${siteConfig.canonicalUrl}/work`,
     siteName: "AWSAVYA",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Work & Case Studies — AWSAVYA",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Work & Concepts — AWSAVYA",
+    title: "Work & Case Studies — AWSAVYA",
     description:
-      "Explore interactive concept studies from AWSAVYA across product design, high-density data, applied AI, and operations.",
+      "Explore real engineering studies from AWSAVYA: TripSplit offline Android app, Build2Buzz grounded AI publisher, Har Apparels factory ERP, and QuicklyCart.",
+    images: ["/opengraph-image"],
   },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteConfig.canonicalUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Work & Case Studies",
+      item: `${siteConfig.canonicalUrl}/work`,
+    },
+  ],
+};
+
+const portfolioSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${siteConfig.canonicalUrl}/work#portfolio`,
+  name: "AWSAVYA Engineering Studies & Projects",
+  description:
+    "Real engineering explorations across offline-first mobile architecture, evidence-grounded AI publishing pipelines, manufacturing ERP systems, and multi-vendor commerce engines.",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "TripSplit",
+        operatingSystem: "Android",
+        applicationCategory: "FinanceApplication",
+        description: "Offline-first group expense sharing and optimal debt settlement engine built with Jetpack Compose, Room SQLite, and Firebase Cloud Firestore.",
+        url: `${siteConfig.canonicalUrl}/work#tripsplit`,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Build2Buzz",
+        operatingSystem: "Cross-platform",
+        applicationCategory: "BusinessApplication",
+        description: "Grounded AI content generation engine pairing repository README inspection with headless browser demo observations to eliminate AI hallucinations.",
+        url: `${siteConfig.canonicalUrl}/work#build2buzz`,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Har Apparels",
+        operatingSystem: "Android",
+        applicationCategory: "BusinessApplication",
+        description: "Shop-floor operations and batch tracking ERP tailored for denim manufacturing facilities, tracking raw fabric rolls, work orders, and shift reconciliation.",
+        url: `${siteConfig.canonicalUrl}/work#har-apparels`,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "QuicklyCart",
+        operatingSystem: "Web",
+        applicationCategory: "ShoppingApplication",
+        description: "Full-stack multi-vendor local commerce engine coordinating four distinct user roles through state-safe order lifecycles and last-mile rider dispatch.",
+        url: `${siteConfig.canonicalUrl}/work#quicklycart`,
+      },
+    },
+  ],
 };
 
 export default function WorkPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
+      />
       <section className="page-hero page-hero-work">
         <div className="container page-hero-inner">
           <Reveal>

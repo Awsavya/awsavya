@@ -8,22 +8,62 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about AWSAVYA's approach to useful technology, digital products, software and automation.",
+  description: "Learn about AWSAVYA's engineering approach: bringing Apps, Web, Software, AI, and Automation together with clarity and intention.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About — AWSAVYA",
-    description: "Learn about AWSAVYA's approach to useful technology, digital products, software and automation.",
+    description: "Learn about AWSAVYA's engineering approach: bringing Apps, Web, Software, AI, and Automation together with clarity and intention.",
     url: `${siteConfig.canonicalUrl}/about`,
     siteName: "AWSAVYA",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "About — AWSAVYA",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "About — AWSAVYA",
-    description: "Learn about AWSAVYA's approach to useful technology, digital products, software and automation.",
+    description: "Learn about AWSAVYA's engineering approach: bringing Apps, Web, Software, AI, and Automation together with clarity and intention.",
+    images: ["/opengraph-image"],
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteConfig.canonicalUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "About",
+      item: `${siteConfig.canonicalUrl}/about`,
+    },
+  ],
+};
+
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${siteConfig.canonicalUrl}/about#webpage`,
+  url: `${siteConfig.canonicalUrl}/about`,
+  name: "About AWSAVYA",
+  description: "AWSAVYA brings together our focus areas: Apps, Web, Software, AI, and Automation, founded with a clear focus on useful technology.",
+  mainEntity: {
+    "@id": `${siteConfig.canonicalUrl}#organization`,
   },
 };
 
@@ -57,6 +97,14 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="page-hero page-hero-about">
         <div className="container page-hero-inner">
           <Reveal>

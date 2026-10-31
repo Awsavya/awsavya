@@ -16,30 +16,132 @@ import { deliveryTimelines, siteConfig, studioDifferentiators, timelineDisclaime
 export const metadata: Metadata = {
   title: "Services & Capabilities",
   description:
-    "Explore AWSAVYA services across cross-platform mobile apps, performant web platforms, custom internal software, applied AI, and automated workflows.",
+    "Explore AWSAVYA services: cross-platform mobile apps with React Native, high-performance Next.js websites, custom operations software, applied AI, and automated pipelines.",
   alternates: {
     canonical: "/services",
   },
   openGraph: {
     title: "Services & Capabilities — AWSAVYA",
     description:
-      "Explore AWSAVYA services across cross-platform mobile apps, performant web platforms, custom internal software, applied AI, and automated workflows.",
+      "Explore AWSAVYA services: cross-platform mobile apps with React Native, high-performance Next.js websites, custom operations software, applied AI, and automated pipelines.",
     url: `${siteConfig.canonicalUrl}/services`,
     siteName: "AWSAVYA",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Services & Capabilities — AWSAVYA",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Services & Capabilities — AWSAVYA",
     description:
-      "Explore AWSAVYA services across cross-platform mobile apps, performant web platforms, custom internal software, applied AI, and automated workflows.",
+      "Explore AWSAVYA services: cross-platform mobile apps with React Native, high-performance Next.js websites, custom operations software, applied AI, and automated pipelines.",
+    images: ["/opengraph-image"],
   },
+};
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${siteConfig.canonicalUrl}/services#catalog`,
+  name: "AWSAVYA Digital Engineering Services",
+  description:
+    "Professional engineering services covering cross-platform mobile applications, performant web platforms, custom internal operations software, applied AI systems, and automated pipelines.",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "Service",
+        name: "App Development",
+        description: "Cross-platform mobile apps built with React Native and Android Jetpack Compose. Offline-first Room DB caching and native device ergonomics.",
+        provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
+        url: `${siteConfig.canonicalUrl}/services#app`,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "Service",
+        name: "Web Experiences",
+        description: "Performant, accessible, server-rendered Next.js web applications, client portals, and editorial web platforms.",
+        provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
+        url: `${siteConfig.canonicalUrl}/services#web`,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "Service",
+        name: "Custom Software",
+        description: "Custom web software, operations dashboards, and manufacturing ERP systems replacing spreadsheet bottlenecks.",
+        provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
+        url: `${siteConfig.canonicalUrl}/services#software`,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "Service",
+        name: "Applied AI",
+        description: "Source-grounded domain assistants, document search, and verified prototype pipelines with zero hallucinations.",
+        provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
+        url: `${siteConfig.canonicalUrl}/services#ai`,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 5,
+      item: {
+        "@type": "Service",
+        name: "Automation",
+        description: "Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.",
+        provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
+        url: `${siteConfig.canonicalUrl}/services#automation`,
+      },
+    },
+  ],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteConfig.canonicalUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Services",
+      item: `${siteConfig.canonicalUrl}/services`,
+    },
+  ],
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="page-hero">
         <div className="container page-hero-inner">
           <Reveal>
