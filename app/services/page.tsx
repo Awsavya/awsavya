@@ -16,14 +16,14 @@ import { deliveryTimelines, siteConfig, studioDifferentiators, timelineDisclaime
 export const metadata: Metadata = {
   title: "Services & Capabilities",
   description:
-    "Explore AWSAVYA services: cross-platform mobile apps with React Native, high-performance Next.js websites, custom operations software, applied AI, and automated pipelines.",
+    "Explore AWSAVYA services: cross-platform mobile apps, performant Next.js web platforms, custom operations software, applied AI, and automated pipelines.",
   alternates: {
     canonical: "/services",
   },
   openGraph: {
     title: "Services & Capabilities — AWSAVYA",
     description:
-      "Explore AWSAVYA services: cross-platform mobile apps with React Native, high-performance Next.js websites, custom operations software, applied AI, and automated pipelines.",
+      "Explore AWSAVYA services: cross-platform mobile apps, performant Next.js web platforms, custom operations software, applied AI, and automated pipelines.",
     url: `${siteConfig.canonicalUrl}/services`,
     siteName: "AWSAVYA",
     locale: "en_US",

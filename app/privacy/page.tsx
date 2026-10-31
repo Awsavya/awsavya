@@ -19,18 +19,50 @@ export const metadata: Metadata = {
     siteName: "AWSAVYA",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Privacy Policy — AWSAVYA",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Privacy Policy — AWSAVYA",
     description:
       "Learn about AWSAVYA's data practices, minimal contact data collection, and commitment to transparency.",
+    images: ["/opengraph-image"],
   },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteConfig.canonicalUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Privacy Policy",
+      item: `${siteConfig.canonicalUrl}/privacy`,
+    },
+  ],
 };
 
 export default function PrivacyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="page-hero">
         <div className="container page-hero-inner">
           <Reveal>

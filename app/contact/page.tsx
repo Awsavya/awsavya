@@ -7,13 +7,13 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Start a conversation with AWSAVYA about your mobile app, website, custom software, applied AI, or automation project.",
+  description: "Start a conversation with AWSAVYA about your mobile app, website, custom software, applied AI, or automation project. Direct founder-led scoping.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact — AWSAVYA",
-    description: "Start a conversation with AWSAVYA about your mobile app, website, custom software, applied AI, or automation project.",
+    description: "Start a conversation with AWSAVYA about your mobile app, website, custom software, applied AI, or automation project. Direct founder-led scoping.",
     url: `${siteConfig.canonicalUrl}/contact`,
     siteName: "AWSAVYA",
     locale: "en_US",
