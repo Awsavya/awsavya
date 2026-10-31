@@ -12,6 +12,7 @@ import {
   Database,
   Layers,
   Link2,
+  MapPin,
   PackageCheck,
   Play,
   RotateCcw,
@@ -78,7 +79,17 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
         simplifiedText: "6 raw debts reduced to 2 direct transfers",
         unsimplifiedText: "6 individual cross-payments required",
         transfer: "Yash → Vyom: ₹1,850",
-        members: ["Vyom (Organizer)", "Yash", "Devang", "Riddhi"],
+        breakdown: [
+          { name: "Villa Stay", pct: "46%", amount: "₹8,400" },
+          { name: "Dining & Food", pct: "31%", amount: "₹5,800" },
+          { name: "Transit", pct: "23%", amount: "₹4,250" },
+        ],
+        members: [
+          { name: "Vyom (Org)", bal: "+₹1,850", status: "Owed" },
+          { name: "Yash", bal: "-₹1,850", status: "Pending" },
+          { name: "Devang", bal: "₹0.00", status: "Settled" },
+          { name: "Riddhi", bal: "₹0.00", status: "Settled" },
+        ],
       },
       "Manali Trek": {
         total: "32,800",
@@ -87,7 +98,17 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
         simplifiedText: "8 raw debts reduced to 3 direct transfers",
         unsimplifiedText: "8 individual cross-payments required",
         transfer: "Aarav → Vyom: ₹3,400",
-        members: ["Vyom (Organizer)", "Aarav", "Kabir", "Meera"],
+        breakdown: [
+          { name: "Basecamp Camps", pct: "52%", amount: "₹17,000" },
+          { name: "Gear Rental", pct: "28%", amount: "₹9,200" },
+          { name: "Ration Pack", pct: "20%", amount: "₹6,600" },
+        ],
+        members: [
+          { name: "Vyom (Org)", bal: "+₹3,400", status: "Owed" },
+          { name: "Aarav", bal: "-₹3,400", status: "Pending" },
+          { name: "Kabir", bal: "₹0.00", status: "Settled" },
+          { name: "Meera", bal: "₹0.00", status: "Settled" },
+        ],
       },
     }[activeTrip];
 
@@ -171,15 +192,43 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
               </div>
             </div>
 
+            {/* Expanded Detailed Breakdown (Shown on full stage) */}
+            {!compact && (
+              <div className="ts-expanded-section">
+                <div className="ts-category-strip">
+                  {tripData.breakdown.map((cat) => (
+                    <div key={cat.name} className="ts-cat-item">
+                      <small>{cat.name}</small>
+                      <b>{cat.amount} <span className="cat-pct">({cat.pct})</span></b>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="ts-member-ledger">
+                  {tripData.members.map((m) => (
+                    <div key={m.name} className="ts-member-row">
+                      <span className="ts-member-name">
+                        <span className="ts-avatar-pill">{m.name.charAt(0)}</span>
+                        {m.name}
+                      </span>
+                      <span className={`ts-member-bal ${m.bal.startsWith("+") ? "text-green" : m.bal.startsWith("-") ? "text-red" : ""}`}>
+                        {m.bal}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Offline & Architecture Badges */}
             <div className="tripsplit-bottom-row">
               <div className="ts-badge-item">
                 <Database size={11} className="text-blue" />
-                <span>Room DB · 100% Offline Ready</span>
+                <span>Room DB · Offline Cache</span>
               </div>
               <div className="ts-badge-item">
                 <Link2 size={11} className="text-blue" />
-                <span>Zero-Signup App Link</span>
+                <span>Single-Claim App Link</span>
               </div>
             </div>
           </div>
@@ -268,6 +317,21 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
                 <span className="b2b-char-count">420 / 3,000 chars</span>
               </div>
               <p className="b2b-post-snippet">“{curRepo.claim}”</p>
+              
+              {!compact && (
+                <div className="b2b-expanded-telemetry">
+                  <span className="b2b-telemetry-pill">
+                    <ShieldCheck size={10} className="text-green" /> SSRF Sandboxed
+                  </span>
+                  <span className="b2b-telemetry-pill">
+                    <Check size={10} className="text-blue" /> Chromium DOM Checked
+                  </span>
+                  <span className="b2b-telemetry-pill">
+                    <CheckCircle2 size={10} className="text-green" /> Citation Attributed
+                  </span>
+                </div>
+              )}
+
               <div className="b2b-footer-row">
                 <span><Check size={10} className="text-green" /> Human-in-the-Loop Signoff</span>
                 <span className="b2b-api-tag">LinkedIn REST API</span>
@@ -359,6 +423,22 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
               </span>
             </div>
 
+            {/* Expanded Detailed Floor View */}
+            {!compact && (
+              <div className="har-expanded-floor">
+                <div className="har-floor-item">
+                  <small>FABRIC CONSUMPTION</small>
+                  <b>1.42m / pair · 96.8% yield</b>
+                  <span>Zero cut waste registered</span>
+                </div>
+                <div className="har-floor-item">
+                  <small>WORKER SHIFT LOG</small>
+                  <b>Line 3 · 8 Operators</b>
+                  <span className="text-green">All stations operational</span>
+                </div>
+              </div>
+            )}
+
             {/* Action Bar */}
             <div className="har-action-bar">
               <div className="har-action-left">
@@ -375,7 +455,7 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
                 title="Log completed work order bundle"
               >
                 <PackageCheck size={11} />
-                <span>Advance Stage</span>
+                <span>Advance Stage (+4 pcs)</span>
               </button>
             </div>
           </div>
@@ -388,10 +468,10 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
   // VARIANT: QuicklyCart (Multi-Vendor Platform - gosaiyash)
   // -------------------------------------------------------------
   const stages = [
-    { num: 1, label: "Order Placed", role: "Customer" },
-    { num: 2, label: "Store Packed", role: "Merchant" },
-    { num: 3, label: "Rider Assigned", role: "Rider" },
-    { num: 4, label: "Delivered", role: "Customer" },
+    { num: 1, label: "Order Placed", role: "Customer", time: "12:40 PM" },
+    { num: 2, label: "Store Packed", role: "Merchant", time: "12:44 PM" },
+    { num: 3, label: "Rider Dispatched", role: "Rider", time: "12:49 PM" },
+    { num: 4, label: "Delivered", role: "Customer", time: "1:02 PM" },
   ];
 
   function advanceOrderStage() {
@@ -425,7 +505,7 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
           <div className="quickly-header">
             <div>
               <small>MULTI-ROLE ORDER DISPATCH</small>
-              <b>Order #QC-904 <span>(3 items)</span></b>
+              <b>Order #QC-904 <span>(3 items · ₹640)</span></b>
             </div>
             <button
               type="button"
@@ -458,6 +538,19 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
               </div>
             ))}
           </div>
+
+          {/* Expanded Route Details on Full Stage */}
+          {!compact && (
+            <div className="quickly-expanded-route">
+              <div className="quickly-route-item">
+                <MapPin size={11} className="text-blue" />
+                <span>
+                  <strong>Store:</strong> FreshMart Organics → <strong>Destination:</strong> 42 Park Avenue
+                </span>
+              </div>
+              <span className="quickly-route-eta">ETA: ~12 mins</span>
+            </div>
+          )}
 
           {/* Metrics Footer */}
           <div className="quickly-metrics-grid">
