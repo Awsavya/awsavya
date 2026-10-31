@@ -132,7 +132,7 @@ export default function HomePage() {
                 title="Good ideas deserve"
                 accent="good execution."
               >
-                <span>A look at the kinds of digital experiences we like to shape. These are concept studies demonstrating high-density data, applied AI, and operations pipelines.</span>
+                <span>A look at the kinds of digital experiences we shape. Real engineering studies demonstrating offline-first mobile architecture, grounded AI pipelines, manufacturing ERPs, and commerce systems.</span>
               </SectionHeading>
               <Link href="/work" className="text-link desktop-only">
                 View all work <ArrowUpRight size={15} />

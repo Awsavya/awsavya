@@ -47,14 +47,14 @@ export default function WorkPage() {
           </Reveal>
           <Reveal delay={0.15}>
             <p>
-              A series of functional concept studies demonstrating how we architect high-density dashboards,
-              source-grounded AI assistants, and resilient operational pipelines.
+              A series of functional engineering studies demonstrating how we architect offline-first mobile apps,
+              grounded AI pipelines, industrial ERPs, and multi-vendor platforms.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
             <div className="page-hero-meta-row">
               <span className="hero-status-pill">
-                <span className="pulse-dot-mini" /> ALL THREE STUDIES TESTABLE LIVE
+                <span className="pulse-dot-mini" /> ALL FOUR STUDIES TESTABLE LIVE
               </span>
               <span className="hero-pill-note">
                 Labelled as Concept study • Zero fictional client claims
@@ -65,7 +65,7 @@ export default function WorkPage() {
             <span>
               <ArrowDownRight size={14} /> Test interactive prototypes below
             </span>
-            <span>01 — 03 SELECTED STUDIES</span>
+            <span>01 — 04 SELECTED STUDIES</span>
           </div>
         </div>
       </section>

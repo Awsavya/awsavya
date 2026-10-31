@@ -17,9 +17,10 @@ export default function WorkFilter({ projects }: WorkFilterProps) {
 
   const categories = [
     { id: "all", label: "All studies", count: projects.length },
-    { id: "lumen", label: "Fintech & Data", count: 1 },
-    { id: "relay", label: "Applied AI", count: 1 },
-    { id: "flowline", label: "Operations & Ops", count: 1 },
+    { id: "tripsplit", label: "Mobile & FinTech", count: 1 },
+    { id: "build2buzz", label: "Applied AI", count: 1 },
+    { id: "har-apparels", label: "Manufacturing ERP", count: 1 },
+    { id: "quicklycart", label: "Commerce Web", count: 1 },
   ];
 
   const filteredProjects = selectedFilter === "all"
@@ -60,7 +61,7 @@ export default function WorkFilter({ projects }: WorkFilterProps) {
             <div className="work-detail-copy">
               <div className="work-detail-topline">
                 <span className="project-type">{project.type}</span>
-                <span className="work-index">{project.number} / 03</span>
+                <span className="work-index">{project.number} / 04</span>
               </div>
               <span className="project-category">{project.category}</span>
               <h2>{project.name}<span>.</span></h2>

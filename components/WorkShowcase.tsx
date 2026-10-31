@@ -25,55 +25,73 @@ interface StudyDetail {
 }
 
 const studyDetails: Record<string, StudyDetail> = {
-  "lumen-finance": {
-    architecturePattern: "Client-Side Reactive Telemetry & Timeframe Bucketing",
-    interfaceParadigm: "High-density data visualization with low visual noise",
+  tripsplit: {
+    architecturePattern: "Offline-First Room Caching & Graph-Based Debt Minimization",
+    interfaceParadigm: "Ergonomic Android Jetpack Compose with Zero-Friction App Links",
     problemHypothesis:
-      "Most financial dashboards overwhelm users with excessive tabular data and chaotic color coding. This concept explores how progressive disclosure and calm typographic hierarchy reduce cognitive fatigue.",
+      "Most group expense apps force participants through tedious account registration and break without cellular coverage. TripSplit explores frictionless deep-link claiming, offline Room SQLite persistence, and bidirectional Firestore sync.",
     architecturalDecisions: [
-      "Optimistic client state caching for snappy timeframe switching without layout thrashing",
-      "Accessible SVG-based data curves calibrated for high contrast and legible data density",
-      "Hierarchical spending category aggregation computed on lightweight client workers",
+      "Dynamic Android App Links allowing instant expedition join without mandatory credentials",
+      "First-claim cryptographic link burning in Firestore to prevent invite interception",
+      "Graph-theoretic settlement algorithm reducing n-way debts into the absolute minimum transactions",
+      "Local Room database cache ensuring 100% offline creation, calculation, and balance viewing",
     ],
-    techStack: ["Next.js App Router", "TypeScript", "SVG Data Graphs", "Tailored CSS", "Motion"],
+    techStack: ["Kotlin 2.0", "Jetpack Compose (M3)", "Room Database (SQLite)", "Firebase Firestore", "Coroutines"],
     takeaway:
-      "Financial clarity comes from intentional data distillation, not more graphs.",
+      "Consumer utility apps win on friction elimination: zero-signup joining and zero-latency offline operation.",
   },
-  "relay-ai": {
-    architecturePattern: "Context-Aware Vector Ingestion & Citation Provenance",
-    interfaceParadigm: "Streaming conversational assistant with source-first grounding",
+  build2buzz: {
+    architecturePattern: "Evidence-Isolated LLM Ingestion & Headless Browser Telemetry",
+    interfaceParadigm: "Human-in-the-loop publisher with verifiable citation attribution",
     problemHypothesis:
-      "Enterprise AI tools often act as black boxes where users cannot verify answers. Relay AI demonstrates how strict source attribution and cited document snippets build immediate institutional trust.",
+      "Commercial AI marketing agents produce confident hallucinations because they rely purely on prompt assumptions. Build2Buzz isolates README documentation from live headless browser observations before synthesizing verified release announcements.",
     architecturalDecisions: [
-      "Bi-directional citation links pairing generated answers with source document references",
-      "Streamed token chunking and optimistic UI state for responsive real-time feedback",
-      "Scoped contextual filters allowing users to restrict retrieval to verified department docs",
+      "SSRF-protected Playwright headless browser automation to inspect live demonstration environments",
+      "Strict separation between documented facts, observed runtime behaviors, and generated claims",
+      "Human-in-the-loop editor enforcing character caps, evidence references, and manual signoff",
+      "Direct integration with LinkedIn's official REST API with OAuth 2.0 token management",
     ],
-    techStack: ["React 19", "Vector Embeddings", "Streaming Tokens", "TypeScript", "FastAPI"],
+    techStack: ["Python 3.12", "Playwright / Chromium", "Anthropic / OpenAI API", "LinkedIn REST API", "PySide / Qt UI"],
     takeaway:
-      "AI adoption hinges on verifiability. Every generated answer must link to its source.",
+      "AI reliability requires grounding in verifiable runtime evidence, not just prompt engineering.",
   },
-  "flowline-ops": {
-    architecturePattern: "Idempotent Event Dispatch & Multi-Node Pipeline Sync",
-    interfaceParadigm: "Real-time operations status board with active exception alarms",
+  "har-apparels": {
+    architecturePattern: "Role-Segregated Industrial ERP & Shop-Floor Batch State Machine",
+    interfaceParadigm: "High-contrast, glove-friendly mobile UI designed for factory floor workers",
     problemHypothesis:
-      "Operations teams lose hours hunting for task statuses across isolated tools. Flowline centralizes event triggers, syncs data between platforms, and alerts operators only when an intervention is needed.",
+      "Apparel and denim manufacturing facilities lose productivity through handwritten fabric consumption sheets, lost material requisitions, and disjointed shift handoffs. Har Apparels digitizes the entire floor lifecycle from raw denim roll to finished garment.",
     architecturalDecisions: [
-      "Event-driven webhook queue architecture with automated retries and dead-letter monitoring",
-      "Visual pipeline status nodes updating via real-time WebSocket state synchronizer",
-      "Strict data sanitization and audit logging for every cross-platform handoff",
+      "Role-based access separation between factory supervisors, cutting masters, and floor line workers",
+      "Denim roll consumption ledger with real-time yardage tracking and scrap-rate analytics",
+      "Batch workflow state machine tracking program stages from cutting to sewing to final QC",
+      "Shift-end reconciliation reporting delivering instant insight into daily production targets",
     ],
-    techStack: ["Node.js Microservices", "WebSockets", "Event Queues", "TypeScript", "PostgreSQL"],
+    techStack: ["Kotlin", "Android SDK", "Material Design", "Room / Local Storage", "RESTful Backend"],
     takeaway:
-      "Great operations software runs quietly until an exception demands human attention.",
+      "Industrial software succeeds when it respects factory physical realities: large touch targets, minimal taps, and instant feedback.",
+  },
+  quicklycart: {
+    architecturePattern: "Four-Role State Machine & Coordinated Marketplace Dispatch",
+    interfaceParadigm: "Responsive multi-portal commerce experience for shoppers, merchants, and riders",
+    problemHypothesis:
+      "Local multi-vendor commerce struggles with brittle order states when merchants, customers, and delivery riders operate on separate channels. QuicklyCart unifies product catalogs, checkout, vendor fulfillment, and rider dispatch into an idempotent state machine.",
+    architecturalDecisions: [
+      "Strict multi-role authorization architecture for Customers, Sellers, Delivery Riders, and Platform Admins",
+      "Idempotent order lifecycle transitions preventing double-claims or orphaned deliveries",
+      "Merchant stock management with instant availability toggles and vendor balance ledgers",
+      "Rider verification workflows paired with localized route assignment and delivery confirmation",
+    ],
+    techStack: ["Django / Python", "PostgreSQL", "Tailored CSS & JavaScript", "REST API", "Bootstrap 5"],
+    takeaway:
+      "Marketplace resilience relies on deterministic order state machines and transparent operational handoffs.",
   },
 };
 
 export default function WorkShowcase() {
-  const [activeSlug, setActiveSlug] = useState<string>("lumen-finance");
+  const [activeSlug, setActiveSlug] = useState<string>("tripsplit");
 
   const activeProject = projects.find((p) => p.slug === activeSlug) || projects[0];
-  const activeDetail = studyDetails[activeSlug] || studyDetails["lumen-finance"];
+  const activeDetail = studyDetails[activeSlug] || studyDetails["tripsplit"];
 
   return (
     <div className="work-showcase-container">
@@ -92,7 +110,7 @@ export default function WorkShowcase() {
             >
               <div className="tab-lead-meta">
                 <span className="tab-study-badge">CONCEPT STUDY</span>
-                <span className="tab-study-num">{proj.number} / 03</span>
+                <span className="tab-study-num">{proj.number} / 04</span>
               </div>
               <strong className="tab-study-name">{proj.name}</strong>
               <span className="tab-study-cat">{proj.category}</span>
