@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -15,7 +15,7 @@ import {
 import ProjectVisual from "@/components/ProjectVisual";
 import { projects } from "@/lib/site";
 
-interface StudyDetail {
+interface ProjectDetail {
   architecturePattern: string;
   interfaceParadigm: string;
   problemHypothesis: string;
@@ -24,12 +24,12 @@ interface StudyDetail {
   takeaway: string;
 }
 
-const studyDetails: Record<string, StudyDetail> = {
+const projectDetails: Record<string, ProjectDetail> = {
   tripsplit: {
     architecturePattern: "Offline-First Room Caching & Graph-Based Debt Minimization",
     interfaceParadigm: "Ergonomic Android Jetpack Compose with Zero-Friction App Links",
     problemHypothesis:
-      "Most group expense apps force participants through tedious account registration and break without cellular coverage. TripSplit explores frictionless deep-link claiming, offline Room SQLite persistence, and bidirectional Firestore sync.",
+      "Most group expense apps force participants through tedious account registration and break without cellular coverage. TripSplit uses frictionless deep-link claiming, offline Room SQLite persistence, and bidirectional Firestore sync.",
     architecturalDecisions: [
       "Dynamic Android App Links allowing instant expedition join without mandatory credentials",
       "First-claim cryptographic link burning in Firestore to prevent invite interception",
@@ -90,13 +90,26 @@ const studyDetails: Record<string, StudyDetail> = {
 export default function WorkShowcase() {
   const [activeSlug, setActiveSlug] = useState<string>("tripsplit");
 
+  useEffect(() => {
+    const selectLinkedProject = () => {
+      const slug = window.location.hash.slice(1);
+      if (projects.some((project) => project.slug === slug)) {
+        setActiveSlug(slug);
+      }
+    };
+
+    selectLinkedProject();
+    window.addEventListener("hashchange", selectLinkedProject);
+    return () => window.removeEventListener("hashchange", selectLinkedProject);
+  }, []);
+
   const activeProject = projects.find((p) => p.slug === activeSlug) || projects[0];
-  const activeDetail = studyDetails[activeSlug] || studyDetails["tripsplit"];
+  const activeDetail = projectDetails[activeSlug] || projectDetails["tripsplit"];
 
   return (
     <div className="work-showcase-container">
-      {/* Concept Switcher Tabs */}
-      <div className="work-concept-tabs" role="tablist" aria-label="Select concept study">
+      {/* Project Switcher Tabs */}
+      <div className="work-concept-tabs" role="tablist" aria-label="Select project">
         {projects.map((proj) => {
           const isSelected = proj.slug === activeSlug;
           return (
@@ -104,12 +117,17 @@ export default function WorkShowcase() {
               key={proj.slug}
               type="button"
               role="tab"
+              id={proj.slug}
+              aria-controls="project-panel"
               aria-selected={isSelected}
               className={`work-concept-tab ${isSelected ? "is-active" : ""}`}
-              onClick={() => setActiveSlug(proj.slug)}
+              onClick={() => {
+                setActiveSlug(proj.slug);
+                window.history.replaceState(null, "", `#${proj.slug}`);
+              }}
             >
               <div className="tab-lead-meta">
-                <span className="tab-study-badge">CONCEPT STUDY</span>
+                <span className="tab-study-badge">BUILT PROJECT</span>
                 <span className="tab-study-num">{proj.number} / 04</span>
               </div>
               <strong className="tab-study-name">{proj.name}</strong>
@@ -120,14 +138,14 @@ export default function WorkShowcase() {
       </div>
 
       {/* Main Interactive Stage */}
-      <div className="work-stage-card" role="tabpanel" id={activeProject.slug}>
+      <div className="work-stage-card" role="tabpanel" id="project-panel" aria-labelledby={activeProject.slug}>
         <div className="work-stage-grid">
           {/* Left Column: Interactive Visual & Architecture Spec */}
           <div className="work-stage-preview-column">
             <div className="work-preview-wrap">
               <div className="preview-top-status">
                 <span className="preview-status-pill">
-                  <span className="pulse-dot-mini" /> INTERACTIVE CONCEPT PROTOTYPE
+                  <span className="pulse-dot-mini" /> INTERACTIVE PROJECT PREVIEW
                 </span>
                 <span className="preview-indicator-meta">SAMPLE DATA</span>
               </div>
@@ -176,11 +194,11 @@ export default function WorkShowcase() {
             </div>
           </div>
 
-          {/* Right Column: Case Deep Dive */}
+          {/* Right Column: Project Deep Dive */}
           <div className="work-stage-copy-column">
             <div className="stage-copy-header">
               <div className="stage-topline-pills">
-                <span className="stage-badge">CONCEPT STUDY {activeProject.number}</span>
+                <span className="stage-badge">BUILT PROJECT {activeProject.number}</span>
                 <span className="stage-category-label">{activeProject.category}</span>
               </div>
               <h2 className="stage-main-title">
@@ -191,7 +209,7 @@ export default function WorkShowcase() {
             </div>
 
             <div className="stage-narrative-block">
-              <span className="narrative-label">THE PROBLEM WE EXPLORED</span>
+              <span className="narrative-label">THE PROBLEM ADDRESSED</span>
               <p className="narrative-body">{activeDetail.problemHypothesis}</p>
             </div>
 

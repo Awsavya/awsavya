@@ -16,7 +16,7 @@ export default function WorkFilter({ projects }: WorkFilterProps) {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
 
   const categories = [
-    { id: "all", label: "All studies", count: projects.length },
+    { id: "all", label: "All projects", count: projects.length },
     { id: "tripsplit", label: "Mobile & FinTech", count: 1 },
     { id: "build2buzz", label: "Applied AI", count: 1 },
     { id: "har-apparels", label: "Manufacturing ERP", count: 1 },
@@ -30,7 +30,7 @@ export default function WorkFilter({ projects }: WorkFilterProps) {
   return (
     <div className="work-interactive-section">
       {/* Category Filter Pills */}
-      <div className="work-filter-bar" role="tablist" aria-label="Filter concept studies">
+      <div className="work-filter-bar" role="tablist" aria-label="Filter projects">
         {categories.map((cat) => {
           const isActive = selectedFilter === cat.id;
           return (

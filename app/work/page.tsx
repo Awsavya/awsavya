@@ -5,17 +5,18 @@ import Reveal from "@/components/Reveal";
 import WorkShowcase from "@/components/WorkShowcase";
 import { siteConfig } from "@/lib/site";
 
+const workDescription =
+  "Explore four software projects built by AWSAVYA: TripSplit, Build2Buzz, Har Apparels, and QuicklyCart. Interactive previews use sample data.";
+
 export const metadata: Metadata = {
-  title: "Work & Case Studies",
-  description:
-    "Explore real engineering studies from AWSAVYA: TripSplit offline Android app, Build2Buzz grounded AI publisher, Har Apparels factory ERP, and QuicklyCart.",
+  title: "Built Projects",
+  description: workDescription,
   alternates: {
     canonical: "/work",
   },
   openGraph: {
-    title: "Work & Case Studies — AWSAVYA",
-    description:
-      "Explore real engineering studies from AWSAVYA: TripSplit offline Android app, Build2Buzz grounded AI publisher, Har Apparels factory ERP, and QuicklyCart.",
+    title: "Built Projects — AWSAVYA",
+    description: workDescription,
     url: `${siteConfig.canonicalUrl}/work`,
     siteName: "AWSAVYA",
     locale: "en_US",
@@ -25,15 +26,14 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Work & Case Studies — AWSAVYA",
+        alt: "Built Projects — AWSAVYA",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Work & Case Studies — AWSAVYA",
-    description:
-      "Explore real engineering studies from AWSAVYA: TripSplit offline Android app, Build2Buzz grounded AI publisher, Har Apparels factory ERP, and QuicklyCart.",
+    title: "Built Projects — AWSAVYA",
+    description: workDescription,
     images: ["/opengraph-image"],
   },
 };
@@ -51,7 +51,7 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Work & Case Studies",
+      name: "Built Projects",
       item: `${siteConfig.canonicalUrl}/work`,
     },
   ],
@@ -61,9 +61,9 @@ const portfolioSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": `${siteConfig.canonicalUrl}/work#portfolio`,
-  name: "AWSAVYA Engineering Studies & Projects",
+  name: "AWSAVYA Built Software Projects",
   description:
-    "Real engineering explorations across offline-first mobile architecture, evidence-grounded AI publishing pipelines, manufacturing ERP systems, and multi-vendor commerce engines.",
+    "Four software projects built across offline-first mobile apps, evidence-grounded AI publishing, manufacturing ERP, and multi-vendor commerce.",
   itemListElement: [
     {
       "@type": "ListItem",
@@ -142,25 +142,25 @@ export default function WorkPage() {
           </Reveal>
           <Reveal delay={0.15}>
             <p>
-              A series of functional engineering studies demonstrating how we architect offline-first mobile apps,
-              grounded AI pipelines, industrial ERPs, and multi-vendor platforms.
+              Four software projects we built across offline-first mobile apps, grounded AI pipelines,
+              industrial ERPs, and multi-vendor platforms. The interactive previews use sample data.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
             <div className="page-hero-meta-row">
               <span className="hero-status-pill">
-                <span className="pulse-dot-mini" /> ALL FOUR STUDIES TESTABLE LIVE
+                <span className="pulse-dot-mini" /> FOUR BUILT PROJECTS · INTERACTIVE PREVIEWS
               </span>
               <span className="hero-pill-note">
-                Labelled as Concept study • Zero fictional client claims
+                Preview data is illustrative • No client engagement is claimed
               </span>
             </div>
           </Reveal>
           <div className="page-hero-scroll">
             <span>
-              <ArrowDownRight size={14} /> Test interactive prototypes below
+              <ArrowDownRight size={14} /> Explore interactive previews below
             </span>
-            <span>01 — 04 SELECTED STUDIES</span>
+            <span>01 — 04 SELECTED PROJECTS</span>
           </div>
         </div>
       </section>

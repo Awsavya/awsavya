@@ -11,7 +11,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <Link
         href={`/work#${project.slug}`}
         className={`project-preview project-preview-${project.visual}`}
-        aria-label={`View ${project.name} concept study`}
+        aria-label={`View ${project.name} project`}
       >
         <ProjectVisual variant={project.visual} compact />
         <span className="project-preview-open">

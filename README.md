@@ -4,12 +4,12 @@ A responsive multi-page website starter for AWSAVYA, a technology studio focused
 
 ## Pages included
 
-- `/` — homepage with animated hero, capability cards, concept portfolio, process and CTA
+- `/` — homepage with animated hero, capability cards, built project portfolio, process and CTA
 - `/services` — five service detail sections
-- `/work` — concept portfolio (explicitly labelled as concept studies, not client projects)
+- `/work` — four built projects with interactive previews using sample data; no client engagement is claimed
 - `/about` — brand story and working principles
 - `/contact` — validated project enquiry form
-- `/api/contact` — server-side email delivery endpoint using Resend
+- `/api/contact` — server-side form delivery endpoint using Web3Forms
 - `/sitemap.xml` and `/robots.txt` — generated SEO routes
 
 ## 1. Run it locally in Antigravity
@@ -39,24 +39,22 @@ npm run build
 
 ## 2. Configure the contact form
 
-The form is built and validated, but **email delivery is intentionally not active until you configure it**. This avoids showing a fake success message or silently losing enquiries.
+The form is built and validated. Its server route sends enquiries through Web3Forms. Verify delivery to your inbox before relying on it publicly.
 
-1. Create an account at [Resend](https://resend.com/).
-2. Verify a sender domain with Resend and create an API key.
+1. Obtain a Web3Forms access key for the inbox that should receive enquiries.
+2. Confirm the destination inbox in Web3Forms.
 3. Copy `.env.example` to `.env.local` for local testing.
 4. Set these variables with your actual values:
 
    ```dotenv
-   RESEND_API_KEY=re_your_real_key
-   CONTACT_TO_EMAIL=the-inbox-you-check@example.com
-   CONTACT_FROM_EMAIL=AWSAVYA Website <website@your-verified-domain.com>
-   NEXT_PUBLIC_SITE_URL=https://awsavya.in
+   WEB3FORMS_ACCESS_KEY=your_web3forms_access_key
+   NEXT_PUBLIC_SITE_URL=https://www.awsavya.in
    ```
 
 5. Restart `npm run dev` after changing environment values.
-6. In production, add the same variables in your hosting platform's environment-variable settings. Do not commit `.env.local` or expose the Resend key in browser code.
+6. In production, add the same variables in your hosting platform's environment-variable settings and redeploy. Do not commit `.env.local` or expose the access key in browser code.
 
-The `CONTACT_FROM_EMAIL` address must use a sender/domain that Resend has verified. The contact form's selected budget ranges and fields are easy to edit in `components/ContactForm.tsx`.
+The contact form's selected budget ranges and fields are easy to edit in `components/ContactForm.tsx`.
 
 ## 3. Deploy to Vercel
 
@@ -83,8 +81,8 @@ DNS changes can make an existing service unavailable. Since the site is not buil
 
 ## 5. Brand and content to personalise
 
-- `lib/site.ts` contains service content, portfolio concepts, process steps and base metadata.
-- The current portfolio entries are **concept studies**, not claimed client engagements. Replace them with real project case studies as your portfolio grows.
+- `lib/site.ts` contains service content, built project descriptions, process steps and base metadata.
+- The portfolio entries are built projects. Their interactive previews use sample data and do not claim client engagements.
 - Update the About page with actual founder biographies once you want to publish them.
 - Add a real public contact email when you have configured one; no email address is assumed in the current design.
 - The selected service and budget options are starter copy and can be changed in `components/ContactForm.tsx`.
@@ -96,7 +94,7 @@ The site uses a white/silver palette, restrained violet accents, custom CSS inte
 
 ## Before launch checklist
 
-- [ ] Replace all placeholder project concepts with real work or keep the concept label clearly visible.
+- [ ] Keep sample preview data clearly labelled and avoid implying client engagements.
 - [ ] Verify the contact form end-to-end with a real inbox.
 - [ ] Add deployment environment variables.
 - [ ] Check all pages on mobile and desktop.

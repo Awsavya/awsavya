@@ -136,7 +136,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. Selected Work & Concept Studies */}
+      {/* 3. Selected built projects */}
       <section className="section section-work">
         <div className="container">
           <Reveal>
@@ -146,7 +146,7 @@ export default function HomePage() {
                 title="Good ideas deserve"
                 accent="good execution."
               >
-                <span>A look at the kinds of digital experiences we shape. Real engineering studies demonstrating offline-first mobile architecture, grounded AI pipelines, manufacturing ERPs, and commerce systems.</span>
+                <span>Four software projects we built across offline-first mobile architecture, grounded AI pipelines, manufacturing ERPs, and commerce systems. Previews use sample data.</span>
               </SectionHeading>
               <Link href="/work" className="text-link desktop-only">
                 View all work <ArrowUpRight size={15} />
