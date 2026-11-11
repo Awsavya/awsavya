@@ -11,7 +11,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import InteractiveProcessExplorer from "@/components/InteractiveProcessExplorer";
-import { deliveryTimelines, siteConfig, studioDifferentiators, timelineDisclaimer } from "@/lib/site";
+import { deliveryTimelines, services, siteConfig, studioDifferentiators, timelineDisclaimer } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services & Capabilities",
@@ -53,63 +53,17 @@ const servicesSchema = {
   name: "AWSAVYA Digital Engineering Services",
   description:
     "Professional engineering services covering cross-platform mobile applications, performant web platforms, custom internal operations software, applied AI systems, and automated pipelines.",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      item: {
-        "@type": "Service",
-        name: "App Development",
-        description: "Cross-platform mobile apps built with React Native and Android Jetpack Compose. Offline-first Room DB caching and native device ergonomics.",
-        provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
-        url: `${siteConfig.canonicalUrl}/services#app`,
-      },
+  itemListElement: services.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Service",
+      name: service.title,
+      description: service.description,
+      provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
+      url: `${siteConfig.canonicalUrl}/services#${service.icon}`,
     },
-    {
-      "@type": "ListItem",
-      position: 2,
-      item: {
-        "@type": "Service",
-        name: "Web Experiences",
-        description: "Performant, accessible, server-rendered Next.js web applications, client portals, and editorial web platforms.",
-        provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
-        url: `${siteConfig.canonicalUrl}/services#web`,
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      item: {
-        "@type": "Service",
-        name: "Custom Software",
-        description: "Custom web software, operations dashboards, and manufacturing ERP systems replacing spreadsheet bottlenecks.",
-        provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
-        url: `${siteConfig.canonicalUrl}/services#software`,
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
-      item: {
-        "@type": "Service",
-        name: "Applied AI",
-        description: "Source-grounded domain assistants, document search, and verified prototype pipelines with zero hallucinations.",
-        provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
-        url: `${siteConfig.canonicalUrl}/services#ai`,
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 5,
-      item: {
-        "@type": "Service",
-        name: "Automation",
-        description: "Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.",
-        provider: { "@id": `${siteConfig.canonicalUrl}#organization` },
-        url: `${siteConfig.canonicalUrl}/services#automation`,
-      },
-    },
-  ],
+  })),
 };
 
 const breadcrumbSchema = {
@@ -186,6 +140,26 @@ export default function ServicesPage() {
           <Reveal>
             <ServicesShowcase />
           </Reveal>
+        </div>
+      </section>
+
+      <section className="section content-index" aria-labelledby="services-index-title">
+        <div className="container">
+          <div className="content-index-heading">
+            <span className="eyebrow"><span className="eyebrow-dot" /> WHAT AWSAVYA BUILDS</span>
+            <h2 id="services-index-title">Capabilities at a glance.</h2>
+            <p>Choose a discipline to read its architecture, scope, and indicative deliverables above.</p>
+          </div>
+          <div className="content-index-grid">
+            {services.map((service) => (
+              <article className="content-index-card" key={service.icon}>
+                <span className="content-index-number">{service.number} / 05 · AWSAVYA SERVICE</span>
+                <h3><Link href={`/services#${service.icon}`}>{service.title}</Link></h3>
+                <p>{service.description}</p>
+                <span className="content-index-category">{service.tags.join(" · ")}</span>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

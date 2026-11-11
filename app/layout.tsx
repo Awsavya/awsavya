@@ -4,7 +4,7 @@ import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MotionProvider from "@/components/MotionProvider";
-import { siteConfig } from "@/lib/site";
+import { services, siteConfig } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -78,13 +78,12 @@ export const viewport: Viewport = {
   themeColor: "#f8f9fb",
 };
 
-// Verified Organization & ProfessionalService structured data
+// Keep the public organization name aligned with the visible AWSAVYA brand.
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "ProfessionalService"],
+  "@type": "Organization",
   "@id": `${siteConfig.canonicalUrl}#organization`,
-  name: "AWSAVYA",
-  alternateName: ["AWSAVYA Studio", "awsavya.in", "AWSAVYA Technologies"],
+  name: siteConfig.name,
   url: siteConfig.canonicalUrl,
   logo: `${siteConfig.canonicalUrl}/favicon-192.png`,
   image: `${siteConfig.canonicalUrl}/opengraph-image`,
@@ -114,53 +113,15 @@ const organizationSchema = {
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "AWSAVYA Core Services",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "App Development",
-          description: "Cross-platform mobile apps built with React Native and Android Jetpack Compose with offline-first local database sync.",
-          url: `${siteConfig.canonicalUrl}/services#app`,
-        },
+    itemListElement: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.description,
+        url: `${siteConfig.canonicalUrl}/services#${service.icon}`,
       },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Web Experiences",
-          description: "Performant, accessible, server-rendered Next.js web applications and platforms.",
-          url: `${siteConfig.canonicalUrl}/services#web`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Custom Software",
-          description: "Tailored operations dashboards, internal tools, and manufacturing ERP systems.",
-          url: `${siteConfig.canonicalUrl}/services#software`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Applied AI",
-          description: "Source-grounded domain assistants, document search, and verified AI pipelines that eliminate hallucinations.",
-          url: `${siteConfig.canonicalUrl}/services#ai`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Automation",
-          description: "Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.",
-          url: `${siteConfig.canonicalUrl}/services#automation`,
-        },
-      },
-    ],
+    })),
   },
   contactPoint: {
     "@type": "ContactPoint",

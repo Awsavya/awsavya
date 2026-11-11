@@ -4,6 +4,8 @@ export const siteConfig = {
   canonicalUrl: "https://www.awsavya.in",
   description:
     "AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows.",
+  identityStatement:
+    "AWSAVYA is a digital product studio building mobile apps, web experiences, custom software, applied AI, and automation.",
   email: "hello@awsavya.in",
   releaseDate: "2026-10-31",
   keywords: [

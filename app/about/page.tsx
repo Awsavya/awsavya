@@ -8,13 +8,13 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about AWSAVYA's engineering approach: bringing Apps, Web, Software, AI, and Automation together with clarity and intention.",
+  description: `${siteConfig.identityStatement} Learn how the studio approaches useful technology.`,
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About — AWSAVYA",
-    description: "Learn about AWSAVYA's engineering approach: bringing Apps, Web, Software, AI, and Automation together with clarity and intention.",
+    description: siteConfig.identityStatement,
     url: `${siteConfig.canonicalUrl}/about`,
     siteName: "AWSAVYA",
     locale: "en_US",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "About — AWSAVYA",
-    description: "Learn about AWSAVYA's engineering approach: bringing Apps, Web, Software, AI, and Automation together with clarity and intention.",
+    description: siteConfig.identityStatement,
     images: ["/opengraph-image"],
   },
 };
@@ -61,7 +61,7 @@ const aboutPageSchema = {
   "@id": `${siteConfig.canonicalUrl}/about#webpage`,
   url: `${siteConfig.canonicalUrl}/about`,
   name: "About AWSAVYA",
-  description: "AWSAVYA brings together our focus areas: Apps, Web, Software, AI, and Automation, founded with a clear focus on useful technology.",
+  description: siteConfig.identityStatement,
   mainEntity: {
     "@id": `${siteConfig.canonicalUrl}#organization`,
   },
@@ -140,7 +140,10 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.12}>
             <div className="about-story-copy">
-              <h2>A name built from the things we want to make possible.</h2>
+              <h2>What is AWSAVYA?</h2>
+              <p>
+                {siteConfig.identityStatement} This is the studio&apos;s official website at awsavya.in.
+              </p>
               <p>
                 AWSAVYA brings together our focus areas: <strong>A</strong>pps, <strong>W</strong>eb, <strong>S</strong>oftware, <strong>A</strong>I and <strong>A</strong>utomation, with <strong>V</strong> and <strong>Y</strong> representing the founders Vivek &amp; Yash.
               </p>

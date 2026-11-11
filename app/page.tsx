@@ -43,13 +43,12 @@ export const metadata: Metadata = {
   },
 };
 
-// WebSite JSON-LD entity to establish definitive brand and site name identity in Google Search
+// The site name matches the visible brand and organization entity.
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${siteConfig.canonicalUrl}#website`,
-  name: "AWSAVYA",
-  alternateName: ["AWSAVYA Studio", "awsavya.in", "AWSAVYA Technologies"],
+  name: siteConfig.name,
   url: siteConfig.canonicalUrl,
   description: siteConfig.description,
   publisher: {

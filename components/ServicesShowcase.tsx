@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -116,6 +116,20 @@ const serviceConfigs: Record<string, ServiceDetailConfig> = {
 
 export default function ServicesShowcase() {
   const [selectedIcon, setSelectedIcon] = useState<string>("app");
+
+  useEffect(() => {
+    const selectLinkedService = () => {
+      const icon = window.location.hash.slice(1);
+      if (services.some((service) => service.icon === icon)) {
+        setSelectedIcon(icon);
+      }
+    };
+
+    selectLinkedService();
+    window.addEventListener("hashchange", selectLinkedService);
+    return () => window.removeEventListener("hashchange", selectLinkedService);
+  }, []);
+
   const activeService = services.find((s) => s.icon === selectedIcon) || services[0];
   const activeConfig = serviceConfigs[selectedIcon] || serviceConfigs.app;
 
@@ -130,9 +144,14 @@ export default function ServicesShowcase() {
               key={service.icon}
               type="button"
               role="tab"
+              id={service.icon}
+              aria-controls="service-panel"
               aria-selected={isSelected}
               className={`service-matrix-tab ${isSelected ? "is-selected" : ""}`}
-              onClick={() => setSelectedIcon(service.icon)}
+              onClick={() => {
+                setSelectedIcon(service.icon);
+                window.history.replaceState(null, "", `#${service.icon}`);
+              }}
             >
               <span className="tab-icon-wrap">
                 <ServiceIcon name={service.icon} size={18} />
@@ -147,7 +166,7 @@ export default function ServicesShowcase() {
       </div>
 
       {/* Active Service Showcase Hero Card */}
-      <div className="service-stage-card" role="tabpanel">
+      <div className="service-stage-card" role="tabpanel" id="service-panel" aria-labelledby={selectedIcon}>
         <div className="service-stage-grid">
           {/* Left Column: Architectural Breakdown */}
           <div className="service-stage-content">

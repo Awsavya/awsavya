@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import WorkShowcase from "@/components/WorkShowcase";
-import { siteConfig } from "@/lib/site";
+import { projects, siteConfig } from "@/lib/site";
 
 const workDescription =
   "Explore four software projects built by AWSAVYA: TripSplit, Build2Buzz, Har Apparels, and QuicklyCart. Interactive previews use sample data.";
@@ -85,7 +85,7 @@ const portfolioSchema = {
         name: "Build2Buzz",
         operatingSystem: "Cross-platform",
         applicationCategory: "BusinessApplication",
-        description: "Grounded AI content generation engine pairing repository README inspection with headless browser demo observations to eliminate AI hallucinations.",
+        description: "Grounded AI content generation engine pairing repository README inspection with headless browser demo observations and human review.",
         url: `${siteConfig.canonicalUrl}/work#build2buzz`,
       },
     },
@@ -171,6 +171,26 @@ export default function WorkPage() {
           <Reveal>
             <WorkShowcase />
           </Reveal>
+        </div>
+      </section>
+
+      <section className="section content-index" aria-labelledby="work-project-index-title">
+        <div className="container">
+          <div className="content-index-heading">
+            <span className="eyebrow"><span className="eyebrow-dot" /> BUILT SOFTWARE</span>
+            <h2 id="work-project-index-title">Projects at a glance.</h2>
+            <p>These are built projects. The interactive previews above use sample data and do not represent client engagements.</p>
+          </div>
+          <div className="content-index-grid">
+            {projects.map((project) => (
+              <article className="content-index-card" key={project.slug}>
+                <span className="content-index-number">{project.number} / 04 · BUILT PROJECT</span>
+                <h3><Link href={`/work#${project.slug}`}>{project.name}</Link></h3>
+                <p>{project.description}</p>
+                <span className="content-index-category">{project.category}</span>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

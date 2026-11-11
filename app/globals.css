@@ -2941,6 +2941,7 @@ svg { flex: 0 0 auto; }
 .service-matrix-tab {
   display: flex;
   align-items: center;
+  scroll-margin-top: 96px;
   gap: 12px;
   padding: 16px 18px;
   border-radius: 14px;
@@ -3553,6 +3554,42 @@ svg { flex: 0 0 auto; }
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.content-index { padding-top: 0; }
+.content-index-heading { max-width: 680px; margin-bottom: 30px; }
+.content-index-heading h2 {
+  margin: 16px 0 12px;
+  color: var(--ink);
+  font-size: clamp(30px, 4vw, 46px);
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+}
+.content-index-heading p { margin: 0; color: var(--muted); line-height: 1.75; }
+.content-index-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.content-index-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper-card, #fff);
+}
+.content-index-number, .content-index-category {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.content-index-card h3 { margin: 16px 0 8px; font-size: 24px; letter-spacing: -0.035em; }
+.content-index-card h3 a { color: var(--ink); text-decoration: none; }
+.content-index-card h3 a:hover { color: var(--accent); }
+.content-index-card p { flex: 1; margin: 0 0 20px; color: var(--muted); line-height: 1.7; }
+
+@media (max-width: 768px) {
+  .content-index-grid { grid-template-columns: 1fr; }
+  .content-index-card { padding: 22px; }
 }
 
 .work-concept-tabs {
