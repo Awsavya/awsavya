@@ -1,0 +1,6 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { projects } from "@/lib/site";
+import { ProjectArt } from "@/components/ProjectArt";
+export const metadata:Metadata={title:"Concept Studies",description:"Explore AWSAVYA concept studies in applications, software, AI, and web platforms."};
+export default function Work(){return <><section className="page-hero page-hero-light"><p className="eyebrow">02 / Explorations</p><h1>Ideas made<br/><em>tangible.</em></h1><p>Selected concept studies that explore product challenges, interaction ideas, and technical approaches.</p><span className="page-hero-glyph" aria-hidden="true">✳</span></section><section className="work-section section-pad work-page"><div className="section-meta"><span>Concept studies</span><span>01 — 04</span></div><div className="project-list">{projects.map(project=><Link className="project-row" href={`/work/${project.id}`} key={project.id}><div className="project-row-meta"><span>{project.number} / 04</span><span>{project.category}</span></div><ProjectArt project={project}/><div className="project-row-title"><h2>{project.name}</h2><span className="project-go" aria-hidden="true">↗</span></div><p>{project.summary}</p></Link>)}</div></section></>}

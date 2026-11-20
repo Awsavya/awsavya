@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./animated.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MotionProvider from "@/components/MotionProvider";
@@ -26,15 +27,9 @@ export const metadata: Metadata = {
   applicationName: "AWSAVYA",
   category: "technology",
   icons: {
-    icon: [
-      // PNG preferred by Google Search Console for rich favicon display
-      { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon-512.png", sizes: "512x512", type: "image/png" },
-      // Fallback format
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    icon: "/Logo.png",
+    shortcut: "/Logo.png",
+    apple: "/Logo.png",
   },
   openGraph: {
     type: "website",
@@ -86,7 +81,7 @@ const organizationSchema = {
   name: "AWSAVYA",
   alternateName: ["AWSAVYA Studio", "awsavya.in", "AWSAVYA Technologies"],
   url: siteConfig.canonicalUrl,
-  logo: `${siteConfig.canonicalUrl}/favicon-192.png`,
+  logo: `${siteConfig.canonicalUrl}/Logo.png`,
   image: `${siteConfig.canonicalUrl}/opengraph-image`,
   email: siteConfig.email,
   description: siteConfig.description,

@@ -2,9 +2,6 @@
 
 import { useState } from "react";
 import {
-  ArrowRight,
-  ArrowUpRight,
-  BarChart3,
   Bot,
   Check,
   CheckCircle2,
@@ -17,7 +14,6 @@ import {
   Play,
   RotateCcw,
   ShieldCheck,
-  ShoppingBag,
   Sparkles,
   Truck,
   Users,
@@ -393,7 +389,7 @@ export default function ProjectVisual({ variant, compact = false }: ProjectVisua
                 <span className="text-blue">Lot #DR-88</span>
               </div>
               <div className="har-metric-card">
-                <small>TODAY'S BUNDLES</small>
+                <small>TODAY&apos;S BUNDLES</small>
                 <b>{completedBundles} <span>units</span></b>
                 <span className="text-green">88% on target</span>
               </div>

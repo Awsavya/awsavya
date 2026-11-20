@@ -1,22 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { navigation } from "@/lib/site";
-
-function BrandMark() {
-  return (
-    <span className="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 34 34" fill="none">
-        <path d="M7 26.5 15.1 6.8c.6-1.4 2.6-1.4 3.2 0l8.7 20.1" stroke="currentColor" strokeWidth="2.7" strokeLinecap="round" />
-        <path d="M11 20.3h13" stroke="currentColor" strokeWidth="2.7" strokeLinecap="round" />
-        <path d="M22.5 6.5h5v5" stroke="#2563eb" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </span>
-  );
-}
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -47,8 +36,7 @@ export default function SiteHeader() {
 
       <div className="container header-inner">
         <Link href="/" className="brand" aria-label="AWSAVYA home" onClick={() => setMenuOpen(false)}>
-          <BrandMark />
-          <span className="brand-word">AWSAVYA<span className="brand-period">.</span></span>
+          <Image src="/Logo.png" alt="AWSAVYA" width={180} height={180} priority />
         </Link>
 
         <button

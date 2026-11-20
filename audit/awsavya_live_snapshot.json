@@ -1,0 +1,1986 @@
+[
+  {
+    "url": "https://www.awsavya.in/",
+    "status": 200,
+    "final_url": "https://www.awsavya.in/",
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "974007",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "99843",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Wed, 11 Nov 2026 15:44:02 GMT",
+      "Etag": "\"7909e22a3aad7e7bb81bb5e4a4bfc722\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-Matched-Path": "/",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::54p88-1794411842000-0ced0f3fbb7c",
+      "Connection": "close"
+    },
+    "title": "AWSAVYA — Apps, Web, Software, AI & Automation",
+    "headings": [
+      {
+        "level": "h1",
+        "text": "AWSAVYA . Technology for your next move."
+      },
+      {
+        "level": "h2",
+        "text": "Interactive capabilities, built around your goals."
+      },
+      {
+        "level": "h2",
+        "text": "App development ."
+      },
+      {
+        "level": "h2",
+        "text": "Good ideas deserve good execution."
+      },
+      {
+        "level": "h3",
+        "text": "TripSplit"
+      },
+      {
+        "level": "h3",
+        "text": "Build2Buzz"
+      },
+      {
+        "level": "h3",
+        "text": "Har Apparels"
+      },
+      {
+        "level": "h3",
+        "text": "QuicklyCart"
+      },
+      {
+        "level": "h2",
+        "text": "Less noise. More progress."
+      },
+      {
+        "level": "h3",
+        "text": "Understand"
+      },
+      {
+        "level": "h2",
+        "text": "Direct studio engagement, built on clarity."
+      },
+      {
+        "level": "h3",
+        "text": "Direct principal engagement"
+      },
+      {
+        "level": "h3",
+        "text": "Clear, milestone-based scope"
+      },
+      {
+        "level": "h3",
+        "text": "Type-safe, maintainable software"
+      },
+      {
+        "level": "h3",
+        "text": "Documented handover & IP ownership"
+      },
+      {
+        "level": "h3",
+        "text": "Plan your next move."
+      },
+      {
+        "level": "h4",
+        "text": "Apps & Mobile"
+      },
+      {
+        "level": "h2",
+        "text": "Have a problem worth solving?"
+      }
+    ],
+    "main_text": "AWSAVYA · DIGITAL PRODUCT STUDIO\nAWSAVYA\n.\nTechnology for\nyour\nnext move.\nAWSAVYA builds apps, websites, custom software, AI solutions, and automations that help businesses solve real problems.\nStart a project\nExplore capabilities\nA\nW\nS\nFrom initial scoping to launch-ready software\nA\n.\nAI assistant (Concept)\nDEMO · SAMPLE DATA\nContext search\nAPI synthesis\nWorkflow map\nSample source linked · 4 document chunks\nSimulated telemetry\n24h\n7d\n30d\n04\nSample flows\n24h\nDaily sample\nSoftware & Web\nApplied AI & Agents\nClick cards to interact · Illustrative interface model\nScroll to explore\nIDEAS MADE REAL, WITH INTENTION.\nWHAT WE DO\nInteractive capabilities,\nbuilt around your goals.\nOne connected studio for the digital disciplines that help your business move forward. Select a discipline below to inspect architecture highlights and sprint deliverables.\nAll service details\n01\nApp development\n02\nWeb experiences\n03\nCustom software\n04\nApplied AI\n05\nAutomation\nCAPABILITY\n01\n/ 05\nTouch-First Cross-Platform Apps & Installable PWAs\nApp development\n.\nCross-platform mobile apps and installable PWAs built for real use.\nTHE PROBLEM WE SOLVE\nMany applications suffer from unresponsive interfaces, poor battery ergonomics, and brittle offline handling. We design and build cross-platform mobile apps using React Native, and installable progressive web apps when a web-first approach fits the product goal.\nENGINEERING HIGHLIGHTS\nCross-platform mobile apps built with React Native for native device capabilities\nInstallable progressive web apps (PWAs) when lightweight web distribution is the right fit\nOffline-aware local caching, safe-area geometry, and touch-optimised ergonomics\nRECOMMENDED TECH STACK\nReact Native\nExpo\nTypeScript\nNext.js\nTailored CSS\nDiscuss\napp development\nCAPABILITY STANDARD\nSVC_\n01\nTouch Ergonomics & Native Gestures\nEngineered with care\nINDICATIVE SPRINT DELIVERABLES\nFigma design system & interactive component library\nType-safe mobile client or PWA codebase\nStore deployment preparation & release guidance\nReact Native\niOS & Android planning\nProgressive Web Apps\nTouch ergonomics\nSELECTED EXPLORATIONS\nGood ideas deserve\ngood execution.\nA look at the kinds of digital experiences we shape. Real engineering studies demonstrating offline-first mobile architecture, grounded AI pipelines, manufacturing ERPs, and commerce systems.\nView all work\nTRIPSPLIT / OFFLINE ANDROID\nROOM DB · FIRESTORE\nGoa '26\nManali Trek\nEXPEDITION POOL (\nGoa '26\n)\n₹\n18,450\n.00\nYOUR POSITION\n+1,850\nDEBT SIMPLIFIER\nGraph Optimized\nYash → Vyom: ₹1,850\nRecord Settle\nRoom DB · Offline Cache\nSingle-Claim App Link\nInteractive preview\nMobile App · FinTech & Debt Settlement\nTripSplit\nEffortless, privacy-first group expense sharing and optimal debt settlement for Android.\nConcept study\nBUILD2BUZZ / GROUNDED AI\nZERO HALLUCINATION\nSwitch Repo\nvyom027/TripSplit\nKotlin / Compose\nVerify Demo\nREADME DOCUMENTATION\nOffline Room DB · Zero-signup deep link claim\nHEADLESS BROWSER DEMO\nVerified 280ms UI render · SSRF sandbox pass\n100% Grounded in Evidence\n420 / 3,000 chars\n“\nEliminates debt confusion via graph-based transfer minimization.\n”\nHuman-in-the-Loop Signoff\nLinkedIn REST API\nInteractive preview\nApplied AI · Workflow Automation\nBuild2Buzz\nGrounding AI content generation in verified repository facts and browser demo telemetry.\nConcept study\nHAR APPARELS / SHOP-FLOOR ERP\nDENIM MANUFACTURING\nWorker\nAdmin\nRAW DENIM ROLLS\n42 Rolls\n(3,840m)\nLot #DR-88\nTODAY'S BUNDLES\n24\nunits\n88% on target\nACTIVE WORK ORDER\nBatch #D-204\nSlim-Fit Jeans\nRoll Ingest\nCutting\nStitching\nQC Passed\nShift 01: Line 3 Active\nAdvance Stage (+4 pcs)\nInteractive preview\nCustom Software · Manufacturing ERP\nHar Apparels\nShop-floor operations and batch tracking software for a denim manufacturing plant.\nConcept study\nQUICKLYCART / MULTI-VENDOR\nSTATE MACHINE\nStore Open\nMULTI-ROLE ORDER DISPATCH\nOrder #QC-904\n(3 items · ₹640)\nAdvance Lifecycle\nOrder Placed\nCustomer\nStore Packed\nMerchant\nRider Dispatched\nRider\n4\nDelivered\nCustomer\nMERCHANT STATUS\n12 Local Stores\nVerified ledger\nRIDER ROUTING\n1.4 km radius\nLast-mile GPS\nTRANSACTIONS\nIdempotent\nNo double-claims\nInteractive preview\nWeb Experiences · Multi-Vendor Commerce\nQuicklyCart\nLocal commerce marketplace connecting customers, multi-vendor stores, and delivery riders.\nConcept study\nHOW WE WORK\nLess noise.\nMore progress.\nGood technology starts with understanding the problem. We keep the process clear, the collaboration close, and the solution grounded in what people actually need.\nAbout our team\n01\nUnderstand\n02\nShape\n03\nBuild\n04\nImprove\nPHASE\n01\n/ 04\nClarity before code.\nUnderstand\nWe get clear on the people, the core friction, constraints and measurable business goals before proposing architecture or timelines.\nCOLLABORATION CADENCE\n1-2 collaborative discovery sessions\nTYPICAL DELIVERABLES\nProblem & constraint brief\nUser flow mapping\nTechnical feasibility check\nStart at Phase 01\nWHY PARTNER WITH US\nDirect studio engagement,\nbuilt on clarity.\nWe combine senior design, clean architecture, and transparent communication so you always know where your project stands.\n0\n1\nDirect principal engagement\nWork directly with senior designers and engineers who write the code and shape the interface. No layers of nontechnical intermediaries.\n0\n2\nClear, milestone-based scope\nDefined sprint deliverables with working code and staging environments visible each week, keeping decisions transparent.\n0\n3\nType-safe, maintainable software\nClean TypeScript codebases built on modern standards so your team can comfortably maintain, scale, and extend the system.\n0\n4\nDocumented handover & IP ownership\nFull handover of project-specific code and assets governed by the project agreement, with third-party components under standard open licenses.\nINDICATIVE SCOPE ESTIMATOR\nPlan your next move.\nSelect a capability discipline and indicative sprint format to preview an architectural blueprint.\n1. CHOOSE CAPABILITY\nApps & Mobile\nWeb Experiences\nCustom Software\nApplied AI\nAutomation & Ops\n2. INDICATIVE TIMELINE\nArchitecture Sprint\n1–2 weeks\nTechnical feasibility audit, interactive prototype, and execution roadmap before committing to full development.\nFocused MVP\n3–6 weeks\nProduction-ready launch of core features for mobile apps, web platforms, or bespoke operational software.\nLarger Product\n8–12+ weeks\nEnd-to-end product suites, multi-system integrations, or dedicated feature sprints tailored to scope.\nINDICATIVE BLUEPRINT\napproximately 3–6 weeks\nApps & Mobile\nCross-platform React Native apps or installable PWAs with tactile interfaces.\nCORE DELIVERABLES\nDesign system, responsive frontend, auth & API integration\nRECOMMENDED STACK\nReact Native\nExpo\nTypeScript\nNext.js\nDiscuss this blueprint\nTimelines are indicative estimates based on typical sprint velocity. The final schedule depends on scope, third-party integrations, complexity, feedback cadence, and client dependencies. Project schedules are confirmed after scoping.\nYOUR NEXT CHAPTER STARTS HERE\nHave a problem\nworth\nsolving?\nBring us the idea, the friction, or the process that could work better. We'll help you find the next step.\nStart a project\nA\n.",
+    "links": [
+      {
+        "text": "Skip to content",
+        "href": "#main-content"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Start a project",
+        "href": "/contact"
+      },
+      {
+        "text": "Start a project",
+        "href": "/contact"
+      },
+      {
+        "text": "Explore capabilities",
+        "href": "#services"
+      },
+      {
+        "text": "All service details",
+        "href": "/services"
+      },
+      {
+        "text": "Discuss app development",
+        "href": "/contact?service=App%20development"
+      },
+      {
+        "text": "View all work",
+        "href": "/work"
+      },
+      {
+        "text": "TRIPSPLIT / OFFLINE ANDROID ROOM DB · FIRESTORE Goa '26 Manali Trek EXPEDITION POOL ( Goa '26 ) ₹ 18,450 .00 YOUR POSITION +1,850 DEBT SIMPLIFIER Graph Optimized Yash → Vyom: ₹1,850 Record Settle Room DB · Offline Cache Single-Claim App Link Interactive preview",
+        "href": "/work#tripsplit"
+      },
+      {
+        "text": "BUILD2BUZZ / GROUNDED AI ZERO HALLUCINATION Switch Repo vyom027/TripSplit Kotlin / Compose Verify Demo README DOCUMENTATION Offline Room DB · Zero-signup deep link claim HEADLESS BROWSER DEMO Verified 280ms UI render · SSRF sandbox pass 100% Grounded in Evidence 420 / 3,000 chars “ Eliminates debt confusion via graph-based transfer minimization. ” Human-in-the-Loop Signoff LinkedIn REST API Interactive preview",
+        "href": "/work#build2buzz"
+      },
+      {
+        "text": "HAR APPARELS / SHOP-FLOOR ERP DENIM MANUFACTURING Worker Admin RAW DENIM ROLLS 42 Rolls (3,840m) Lot #DR-88 TODAY'S BUNDLES 24 units 88% on target ACTIVE WORK ORDER Batch #D-204 Slim-Fit Jeans Roll Ingest Cutting Stitching QC Passed Shift 01: Line 3 Active Advance Stage (+4 pcs) Interactive preview",
+        "href": "/work#har-apparels"
+      },
+      {
+        "text": "QUICKLYCART / MULTI-VENDOR STATE MACHINE Store Open MULTI-ROLE ORDER DISPATCH Order #QC-904 (3 items · ₹640) Advance Lifecycle Order Placed Customer Store Packed Merchant Rider Dispatched Rider 4 Delivered Customer MERCHANT STATUS 12 Local Stores Verified ledger RIDER ROUTING 1.4 km radius Last-mile GPS TRANSACTIONS Idempotent No double-claims Interactive preview",
+        "href": "/work#quicklycart"
+      },
+      {
+        "text": "About our team",
+        "href": "/about"
+      },
+      {
+        "text": "Start at Phase 01",
+        "href": "/contact"
+      },
+      {
+        "text": "Discuss this blueprint",
+        "href": "/contact?service=Apps%20%26%20Mobile&note=Apps%20%26%20Mobile%20%C2%B7%20Focused%20MVP%20(3%E2%80%936%20weeks)"
+      },
+      {
+        "text": "Start a project",
+        "href": "/contact"
+      },
+      {
+        "text": "Let's talk",
+        "href": "/contact"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "hello@awsavya.in",
+        "href": "mailto:hello@awsavya.in"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy"
+      },
+      {
+        "text": "",
+        "href": "#top"
+      }
+    ],
+    "images": [],
+    "forms": [],
+    "meta": [
+      {
+        "name": "viewport",
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "name": "theme-color",
+        "content": "#f8f9fb"
+      },
+      {
+        "name": "description",
+        "content": "AWSAVYA builds apps, web platforms, custom software, applied AI solutions, and automations that help businesses solve real problems."
+      },
+      {
+        "name": "application-name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "keywords",
+        "content": "AWSAVYA,awsavya.in,custom software development,mobile app development agency,React Native app developers,Android Jetpack Compose,Next.js web development company,applied AI engineering,AI workflow automation,enterprise ERP software,digital product studio,full stack software engineering,offline-first mobile apps,API integration services"
+      },
+      {
+        "name": "robots",
+        "content": "index, follow"
+      },
+      {
+        "name": "googlebot",
+        "content": "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+      },
+      {
+        "name": "category",
+        "content": "technology"
+      },
+      {
+        "name": "og:title",
+        "content": "AWSAVYA — Apps, Web, Software, AI & Automation"
+      },
+      {
+        "name": "og:description",
+        "content": "AWSAVYA builds apps, web platforms, custom software, applied AI solutions, and automations that help businesses solve real problems."
+      },
+      {
+        "name": "og:url",
+        "content": "https://www.awsavya.in"
+      },
+      {
+        "name": "og:site_name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "og:locale",
+        "content": "en_US"
+      },
+      {
+        "name": "og:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "og:image:width",
+        "content": "1200"
+      },
+      {
+        "name": "og:image:height",
+        "content": "630"
+      },
+      {
+        "name": "og:image:alt",
+        "content": "AWSAVYA — Apps, Web, Software, AI & Automation"
+      },
+      {
+        "name": "og:type",
+        "content": "website"
+      },
+      {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      },
+      {
+        "name": "twitter:title",
+        "content": "AWSAVYA — Apps, Web, Software, AI & Automation"
+      },
+      {
+        "name": "twitter:description",
+        "content": "AWSAVYA builds apps, web platforms, custom software, applied AI solutions, and automations that help businesses solve real problems."
+      },
+      {
+        "name": "twitter:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "next-size-adjust",
+        "content": ""
+      }
+    ],
+    "canonical": [
+      "https://www.awsavya.in"
+    ],
+    "jsonld": [
+      "{\"@context\":\"https://schema.org\",\"@type\":[\"Organization\",\"ProfessionalService\"],\"@id\":\"https://www.awsavya.in#organization\",\"name\":\"AWSAVYA\",\"alternateName\":[\"AWSAVYA Studio\",\"awsavya.in\",\"AWSAVYA Technologies\"],\"url\":\"https://www.awsavya.in\",\"logo\":\"https://www.awsavya.in/favicon-192.png\",\"image\":\"https://www.awsavya.in/opengraph-image\",\"email\":\"hello@awsavya.in\",\"description\":\"AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows.\",\"knowsAbout\":[\"Custom Software Development\",\"Mobile App Development\",\"React Native\",\"Android Jetpack Compose\",\"Next.js Web Platforms\",\"Applied Artificial Intelligence\",\"Large Language Model Integration\",\"Workflow Automation\",\"API Integration\",\"Enterprise ERP Systems\",\"PostgreSQL\",\"Full-Stack Software Engineering\"],\"serviceType\":[\"Custom Software Development\",\"Mobile Application Development\",\"Web Application Development\",\"Applied AI Engineering\",\"Workflow Automation\"],\"hasOfferCatalog\":{\"@type\":\"OfferCatalog\",\"name\":\"AWSAVYA Core Services\",\"itemListElement\":[{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"App Development\",\"description\":\"Cross-platform mobile apps built with React Native and Android Jetpack Compose with offline-first local database sync.\",\"url\":\"https://www.awsavya.in/services#app\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Web Experiences\",\"description\":\"Performant, accessible, server-rendered Next.js web applications and platforms.\",\"url\":\"https://www.awsavya.in/services#web\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Custom Software\",\"description\":\"Tailored operations dashboards, internal tools, and manufacturing ERP systems.\",\"url\":\"https://www.awsavya.in/services#software\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Applied AI\",\"description\":\"Source-grounded domain assistants, document search, and verified AI pipelines that eliminate hallucinations.\",\"url\":\"https://www.awsavya.in/services#ai\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Automation\",\"description\":\"Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.\",\"url\":\"https://www.awsavya.in/services#automation\"}}]},\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"customer service\",\"email\":\"hello@awsavya.in\",\"url\":\"https://www.awsavya.in/contact\"}}"
+    ]
+  },
+  {
+    "url": "https://www.awsavya.in/services",
+    "status": 200,
+    "final_url": "https://www.awsavya.in/services",
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "830116",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "70553",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Wed, 11 Nov 2026 15:44:02 GMT",
+      "Etag": "\"4871a70822e978e16186c5de8552ad7d\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-Matched-Path": "/services",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::mgjlg-1794411842620-9977a7c12ee2",
+      "Connection": "close"
+    },
+    "title": "Services & Capabilities — AWSAVYA",
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Full-cycle engineering. Designed for clarity."
+      },
+      {
+        "level": "h2",
+        "text": "App development ."
+      },
+      {
+        "level": "h2",
+        "text": "A direct studio partner, focused on execution."
+      },
+      {
+        "level": "h3",
+        "text": "Direct principal engagement"
+      },
+      {
+        "level": "h3",
+        "text": "Clear, milestone-based scope"
+      },
+      {
+        "level": "h3",
+        "text": "Type-safe, maintainable software"
+      },
+      {
+        "level": "h3",
+        "text": "Documented handover & IP ownership"
+      },
+      {
+        "level": "h2",
+        "text": "Structured sprints tailored to scope."
+      },
+      {
+        "level": "h3",
+        "text": "Architecture Sprint"
+      },
+      {
+        "level": "h3",
+        "text": "Focused MVP"
+      },
+      {
+        "level": "h3",
+        "text": "Larger Product"
+      },
+      {
+        "level": "h2",
+        "text": "A process that keeps you in the loop."
+      },
+      {
+        "level": "h3",
+        "text": "Understand"
+      },
+      {
+        "level": "h2",
+        "text": "Not sure which format fits your stage?"
+      }
+    ],
+    "main_text": "COMPREHENSIVE DIGITAL CAPABILITIES\nFull-cycle engineering.\nDesigned for clarity.\nFrom a focused MVP to an integrated operations platform, we combine senior design, clean architecture, and purposeful motion to solve real business challenges.\n5 CORE DISCIPLINES\nSelect any capability below to view architecture and deliverables\nExplore the interactive matrix below\n01 — 05 DISCIPLINES\n01\nApp development\n02\nWeb experiences\n03\nCustom software\n04\nApplied AI\n05\nAutomation\nCAPABILITY\n01\n/ 05\nTouch-First Cross-Platform Apps & Installable PWAs\nApp development\n.\nCross-platform mobile apps and installable PWAs built for real use.\nTHE PROBLEM WE SOLVE\nMany applications suffer from unresponsive interfaces, poor battery ergonomics, and brittle offline handling. We design and build cross-platform mobile apps using React Native, and installable progressive web apps when a web-first approach fits the product goal.\nENGINEERING HIGHLIGHTS\nCross-platform mobile apps built with React Native for native device capabilities\nInstallable progressive web apps (PWAs) when lightweight web distribution is the right fit\nOffline-aware local caching, safe-area geometry, and touch-optimised ergonomics\nRECOMMENDED TECH STACK\nReact Native\nExpo\nTypeScript\nNext.js\nTailored CSS\nDiscuss\napp development\nCAPABILITY STANDARD\nSVC_\n01\nTouch Ergonomics & Native Gestures\nEngineered with care\nINDICATIVE SPRINT DELIVERABLES\nFigma design system & interactive component library\nType-safe mobile client or PWA codebase\nStore deployment preparation & release guidance\nReact Native\niOS & Android planning\nProgressive Web Apps\nTouch ergonomics\nWHY PARTNER WITH US\nA direct studio partner,\nfocused on execution.\nWe believe technology engagements work best when communication is direct, scope is transparent, and engineering decisions are fully visible.\n0\n1\nDirect principal engagement\nWork directly with senior designers and engineers who write the code and shape the interface. No layers of nontechnical intermediaries.\n0\n2\nClear, milestone-based scope\nDefined sprint deliverables with working code and staging environments visible each week, keeping decisions transparent.\n0\n3\nType-safe, maintainable software\nClean TypeScript codebases built on modern standards so your team can comfortably maintain, scale, and extend the system.\n0\n4\nDocumented handover & IP ownership\nFull handover of project-specific code and assets governed by the project agreement, with third-party components under standard open licenses.\nINDICATIVE SPRINT TIMELINES\nStructured sprints\ntailored to scope.\nWe tailor our sprints around your stage—from early validation and prototype sprints to complete product releases.\nPHASE 01\n1–2 WEEKS\nArchitecture Sprint\nTechnical feasibility audit, interactive prototype, and execution roadmap before committing to full development.\nInteractive Figma prototype\nSystem architecture & schema design\nMilestone-based execution roadmap\nPHASE 02\n3–6 WEEKS\nFocused MVP\nProduction-ready launch of core features for mobile apps, web platforms, or bespoke operational software.\nType-safe, maintainable codebase\nAutomated CI/CD and deployment configuration\nStaging environment and launch handover\nPHASE 03\n8–12+ WEEKS\nLarger Product\nEnd-to-end product suites, multi-system integrations, or dedicated feature sprints tailored to scope.\nMulti-service API & database architecture\nDeep workflow automation & applied AI\nComprehensive handover & operational documentation\nTimelines are indicative estimates based on typical sprint velocity. The final schedule depends on scope, third-party integrations, complexity, feedback cadence, and client dependencies. Project schedules are confirmed after scoping.\nA CLEAR WAY FORWARD\nA process that\nkeeps you in the loop.\nThere are no mystery handoffs. You know what we're solving, what comes next, and why it matters.\n01\nUnderstand\n02\nShape\n03\nBuild\n04\nImprove\nPHASE\n01\n/ 04\nClarity before code.\nUnderstand\nWe get clear on the people, the core friction, constraints and measurable business goals before proposing architecture or timelines.\nCOLLABORATION CADENCE\n1-2 collaborative discovery sessions\nTYPICAL DELIVERABLES\nProblem & constraint brief\nUser flow mapping\nTechnical feasibility check\nStart at Phase 01\nTHE RIGHT SOLUTION STARTS WITH A QUESTION\nNot sure which format fits your stage?\nThat's a normal place to start. Tell us about what you're trying to achieve, and we'll recommend the leanest way to get there.\nStart a conversation",
+    "links": [
+      {
+        "text": "Skip to content",
+        "href": "#main-content"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Start a project",
+        "href": "/contact"
+      },
+      {
+        "text": "Discuss app development",
+        "href": "/contact?service=App%20development"
+      },
+      {
+        "text": "Start at Phase 01",
+        "href": "/contact"
+      },
+      {
+        "text": "Start a conversation",
+        "href": "/contact"
+      },
+      {
+        "text": "Let's talk",
+        "href": "/contact"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "hello@awsavya.in",
+        "href": "mailto:hello@awsavya.in"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy"
+      },
+      {
+        "text": "",
+        "href": "#top"
+      }
+    ],
+    "images": [],
+    "forms": [],
+    "meta": [
+      {
+        "name": "viewport",
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "name": "theme-color",
+        "content": "#f8f9fb"
+      },
+      {
+        "name": "description",
+        "content": "Explore AWSAVYA services: cross-platform mobile apps, performant Next.js web platforms, custom operations software, applied AI, and automated pipelines."
+      },
+      {
+        "name": "application-name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "keywords",
+        "content": "AWSAVYA,awsavya.in,custom software development,mobile app development agency,React Native app developers,Android Jetpack Compose,Next.js web development company,applied AI engineering,AI workflow automation,enterprise ERP software,digital product studio,full stack software engineering,offline-first mobile apps,API integration services"
+      },
+      {
+        "name": "robots",
+        "content": "index, follow"
+      },
+      {
+        "name": "googlebot",
+        "content": "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+      },
+      {
+        "name": "category",
+        "content": "technology"
+      },
+      {
+        "name": "og:title",
+        "content": "Services & Capabilities — AWSAVYA"
+      },
+      {
+        "name": "og:description",
+        "content": "Explore AWSAVYA services: cross-platform mobile apps, performant Next.js web platforms, custom operations software, applied AI, and automated pipelines."
+      },
+      {
+        "name": "og:url",
+        "content": "https://www.awsavya.in/services"
+      },
+      {
+        "name": "og:site_name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "og:locale",
+        "content": "en_US"
+      },
+      {
+        "name": "og:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "og:image:width",
+        "content": "1200"
+      },
+      {
+        "name": "og:image:height",
+        "content": "630"
+      },
+      {
+        "name": "og:image:alt",
+        "content": "Services & Capabilities — AWSAVYA"
+      },
+      {
+        "name": "og:type",
+        "content": "website"
+      },
+      {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      },
+      {
+        "name": "twitter:title",
+        "content": "Services & Capabilities — AWSAVYA"
+      },
+      {
+        "name": "twitter:description",
+        "content": "Explore AWSAVYA services: cross-platform mobile apps with React Native, high-performance Next.js websites, custom operations software, applied AI, and automated pipelines."
+      },
+      {
+        "name": "twitter:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "next-size-adjust",
+        "content": ""
+      }
+    ],
+    "canonical": [
+      "https://www.awsavya.in/services"
+    ],
+    "jsonld": [
+      "{\"@context\":\"https://schema.org\",\"@type\":[\"Organization\",\"ProfessionalService\"],\"@id\":\"https://www.awsavya.in#organization\",\"name\":\"AWSAVYA\",\"alternateName\":[\"AWSAVYA Studio\",\"awsavya.in\",\"AWSAVYA Technologies\"],\"url\":\"https://www.awsavya.in\",\"logo\":\"https://www.awsavya.in/favicon-192.png\",\"image\":\"https://www.awsavya.in/opengraph-image\",\"email\":\"hello@awsavya.in\",\"description\":\"AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows.\",\"knowsAbout\":[\"Custom Software Development\",\"Mobile App Development\",\"React Native\",\"Android Jetpack Compose\",\"Next.js Web Platforms\",\"Applied Artificial Intelligence\",\"Large Language Model Integration\",\"Workflow Automation\",\"API Integration\",\"Enterprise ERP Systems\",\"PostgreSQL\",\"Full-Stack Software Engineering\"],\"serviceType\":[\"Custom Software Development\",\"Mobile Application Development\",\"Web Application Development\",\"Applied AI Engineering\",\"Workflow Automation\"],\"hasOfferCatalog\":{\"@type\":\"OfferCatalog\",\"name\":\"AWSAVYA Core Services\",\"itemListElement\":[{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"App Development\",\"description\":\"Cross-platform mobile apps built with React Native and Android Jetpack Compose with offline-first local database sync.\",\"url\":\"https://www.awsavya.in/services#app\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Web Experiences\",\"description\":\"Performant, accessible, server-rendered Next.js web applications and platforms.\",\"url\":\"https://www.awsavya.in/services#web\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Custom Software\",\"description\":\"Tailored operations dashboards, internal tools, and manufacturing ERP systems.\",\"url\":\"https://www.awsavya.in/services#software\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Applied AI\",\"description\":\"Source-grounded domain assistants, document search, and verified AI pipelines that eliminate hallucinations.\",\"url\":\"https://www.awsavya.in/services#ai\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Automation\",\"description\":\"Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.\",\"url\":\"https://www.awsavya.in/services#automation\"}}]},\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"customer service\",\"email\":\"hello@awsavya.in\",\"url\":\"https://www.awsavya.in/contact\"}}"
+    ]
+  },
+  {
+    "url": "https://www.awsavya.in/work",
+    "status": 200,
+    "final_url": "https://www.awsavya.in/work",
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "819369",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "49458",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Wed, 11 Nov 2026 15:44:03 GMT",
+      "Etag": "\"3300cb97fee5067aeaee3e0a07db8bb8\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-Matched-Path": "/work",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::557th-1794411843180-58e512458cf9",
+      "Connection": "close"
+    },
+    "title": "Work & Case Studies — AWSAVYA",
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Digital products designed with intention and clarity."
+      },
+      {
+        "level": "h2",
+        "text": "TripSplit ."
+      },
+      {
+        "level": "h3",
+        "text": "Engineered with architectural discipline."
+      },
+      {
+        "level": "h4",
+        "text": "Performance-Minded Builds"
+      },
+      {
+        "level": "h4",
+        "text": "End-to-End Type Safety"
+      },
+      {
+        "level": "h4",
+        "text": "Ergonomics & Accessibility"
+      },
+      {
+        "level": "h4",
+        "text": "Full Code Handover"
+      },
+      {
+        "level": "h2",
+        "text": "Have an idea you want to make real?"
+      }
+    ],
+    "main_text": "PROOF OF CRAFT & ARCHITECTURAL DISCIPLINE\nDigital products designed with\nintention and clarity.\nA series of functional engineering studies demonstrating how we architect offline-first mobile apps, grounded AI pipelines, industrial ERPs, and multi-vendor platforms.\nALL FOUR STUDIES TESTABLE LIVE\nLabelled as Concept study • Zero fictional client claims\nTest interactive prototypes below\n01 — 04 SELECTED STUDIES\nCONCEPT STUDY\n01\n/ 04\nTripSplit\nMobile App · FinTech & Debt Settlement\nCONCEPT STUDY\n02\n/ 04\nBuild2Buzz\nApplied AI · Workflow Automation\nCONCEPT STUDY\n03\n/ 04\nHar Apparels\nCustom Software · Manufacturing ERP\nCONCEPT STUDY\n04\n/ 04\nQuicklyCart\nWeb Experiences · Multi-Vendor Commerce\nINTERACTIVE CONCEPT PROTOTYPE\nSAMPLE DATA\nTRIPSPLIT / OFFLINE ANDROID\nROOM DB · FIRESTORE\nGoa '26\nManali Trek\nEXPEDITION POOL (\nGoa '26\n)\n₹\n18,450\n.00\nYOUR POSITION\n+1,850\nDEBT SIMPLIFIER\nGraph Optimized\nYash → Vyom: ₹1,850\nRecord Settle\nVilla Stay\n₹8,400\n(\n46%\n)\nDining & Food\n₹5,800\n(\n31%\n)\nTransit\n₹4,250\n(\n23%\n)\nV\nVyom (Org)\n+₹1,850\nY\nYash\n-₹1,850\nD\nDevang\n₹0.00\nR\nRiddhi\n₹0.00\nRoom DB · Offline Cache\nSingle-Claim App Link\nInteract with sample controls, toggles, and filters above\nARCHITECTURE PATTERN\nOffline-First Room Caching & Graph-Based Debt Minimization\nRECOMMENDED TECH STACK\nKotlin 2.0\nJetpack Compose (M3)\nRoom Database (SQLite)\nFirebase Firestore\nCoroutines\nACCESSIBILITY & STANDARDS\nAccessible high-contrast typography, stable layout structures, and full keyboard navigation support.\nCONCEPT STUDY\n01\nMobile App · FinTech & Debt Settlement\nTripSplit\n.\nEffortless, privacy-first group expense sharing and optimal debt settlement for Android.\nTHE PROBLEM WE EXPLORED\nMost group expense apps force participants through tedious account registration and break without cellular coverage. TripSplit explores frictionless deep-link claiming, offline Room SQLite persistence, and bidirectional Firestore sync.\nARCHITECTURAL DECISIONS\nDynamic Android App Links allowing instant expedition join without mandatory credentials\nFirst-claim cryptographic link burning in Firestore to prevent invite interception\nGraph-theoretic settlement algorithm reducing n-way debts into the absolute minimum transactions\nLocal Room database cache ensuring 100% offline creation, calculation, and balance viewing\nKEY TAKEAWAY\nConsumer utility apps win on friction elimination: zero-signup joining and zero-latency offline operation.\nDiscuss a project like this\nView all capabilities\nHOW WE EVALUATE EVERY BUILD\nEngineered with architectural discipline.\nWhether building an MVP or a mission-critical platform, we hold our code to four consistent standards.\nPerformance-Minded Builds\nLean bundle sizes, responsive image delivery, server-rendered components, and snappy client interactions.\nEnd-to-End Type Safety\nStrict TypeScript from database schemas to client components, catching regressions at compile time.\nErgonomics & Accessibility\nTargeting WCAG 2.2 AA standards, touch-friendly 44px+ hit targets, clear keyboard focus indicators, and reduced-motion care.\nFull Code Handover\nClean repository structure, comprehensive documentation, and complete ownership of custom project deliverables governed by the client agreement.\nFLEXIBLE, SPRINT-BASED ENGAGEMENT\nHave an idea you want to make real?\nFrom an initial architecture sprint to a focused MVP launch, we tailor our process around your specific timeline and scope with clear milestones and direct collaboration.\nStart a conversation",
+    "links": [
+      {
+        "text": "Skip to content",
+        "href": "#main-content"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Start a project",
+        "href": "/contact"
+      },
+      {
+        "text": "Discuss a project like this",
+        "href": "/contact?service=TripSplit"
+      },
+      {
+        "text": "View all capabilities",
+        "href": "/services"
+      },
+      {
+        "text": "Start a conversation",
+        "href": "/contact"
+      },
+      {
+        "text": "Let's talk",
+        "href": "/contact"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "hello@awsavya.in",
+        "href": "mailto:hello@awsavya.in"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy"
+      },
+      {
+        "text": "",
+        "href": "#top"
+      }
+    ],
+    "images": [],
+    "forms": [],
+    "meta": [
+      {
+        "name": "viewport",
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "name": "theme-color",
+        "content": "#f8f9fb"
+      },
+      {
+        "name": "description",
+        "content": "Explore real engineering studies from AWSAVYA: TripSplit offline Android app, Build2Buzz grounded AI publisher, Har Apparels factory ERP, and QuicklyCart."
+      },
+      {
+        "name": "application-name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "keywords",
+        "content": "AWSAVYA,awsavya.in,custom software development,mobile app development agency,React Native app developers,Android Jetpack Compose,Next.js web development company,applied AI engineering,AI workflow automation,enterprise ERP software,digital product studio,full stack software engineering,offline-first mobile apps,API integration services"
+      },
+      {
+        "name": "robots",
+        "content": "index, follow"
+      },
+      {
+        "name": "googlebot",
+        "content": "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+      },
+      {
+        "name": "category",
+        "content": "technology"
+      },
+      {
+        "name": "og:title",
+        "content": "Work & Case Studies — AWSAVYA"
+      },
+      {
+        "name": "og:description",
+        "content": "Explore real engineering studies from AWSAVYA: TripSplit offline Android app, Build2Buzz grounded AI publisher, Har Apparels factory ERP, and QuicklyCart."
+      },
+      {
+        "name": "og:url",
+        "content": "https://www.awsavya.in/work"
+      },
+      {
+        "name": "og:site_name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "og:locale",
+        "content": "en_US"
+      },
+      {
+        "name": "og:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "og:image:width",
+        "content": "1200"
+      },
+      {
+        "name": "og:image:height",
+        "content": "630"
+      },
+      {
+        "name": "og:image:alt",
+        "content": "Work & Case Studies — AWSAVYA"
+      },
+      {
+        "name": "og:type",
+        "content": "website"
+      },
+      {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      },
+      {
+        "name": "twitter:title",
+        "content": "Work & Case Studies — AWSAVYA"
+      },
+      {
+        "name": "twitter:description",
+        "content": "Explore real engineering studies from AWSAVYA: TripSplit offline Android app, Build2Buzz grounded AI publisher, Har Apparels factory ERP, and QuicklyCart."
+      },
+      {
+        "name": "twitter:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "next-size-adjust",
+        "content": ""
+      }
+    ],
+    "canonical": [
+      "https://www.awsavya.in/work"
+    ],
+    "jsonld": [
+      "{\"@context\":\"https://schema.org\",\"@type\":[\"Organization\",\"ProfessionalService\"],\"@id\":\"https://www.awsavya.in#organization\",\"name\":\"AWSAVYA\",\"alternateName\":[\"AWSAVYA Studio\",\"awsavya.in\",\"AWSAVYA Technologies\"],\"url\":\"https://www.awsavya.in\",\"logo\":\"https://www.awsavya.in/favicon-192.png\",\"image\":\"https://www.awsavya.in/opengraph-image\",\"email\":\"hello@awsavya.in\",\"description\":\"AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows.\",\"knowsAbout\":[\"Custom Software Development\",\"Mobile App Development\",\"React Native\",\"Android Jetpack Compose\",\"Next.js Web Platforms\",\"Applied Artificial Intelligence\",\"Large Language Model Integration\",\"Workflow Automation\",\"API Integration\",\"Enterprise ERP Systems\",\"PostgreSQL\",\"Full-Stack Software Engineering\"],\"serviceType\":[\"Custom Software Development\",\"Mobile Application Development\",\"Web Application Development\",\"Applied AI Engineering\",\"Workflow Automation\"],\"hasOfferCatalog\":{\"@type\":\"OfferCatalog\",\"name\":\"AWSAVYA Core Services\",\"itemListElement\":[{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"App Development\",\"description\":\"Cross-platform mobile apps built with React Native and Android Jetpack Compose with offline-first local database sync.\",\"url\":\"https://www.awsavya.in/services#app\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Web Experiences\",\"description\":\"Performant, accessible, server-rendered Next.js web applications and platforms.\",\"url\":\"https://www.awsavya.in/services#web\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Custom Software\",\"description\":\"Tailored operations dashboards, internal tools, and manufacturing ERP systems.\",\"url\":\"https://www.awsavya.in/services#software\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Applied AI\",\"description\":\"Source-grounded domain assistants, document search, and verified AI pipelines that eliminate hallucinations.\",\"url\":\"https://www.awsavya.in/services#ai\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Automation\",\"description\":\"Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.\",\"url\":\"https://www.awsavya.in/services#automation\"}}]},\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"customer service\",\"email\":\"hello@awsavya.in\",\"url\":\"https://www.awsavya.in/contact\"}}"
+    ]
+  },
+  {
+    "url": "https://www.awsavya.in/about",
+    "status": 200,
+    "final_url": "https://www.awsavya.in/about",
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "867655",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "54148",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Wed, 11 Nov 2026 15:44:04 GMT",
+      "Etag": "\"087582860547da10c34bc5142feb9165\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-Matched-Path": "/about",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::4rbn8-1794411843720-0e93e851ec21",
+      "Connection": "close"
+    },
+    "title": "About — AWSAVYA",
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Technology should make things better."
+      },
+      {
+        "level": "h2",
+        "text": "A name built from the things we want to make possible."
+      },
+      {
+        "level": "h3",
+        "text": "Apps"
+      },
+      {
+        "level": "h2",
+        "text": "Thoughtful by design. Useful by nature."
+      },
+      {
+        "level": "h3",
+        "text": "Start with the why"
+      },
+      {
+        "level": "h3",
+        "text": "Clarity over complexity"
+      },
+      {
+        "level": "h3",
+        "text": "Build with care"
+      },
+      {
+        "level": "h3",
+        "text": "Keep improving"
+      },
+      {
+        "level": "h2",
+        "text": "Let's build something that earns its place."
+      }
+    ],
+    "main_text": "A LITTLE ABOUT AWSAVYA\nTechnology should\nmake things\nbetter.\nWe bring apps, web, software, AI and automation together around one simple idea: technology should make meaningful work easier to do.\nMeet us through a project\nOUR PRINCIPLES & VALUES\nBUILT WITH INTENTION\nTHE ANATOMY\nAWSAVYA\n.\nSeven letters. One connected ambition.\nA name built from the things we want to make possible.\nAWSAVYA brings together our focus areas:\nA\npps,\nW\neb,\nS\noftware,\nA\nI and\nA\nutomation, with\nV\nand\nY\nrepresenting the founders Vivek & Yash.\nDigital work rarely lives in a single box. A thoughtful website may connect to custom software. An app may be made more useful by AI. Automation may give a team hours back. The pieces should work together seamlessly.\nA\nApps\nW\nWeb\nS\nSoftware\nA\nAI\nV & Y\nFounders\nA\nAutomation\nApps\nTouch-First Product Engineering\nCross-platform mobile apps built with React Native and installable progressive web apps designed with fluid gestures and offline tolerance.\nDISCIPLINES & PRACTICES\nReact Native\niOS & Android\nInstallable PWAs\nTouch Ergonomics\nProduct-minded\nDetail-led\nPractical by design\nWHAT GUIDES US\nThoughtful by design.\nUseful by nature.\nThese principles shape the choices we make, from the first conversation to the details of the final experience.\n0\n1\nStart with the why\nA tool is only useful when it solves the right problem. We make space for the questions before jumping into the build.\nDefine the problem space first\n0\n2\nClarity over complexity\nThe best solution is not always the most complicated one. We prefer clear experiences, sensible technology and deliberate choices.\nSensible architecture, zero bloat\n0\n3\nBuild with care\nPerformance, accessibility, privacy and maintainability belong in the plan from the beginning, not as last-minute fixes.\nAccessible & production-grade\n0\n4\nKeep improving\nA launch is a milestone, not the finish line. We look for practical ways to learn, refine and make the product more useful.\nIterative telemetry & refinement\nA\n.\nTHE WORK AHEAD\nLet's build something that earns its place.\nTell us what you want to improve, create or rethink. We'll start with the problem and work toward a useful next step.\nStart a conversation",
+    "links": [
+      {
+        "text": "Skip to content",
+        "href": "#main-content"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Start a project",
+        "href": "/contact"
+      },
+      {
+        "text": "Meet us through a project",
+        "href": "/contact"
+      },
+      {
+        "text": "Start a conversation",
+        "href": "/contact"
+      },
+      {
+        "text": "Let's talk",
+        "href": "/contact"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "hello@awsavya.in",
+        "href": "mailto:hello@awsavya.in"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy"
+      },
+      {
+        "text": "",
+        "href": "#top"
+      }
+    ],
+    "images": [],
+    "forms": [],
+    "meta": [
+      {
+        "name": "viewport",
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "name": "theme-color",
+        "content": "#f8f9fb"
+      },
+      {
+        "name": "description",
+        "content": "Learn about AWSAVYA's engineering approach: bringing Apps, Web, Software, AI, and Automation together with clarity and intention."
+      },
+      {
+        "name": "application-name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "keywords",
+        "content": "AWSAVYA,awsavya.in,custom software development,mobile app development agency,React Native app developers,Android Jetpack Compose,Next.js web development company,applied AI engineering,AI workflow automation,enterprise ERP software,digital product studio,full stack software engineering,offline-first mobile apps,API integration services"
+      },
+      {
+        "name": "robots",
+        "content": "index, follow"
+      },
+      {
+        "name": "googlebot",
+        "content": "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+      },
+      {
+        "name": "category",
+        "content": "technology"
+      },
+      {
+        "name": "og:title",
+        "content": "About — AWSAVYA"
+      },
+      {
+        "name": "og:description",
+        "content": "Learn about AWSAVYA's engineering approach: bringing Apps, Web, Software, AI, and Automation together with clarity and intention."
+      },
+      {
+        "name": "og:url",
+        "content": "https://www.awsavya.in/about"
+      },
+      {
+        "name": "og:site_name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "og:locale",
+        "content": "en_US"
+      },
+      {
+        "name": "og:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "og:image:width",
+        "content": "1200"
+      },
+      {
+        "name": "og:image:height",
+        "content": "630"
+      },
+      {
+        "name": "og:image:alt",
+        "content": "About — AWSAVYA"
+      },
+      {
+        "name": "og:type",
+        "content": "website"
+      },
+      {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      },
+      {
+        "name": "twitter:title",
+        "content": "About — AWSAVYA"
+      },
+      {
+        "name": "twitter:description",
+        "content": "Learn about AWSAVYA's engineering approach: bringing Apps, Web, Software, AI, and Automation together with clarity and intention."
+      },
+      {
+        "name": "twitter:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "next-size-adjust",
+        "content": ""
+      }
+    ],
+    "canonical": [
+      "https://www.awsavya.in/about"
+    ],
+    "jsonld": [
+      "{\"@context\":\"https://schema.org\",\"@type\":[\"Organization\",\"ProfessionalService\"],\"@id\":\"https://www.awsavya.in#organization\",\"name\":\"AWSAVYA\",\"alternateName\":[\"AWSAVYA Studio\",\"awsavya.in\",\"AWSAVYA Technologies\"],\"url\":\"https://www.awsavya.in\",\"logo\":\"https://www.awsavya.in/favicon-192.png\",\"image\":\"https://www.awsavya.in/opengraph-image\",\"email\":\"hello@awsavya.in\",\"description\":\"AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows.\",\"knowsAbout\":[\"Custom Software Development\",\"Mobile App Development\",\"React Native\",\"Android Jetpack Compose\",\"Next.js Web Platforms\",\"Applied Artificial Intelligence\",\"Large Language Model Integration\",\"Workflow Automation\",\"API Integration\",\"Enterprise ERP Systems\",\"PostgreSQL\",\"Full-Stack Software Engineering\"],\"serviceType\":[\"Custom Software Development\",\"Mobile Application Development\",\"Web Application Development\",\"Applied AI Engineering\",\"Workflow Automation\"],\"hasOfferCatalog\":{\"@type\":\"OfferCatalog\",\"name\":\"AWSAVYA Core Services\",\"itemListElement\":[{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"App Development\",\"description\":\"Cross-platform mobile apps built with React Native and Android Jetpack Compose with offline-first local database sync.\",\"url\":\"https://www.awsavya.in/services#app\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Web Experiences\",\"description\":\"Performant, accessible, server-rendered Next.js web applications and platforms.\",\"url\":\"https://www.awsavya.in/services#web\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Custom Software\",\"description\":\"Tailored operations dashboards, internal tools, and manufacturing ERP systems.\",\"url\":\"https://www.awsavya.in/services#software\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Applied AI\",\"description\":\"Source-grounded domain assistants, document search, and verified AI pipelines that eliminate hallucinations.\",\"url\":\"https://www.awsavya.in/services#ai\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Automation\",\"description\":\"Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.\",\"url\":\"https://www.awsavya.in/services#automation\"}}]},\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"customer service\",\"email\":\"hello@awsavya.in\",\"url\":\"https://www.awsavya.in/contact\"}}"
+    ]
+  },
+  {
+    "url": "https://www.awsavya.in/contact",
+    "status": 200,
+    "final_url": "https://www.awsavya.in/contact",
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "880191",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "42969",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Wed, 11 Nov 2026 15:44:04 GMT",
+      "Etag": "\"d9b361270ea84716e927e4ac50698cd1\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-Matched-Path": "/contact",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::2mpwr-1794411844240-dec9d91bbdaa",
+      "Connection": "close"
+    },
+    "title": "Contact — AWSAVYA",
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Tell us what you're thinking."
+      },
+      {
+        "level": "h2",
+        "text": "Good work starts with a good conversation."
+      },
+      {
+        "level": "h2",
+        "text": "Tell us a little about your idea."
+      },
+      {
+        "level": "h3",
+        "text": "Answers to common questions."
+      }
+    ],
+    "main_text": "LET'S TALK ABOUT WHAT'S NEXT\nTell us what\nyou're\nthinking.\nIt can be a clear brief, a rough idea or a frustrating process that needs a better way. We'll meet you where you are.\nA few details are enough to start.\nDIRECT COLLABORATION\nGood work starts with a good conversation.\nShare a little context and we'll follow up to understand the goal, the constraints and what a useful next step might look like.\nTell us the context\nWhat you're trying to change, build or automate.\nWe get specific\nScope, architecture, milestones and timelines.\nNo pressure to have it all figured out\nIt's okay to start with raw questions.\nPlease don't include passwords, private API keys or sensitive personal credentials in your initial message.\nPROJECT ENQUIRY\nTell us a little\nabout your idea.\nChoose your focus area and share a few details to get the conversation started.\nWhat do you need help with?\n*\nSelect an option\nApp development\nWeb development\nCustom software\nApplied AI\nAutomation\nNot sure yet\nChoose a service\nApp development\nWeb development\nCustom software\nApplied AI\nAutomation\nNot sure yet\nYour name\n*\nWork email\n*\nCompany / Project\nOPTIONAL\nIndicative format\nOPTIONAL\nChoose an indicative format\nFlexible / Let's discuss\nArchitecture Sprint (1–2 weeks)\nFocused MVP (3–6 weeks)\nLarger Product (8–12+ weeks)\nTell us about the project\n*\n0\n/ 5000\nBy submitting, you agree that AWSAVYA may contact you regarding this enquiry. See our\nPrivacy Policy\n.\nSend enquiry\nFREQUENTLY ASKED QUESTIONS\nAnswers to common questions.\nWhat is your typical project timeline?\nOur indicative timelines typically follow three sprint formats: approximately 1–2 weeks for an architecture & prototype sprint, approximately 3–6 weeks for a focused MVP release, and approximately 8–12 weeks or longer for larger product suites. Because every system is different, the final schedule depends on scope, integrations, and feedback cadence, and is confirmed during scoping.\nHow do you handle scope and milestones?\nCan you collaborate with our existing team or codebase?\nWho owns the code and intellectual property?",
+    "links": [
+      {
+        "text": "Skip to content",
+        "href": "#main-content"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Start a project",
+        "href": "/contact"
+      },
+      {
+        "text": "Privacy Policy",
+        "href": "/privacy"
+      },
+      {
+        "text": "Let's talk",
+        "href": "/contact"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "hello@awsavya.in",
+        "href": "mailto:hello@awsavya.in"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy"
+      },
+      {
+        "text": "",
+        "href": "#top"
+      }
+    ],
+    "images": [],
+    "forms": [
+      {
+        "action": null,
+        "method": null,
+        "fields": [
+          {
+            "tag": "input",
+            "name": "botcheck",
+            "type": "text",
+            "required": false,
+            "label": null,
+            "placeholder": null
+          },
+          {
+            "tag": "button",
+            "name": null,
+            "type": "button",
+            "required": false,
+            "label": null,
+            "placeholder": null
+          },
+          {
+            "tag": "button",
+            "name": null,
+            "type": "button",
+            "required": false,
+            "label": null,
+            "placeholder": null
+          },
+          {
+            "tag": "button",
+            "name": null,
+            "type": "button",
+            "required": false,
+            "label": null,
+            "placeholder": null
+          },
+          {
+            "tag": "button",
+            "name": null,
+            "type": "button",
+            "required": false,
+            "label": null,
+            "placeholder": null
+          },
+          {
+            "tag": "button",
+            "name": null,
+            "type": "button",
+            "required": false,
+            "label": null,
+            "placeholder": null
+          },
+          {
+            "tag": "button",
+            "name": null,
+            "type": "button",
+            "required": false,
+            "label": null,
+            "placeholder": null
+          },
+          {
+            "tag": "select",
+            "name": "service",
+            "type": null,
+            "required": true,
+            "label": null,
+            "placeholder": null
+          },
+          {
+            "tag": "input",
+            "name": "name",
+            "type": null,
+            "required": true,
+            "label": null,
+            "placeholder": "Jane Smith"
+          },
+          {
+            "tag": "input",
+            "name": "email",
+            "type": "email",
+            "required": true,
+            "label": null,
+            "placeholder": "jane@company.com"
+          },
+          {
+            "tag": "input",
+            "name": "company",
+            "type": null,
+            "required": false,
+            "label": null,
+            "placeholder": "Your team or brand"
+          },
+          {
+            "tag": "select",
+            "name": "budget",
+            "type": null,
+            "required": false,
+            "label": null,
+            "placeholder": null
+          },
+          {
+            "tag": "textarea",
+            "name": "message",
+            "type": null,
+            "required": true,
+            "label": null,
+            "placeholder": "What challenge are you looking to solve? What is your target timeline or desired outcome?"
+          },
+          {
+            "tag": "button",
+            "name": null,
+            "type": "submit",
+            "required": false,
+            "label": null,
+            "placeholder": null
+          }
+        ]
+      }
+    ],
+    "meta": [
+      {
+        "name": "viewport",
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "name": "theme-color",
+        "content": "#f8f9fb"
+      },
+      {
+        "name": "description",
+        "content": "Start a conversation with AWSAVYA about your mobile app, website, custom software, applied AI, or automation project. Direct founder-led scoping."
+      },
+      {
+        "name": "application-name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "keywords",
+        "content": "AWSAVYA,awsavya.in,custom software development,mobile app development agency,React Native app developers,Android Jetpack Compose,Next.js web development company,applied AI engineering,AI workflow automation,enterprise ERP software,digital product studio,full stack software engineering,offline-first mobile apps,API integration services"
+      },
+      {
+        "name": "robots",
+        "content": "index, follow"
+      },
+      {
+        "name": "googlebot",
+        "content": "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+      },
+      {
+        "name": "category",
+        "content": "technology"
+      },
+      {
+        "name": "og:title",
+        "content": "Contact — AWSAVYA"
+      },
+      {
+        "name": "og:description",
+        "content": "Start a conversation with AWSAVYA about your mobile app, website, custom software, applied AI, or automation project. Direct founder-led scoping."
+      },
+      {
+        "name": "og:url",
+        "content": "https://www.awsavya.in/contact"
+      },
+      {
+        "name": "og:site_name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "og:locale",
+        "content": "en_US"
+      },
+      {
+        "name": "og:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "og:image:width",
+        "content": "1200"
+      },
+      {
+        "name": "og:image:height",
+        "content": "630"
+      },
+      {
+        "name": "og:image:alt",
+        "content": "Contact — AWSAVYA"
+      },
+      {
+        "name": "og:type",
+        "content": "website"
+      },
+      {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      },
+      {
+        "name": "twitter:title",
+        "content": "Contact — AWSAVYA"
+      },
+      {
+        "name": "twitter:description",
+        "content": "Start a conversation with AWSAVYA about your mobile app, website, custom software, applied AI, or automation project."
+      },
+      {
+        "name": "twitter:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "next-size-adjust",
+        "content": ""
+      }
+    ],
+    "canonical": [
+      "https://www.awsavya.in/contact"
+    ],
+    "jsonld": [
+      "{\"@context\":\"https://schema.org\",\"@type\":[\"Organization\",\"ProfessionalService\"],\"@id\":\"https://www.awsavya.in#organization\",\"name\":\"AWSAVYA\",\"alternateName\":[\"AWSAVYA Studio\",\"awsavya.in\",\"AWSAVYA Technologies\"],\"url\":\"https://www.awsavya.in\",\"logo\":\"https://www.awsavya.in/favicon-192.png\",\"image\":\"https://www.awsavya.in/opengraph-image\",\"email\":\"hello@awsavya.in\",\"description\":\"AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows.\",\"knowsAbout\":[\"Custom Software Development\",\"Mobile App Development\",\"React Native\",\"Android Jetpack Compose\",\"Next.js Web Platforms\",\"Applied Artificial Intelligence\",\"Large Language Model Integration\",\"Workflow Automation\",\"API Integration\",\"Enterprise ERP Systems\",\"PostgreSQL\",\"Full-Stack Software Engineering\"],\"serviceType\":[\"Custom Software Development\",\"Mobile Application Development\",\"Web Application Development\",\"Applied AI Engineering\",\"Workflow Automation\"],\"hasOfferCatalog\":{\"@type\":\"OfferCatalog\",\"name\":\"AWSAVYA Core Services\",\"itemListElement\":[{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"App Development\",\"description\":\"Cross-platform mobile apps built with React Native and Android Jetpack Compose with offline-first local database sync.\",\"url\":\"https://www.awsavya.in/services#app\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Web Experiences\",\"description\":\"Performant, accessible, server-rendered Next.js web applications and platforms.\",\"url\":\"https://www.awsavya.in/services#web\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Custom Software\",\"description\":\"Tailored operations dashboards, internal tools, and manufacturing ERP systems.\",\"url\":\"https://www.awsavya.in/services#software\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Applied AI\",\"description\":\"Source-grounded domain assistants, document search, and verified AI pipelines that eliminate hallucinations.\",\"url\":\"https://www.awsavya.in/services#ai\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Automation\",\"description\":\"Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.\",\"url\":\"https://www.awsavya.in/services#automation\"}}]},\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"customer service\",\"email\":\"hello@awsavya.in\",\"url\":\"https://www.awsavya.in/contact\"}}"
+    ]
+  },
+  {
+    "url": "https://www.awsavya.in/privacy",
+    "status": 200,
+    "final_url": "https://www.awsavya.in/privacy",
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "951419",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline",
+      "Content-Length": "48463",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Wed, 11 Nov 2026 15:44:04 GMT",
+      "Etag": "\"7b2f90b536e174e3b8203ace8227520f\"",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-Matched-Path": "/privacy",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "bom1::7twjf-1794411844691-c83c583cffb9",
+      "Connection": "close"
+    },
+    "title": "Privacy Policy — AWSAVYA",
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Privacy notice. Clear and straightforward."
+      },
+      {
+        "level": "h2",
+        "text": "Overview"
+      },
+      {
+        "level": "h2",
+        "text": "Information We Collect"
+      },
+      {
+        "level": "h2",
+        "text": "How Information Is Used"
+      },
+      {
+        "level": "h2",
+        "text": "Cookies & Technical Logging"
+      },
+      {
+        "level": "h2",
+        "text": "Form Delivery & Encryption"
+      },
+      {
+        "level": "h2",
+        "text": "Data Retention & Your Choices"
+      },
+      {
+        "level": "h4",
+        "text": "Access"
+      },
+      {
+        "level": "h4",
+        "text": "Correction"
+      },
+      {
+        "level": "h4",
+        "text": "Deletion"
+      },
+      {
+        "level": "h4",
+        "text": "Communication Pause"
+      },
+      {
+        "level": "h2",
+        "text": "Privacy Contact"
+      }
+    ],
+    "main_text": "TRANSPARENT & MINIMAL\nPrivacy notice.\nClear and straightforward.\nWe practice intentional data minimization. We only collect the information necessary to understand your project and respond to your enquiry.\nLAST UPDATED: OCTOBER 2026\nTRANSPARENT PRACTICES\nTABLE OF CONTENTS\n1. Overview\n2. Information We Collect\n3. How Information Is Used\n4. Cookies & Analytics\n5. Email Delivery & Security\n6. Retention & Your Choices\n7. Privacy Contact\nWe never sell or broker your contact details.\n01\nOverview\nAWSAVYA operates this website as an architectural showcase and project enquiry channel. Our approach is grounded in simplicity:\nNo advertising trackers or cross-site behavioral pixels\nNo data brokering, renting, or automated user profiling\nStrict purpose limitation: responding to your project enquiry\nRight to request correction or removal of your details anytime\n02\nInformation We Collect\nWe only receive personal details that you voluntarily submit through our contact form or send directly by email:\nYour name:\nTo address you in direct conversation.\nWork email address:\nTo reply to your project enquiry.\nCompany or organization name (optional):\nTo understand your business context.\nProject details and requirements:\nTo evaluate scope, technical architecture, and timelines.\nWe do not collect sensitive categories of data such as payment card details, government identification, or precise location coordinates.\n03\nHow Information Is Used\nYour details are used solely for genuine communication regarding the enquiry or project you initiated:\nTo review technical requirements and provide indicative architecture, milestones, or estimates.\nTo send follow-up correspondence directly related to your project conversation.\nWe do not add your contact information to unprompted marketing newsletters without explicit consent.\n04\nCookies & Technical Logging\nThis website does not embed third-party advertising cookies, cross-site analytics trackers, or social tracking pixels.\nLike most web services, our hosting provider may generate standard technical access logs (including request method, timestamp, user agent, and IP address) for basic operational security, DDoS mitigation, and diagnostic rate-limiting.\n05\nForm Delivery & Encryption\nForm submissions are transmitted to our server endpoints over encrypted connections (HTTPS).\nWhen form delivery is active, messages are routed server-side through our form-delivery processor (Web3Forms) directly to our studio inbox. Server-side secrets and access keys are never exposed in client bundles.\n06\nData Retention & Your Choices\nWe keep enquiry correspondence only as long as needed to discuss your project or maintain an active business relationship. If an enquiry does not lead to an engagement, correspondence is kept only as long as needed to respond.\nAccess\nYou may request a copy of the communication records associated with your email address.\nCorrection\nYou may request updates or corrections to any outdated or inaccurate details.\nDeletion\nYou may request that your contact details and message history be permanently deleted.\nCommunication Pause\nYou may ask us to discontinue project correspondence at any time.\n07\nPrivacy Contact\nIf you have questions about our data practices or wish to request the deletion of your contact records, please reach out to us:\nAWSAVYA Contact\nEmail:\nhello@awsavya.in\nReturn to homepage",
+    "links": [
+      {
+        "text": "Skip to content",
+        "href": "#main-content"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Start a project",
+        "href": "/contact"
+      },
+      {
+        "text": "1. Overview",
+        "href": "#summary"
+      },
+      {
+        "text": "2. Information We Collect",
+        "href": "#collection"
+      },
+      {
+        "text": "3. How Information Is Used",
+        "href": "#usage"
+      },
+      {
+        "text": "4. Cookies & Analytics",
+        "href": "#tracking"
+      },
+      {
+        "text": "5. Email Delivery & Security",
+        "href": "#delivery"
+      },
+      {
+        "text": "6. Retention & Your Choices",
+        "href": "#retention"
+      },
+      {
+        "text": "7. Privacy Contact",
+        "href": "#contact"
+      },
+      {
+        "text": "hello@awsavya.in",
+        "href": "mailto:hello@awsavya.in"
+      },
+      {
+        "text": "Return to homepage",
+        "href": "/"
+      },
+      {
+        "text": "Let's talk",
+        "href": "/contact"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "hello@awsavya.in",
+        "href": "mailto:hello@awsavya.in"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy"
+      },
+      {
+        "text": "",
+        "href": "#top"
+      }
+    ],
+    "images": [],
+    "forms": [],
+    "meta": [
+      {
+        "name": "viewport",
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "name": "theme-color",
+        "content": "#f8f9fb"
+      },
+      {
+        "name": "description",
+        "content": "Learn about AWSAVYA's data practices, minimal contact data collection, and commitment to transparency."
+      },
+      {
+        "name": "application-name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "keywords",
+        "content": "AWSAVYA,awsavya.in,custom software development,mobile app development agency,React Native app developers,Android Jetpack Compose,Next.js web development company,applied AI engineering,AI workflow automation,enterprise ERP software,digital product studio,full stack software engineering,offline-first mobile apps,API integration services"
+      },
+      {
+        "name": "robots",
+        "content": "index, follow"
+      },
+      {
+        "name": "googlebot",
+        "content": "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+      },
+      {
+        "name": "category",
+        "content": "technology"
+      },
+      {
+        "name": "og:title",
+        "content": "Privacy Policy — AWSAVYA"
+      },
+      {
+        "name": "og:description",
+        "content": "Learn about AWSAVYA's data practices, minimal contact data collection, and commitment to transparency."
+      },
+      {
+        "name": "og:url",
+        "content": "https://www.awsavya.in/privacy"
+      },
+      {
+        "name": "og:site_name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "og:locale",
+        "content": "en_US"
+      },
+      {
+        "name": "og:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "og:image:width",
+        "content": "1200"
+      },
+      {
+        "name": "og:image:height",
+        "content": "630"
+      },
+      {
+        "name": "og:image:alt",
+        "content": "Privacy Policy — AWSAVYA"
+      },
+      {
+        "name": "og:type",
+        "content": "website"
+      },
+      {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      },
+      {
+        "name": "twitter:title",
+        "content": "Privacy Policy — AWSAVYA"
+      },
+      {
+        "name": "twitter:description",
+        "content": "Learn about AWSAVYA's data practices, minimal contact data collection, and commitment to transparency."
+      },
+      {
+        "name": "twitter:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "next-size-adjust",
+        "content": ""
+      }
+    ],
+    "canonical": [
+      "https://www.awsavya.in/privacy"
+    ],
+    "jsonld": [
+      "{\"@context\":\"https://schema.org\",\"@type\":[\"Organization\",\"ProfessionalService\"],\"@id\":\"https://www.awsavya.in#organization\",\"name\":\"AWSAVYA\",\"alternateName\":[\"AWSAVYA Studio\",\"awsavya.in\",\"AWSAVYA Technologies\"],\"url\":\"https://www.awsavya.in\",\"logo\":\"https://www.awsavya.in/favicon-192.png\",\"image\":\"https://www.awsavya.in/opengraph-image\",\"email\":\"hello@awsavya.in\",\"description\":\"AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows.\",\"knowsAbout\":[\"Custom Software Development\",\"Mobile App Development\",\"React Native\",\"Android Jetpack Compose\",\"Next.js Web Platforms\",\"Applied Artificial Intelligence\",\"Large Language Model Integration\",\"Workflow Automation\",\"API Integration\",\"Enterprise ERP Systems\",\"PostgreSQL\",\"Full-Stack Software Engineering\"],\"serviceType\":[\"Custom Software Development\",\"Mobile Application Development\",\"Web Application Development\",\"Applied AI Engineering\",\"Workflow Automation\"],\"hasOfferCatalog\":{\"@type\":\"OfferCatalog\",\"name\":\"AWSAVYA Core Services\",\"itemListElement\":[{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"App Development\",\"description\":\"Cross-platform mobile apps built with React Native and Android Jetpack Compose with offline-first local database sync.\",\"url\":\"https://www.awsavya.in/services#app\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Web Experiences\",\"description\":\"Performant, accessible, server-rendered Next.js web applications and platforms.\",\"url\":\"https://www.awsavya.in/services#web\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Custom Software\",\"description\":\"Tailored operations dashboards, internal tools, and manufacturing ERP systems.\",\"url\":\"https://www.awsavya.in/services#software\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Applied AI\",\"description\":\"Source-grounded domain assistants, document search, and verified AI pipelines that eliminate hallucinations.\",\"url\":\"https://www.awsavya.in/services#ai\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Automation\",\"description\":\"Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.\",\"url\":\"https://www.awsavya.in/services#automation\"}}]},\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"customer service\",\"email\":\"hello@awsavya.in\",\"url\":\"https://www.awsavya.in/contact\"}}"
+    ]
+  },
+  {
+    "url": "https://www.awsavya.in/robots.txt",
+    "status": 200,
+    "final_url": "https://www.awsavya.in/robots.txt",
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "0",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline; filename=\"robots.txt\"",
+      "Content-Length": "84",
+      "Content-Type": "text/plain; charset=utf-8",
+      "Date": "Wed, 11 Nov 2026 15:44:05 GMT",
+      "Etag": "\"10d8856b86210fc57722a1d4dec61af2\"",
+      "Last-Modified": "Wed, 11 Nov 2026 15:44:05 GMT",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-Matched-Path": "/robots.txt",
+      "X-Vercel-Cache": "MISS",
+      "X-Vercel-Id": "bom1::mqb68-1794411845201-4bf4f321809b",
+      "Connection": "close"
+    },
+    "body": "User-Agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: https://www.awsavya.in/sitemap.xml\n"
+  },
+  {
+    "url": "https://www.awsavya.in/sitemap.xml",
+    "status": 200,
+    "final_url": "https://www.awsavya.in/sitemap.xml",
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "0",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline; filename=\"sitemap.xml\"",
+      "Content-Length": "1036",
+      "Content-Type": "application/xml",
+      "Date": "Wed, 11 Nov 2026 15:44:05 GMT",
+      "Etag": "\"ad2bdd3e6d522ec5e39a4ce0d344ee53\"",
+      "Last-Modified": "Wed, 11 Nov 2026 15:44:05 GMT",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-Matched-Path": "/sitemap.xml",
+      "X-Vercel-Cache": "MISS",
+      "X-Vercel-Id": "bom1::knzv5-1794411845671-2a912da57c3c",
+      "Connection": "close"
+    },
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<url>\n<loc>https://www.awsavya.in</loc>\n<lastmod>2026-10-31T00:00:00.000Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>1</priority>\n</url>\n<url>\n<loc>https://www.awsavya.in/services</loc>\n<lastmod>2026-10-31T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://www.awsavya.in/work</loc>\n<lastmod>2026-10-31T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://www.awsavya.in/about</loc>\n<lastmod>2026-10-31T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://www.awsavya.in/contact</loc>\n<lastmod>2026-10-31T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://www.awsavya.in/privacy</loc>\n<lastmod>2026-10-31T00:00:00.000Z</lastmod>\n<changefreq>yearly</changefreq>\n<priority>0.3</priority>\n</url>\n</urlset>\n"
+  },
+  {
+    "url": "https://www.awsavya.in/site.webmanifest",
+    "status": 200,
+    "final_url": "https://www.awsavya.in/site.webmanifest",
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "0",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline; filename=\"site.webmanifest\"",
+      "Content-Length": "547",
+      "Content-Type": "application/manifest+json; charset=utf-8",
+      "Date": "Wed, 11 Nov 2026 15:44:06 GMT",
+      "Etag": "\"b213c319b64a80733dec0724c6df1ce6\"",
+      "Last-Modified": "Wed, 11 Nov 2026 15:44:06 GMT",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-Matched-Path": "/site.webmanifest",
+      "X-Vercel-Cache": "MISS",
+      "X-Vercel-Id": "bom1::tvxbm-1794411846090-cbc1b22a0768",
+      "Connection": "close"
+    },
+    "body": "{\n  \"name\": \"AWSAVYA\",\n  \"short_name\": \"AWSAVYA\",\n  \"description\": \"AWSAVYA — Digital Product Studio. Apps, Web, Custom Software, Applied AI & Automation.\",\n  \"start_url\": \"/\",\n  \"display\": \"standalone\",\n  \"background_color\": \"#f8f9fb\",\n  \"theme_color\": \"#191B22\",\n  \"icons\": [\n    {\n      \"src\": \"/favicon-192.png\",\n      \"sizes\": \"192x192\",\n      \"type\": \"image/png\",\n      \"purpose\": \"any maskable\"\n    },\n    {\n      \"src\": \"/favicon-512.png\",\n      \"sizes\": \"512x512\",\n      \"type\": \"image/png\",\n      \"purpose\": \"any maskable\"\n    }\n  ]\n}\n"
+  },
+  {
+    "url": "https://www.awsavya.in/missing-page-audit-check",
+    "status": 404,
+    "final_url": "https://www.awsavya.in/missing-page-audit-check",
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Age": "0",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Disposition": "inline; filename=\"404\"",
+      "Content-Length": "25942",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Wed, 11 Nov 2026 15:44:06 GMT",
+      "Etag": "\"1650ebe1245ebba000496510b77e6501\"",
+      "Last-Modified": "Wed, 11 Nov 2026 15:44:06 GMT",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-Matched-Path": "/404",
+      "X-Vercel-Cache": "MISS",
+      "X-Vercel-Id": "bom1::vl5zp-1794411846514-44b910eacf06",
+      "Connection": "close"
+    },
+    "title": "AWSAVYA — Apps, Web, Software, AI & Automation",
+    "headings": [
+      {
+        "level": "h1",
+        "text": "This page took a wrong turn."
+      }
+    ],
+    "main_text": "ERROR 404\nThis page took\na wrong turn.\nThe page may have moved, or the address might be mistyped.\nBack home\nContact us",
+    "links": [
+      {
+        "text": "Skip to content",
+        "href": "#main-content"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Start a project",
+        "href": "/contact"
+      },
+      {
+        "text": "Back home",
+        "href": "/"
+      },
+      {
+        "text": "Contact us",
+        "href": "/contact"
+      },
+      {
+        "text": "Let's talk",
+        "href": "/contact"
+      },
+      {
+        "text": "AWSAVYA .",
+        "href": "/"
+      },
+      {
+        "text": "hello@awsavya.in",
+        "href": "mailto:hello@awsavya.in"
+      },
+      {
+        "text": "Services",
+        "href": "/services"
+      },
+      {
+        "text": "Work",
+        "href": "/work"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy"
+      },
+      {
+        "text": "",
+        "href": "#top"
+      }
+    ],
+    "images": [],
+    "forms": [],
+    "meta": [
+      {
+        "name": "viewport",
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "name": "robots",
+        "content": "noindex"
+      },
+      {
+        "name": "theme-color",
+        "content": "#f8f9fb"
+      },
+      {
+        "name": "description",
+        "content": "AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows."
+      },
+      {
+        "name": "application-name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "keywords",
+        "content": "AWSAVYA,awsavya.in,custom software development,mobile app development agency,React Native app developers,Android Jetpack Compose,Next.js web development company,applied AI engineering,AI workflow automation,enterprise ERP software,digital product studio,full stack software engineering,offline-first mobile apps,API integration services"
+      },
+      {
+        "name": "robots",
+        "content": "index, follow"
+      },
+      {
+        "name": "googlebot",
+        "content": "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+      },
+      {
+        "name": "category",
+        "content": "technology"
+      },
+      {
+        "name": "og:title",
+        "content": "AWSAVYA — Apps, Web, Software, AI & Automation"
+      },
+      {
+        "name": "og:description",
+        "content": "AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows."
+      },
+      {
+        "name": "og:url",
+        "content": "https://www.awsavya.in"
+      },
+      {
+        "name": "og:site_name",
+        "content": "AWSAVYA"
+      },
+      {
+        "name": "og:locale",
+        "content": "en_US"
+      },
+      {
+        "name": "og:image",
+        "content": "https://www.awsavya.in/opengraph-image?ff7d3db672bba956"
+      },
+      {
+        "name": "og:image:type",
+        "content": "image/png"
+      },
+      {
+        "name": "og:image:width",
+        "content": "1200"
+      },
+      {
+        "name": "og:image:height",
+        "content": "630"
+      },
+      {
+        "name": "og:image:alt",
+        "content": "AWSAVYA — Digital Product Studio"
+      },
+      {
+        "name": "og:type",
+        "content": "website"
+      },
+      {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      },
+      {
+        "name": "twitter:title",
+        "content": "AWSAVYA — Apps, Web, Software, AI & Automation"
+      },
+      {
+        "name": "twitter:description",
+        "content": "AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows."
+      },
+      {
+        "name": "twitter:image",
+        "content": "https://www.awsavya.in/opengraph-image"
+      },
+      {
+        "name": "next-size-adjust",
+        "content": ""
+      }
+    ],
+    "canonical": [
+      "https://www.awsavya.in"
+    ],
+    "jsonld": [
+      "{\"@context\":\"https://schema.org\",\"@type\":[\"Organization\",\"ProfessionalService\"],\"@id\":\"https://www.awsavya.in#organization\",\"name\":\"AWSAVYA\",\"alternateName\":[\"AWSAVYA Studio\",\"awsavya.in\",\"AWSAVYA Technologies\"],\"url\":\"https://www.awsavya.in\",\"logo\":\"https://www.awsavya.in/favicon-192.png\",\"image\":\"https://www.awsavya.in/opengraph-image\",\"email\":\"hello@awsavya.in\",\"description\":\"AWSAVYA is a digital product studio engineering custom software, cross-platform mobile apps, modern web platforms, applied AI solutions, and automated business workflows.\",\"knowsAbout\":[\"Custom Software Development\",\"Mobile App Development\",\"React Native\",\"Android Jetpack Compose\",\"Next.js Web Platforms\",\"Applied Artificial Intelligence\",\"Large Language Model Integration\",\"Workflow Automation\",\"API Integration\",\"Enterprise ERP Systems\",\"PostgreSQL\",\"Full-Stack Software Engineering\"],\"serviceType\":[\"Custom Software Development\",\"Mobile Application Development\",\"Web Application Development\",\"Applied AI Engineering\",\"Workflow Automation\"],\"hasOfferCatalog\":{\"@type\":\"OfferCatalog\",\"name\":\"AWSAVYA Core Services\",\"itemListElement\":[{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"App Development\",\"description\":\"Cross-platform mobile apps built with React Native and Android Jetpack Compose with offline-first local database sync.\",\"url\":\"https://www.awsavya.in/services#app\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Web Experiences\",\"description\":\"Performant, accessible, server-rendered Next.js web applications and platforms.\",\"url\":\"https://www.awsavya.in/services#web\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Custom Software\",\"description\":\"Tailored operations dashboards, internal tools, and manufacturing ERP systems.\",\"url\":\"https://www.awsavya.in/services#software\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Applied AI\",\"description\":\"Source-grounded domain assistants, document search, and verified AI pipelines that eliminate hallucinations.\",\"url\":\"https://www.awsavya.in/services#ai\"}},{\"@type\":\"Offer\",\"itemOffered\":{\"@type\":\"Service\",\"name\":\"Automation\",\"description\":\"Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.\",\"url\":\"https://www.awsavya.in/services#automation\"}}]},\"contactPoint\":{\"@type\":\"ContactPoint\",\"contactType\":\"customer service\",\"email\":\"hello@awsavya.in\",\"url\":\"https://www.awsavya.in/contact\"}}"
+    ]
+  }
+]

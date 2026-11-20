@@ -1,0 +1,10 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { projects } from "@/lib/site";
+import { ProjectArt } from "@/components/ProjectArt";
+import { StudyGallery } from "@/components/StudyGallery";
+type Props={params:Promise<{slug:string}>};
+export function generateStaticParams(){return projects.map(p=>({slug:p.id}));}
+export async function generateMetadata({params}:Props):Promise<Metadata>{const {slug}=await params;const p=projects.find(p=>p.id===slug);return {title:p?`${p.name} — Concept study`:"Concept study",description:p?.summary};}
+export default async function ProjectDetail({params}:Props){const {slug}=await params;const p=projects.find(p=>p.id===slug);if(!p)notFound();const next=projects[(projects.indexOf(p)+1)%projects.length];return <><section className="project-detail-hero"><div className="project-detail-head"><p className="eyebrow">Concept study / {p.number}</p><h1>{p.name}<span>.</span></h1><p>{p.summary}</p></div><ProjectArt project={p}/></section><section className="detail-content section-pad"><div className="project-facts"><div><p className="eyebrow">Status</p><strong>Concept study</strong></div><div><p className="eyebrow">Discipline</p><strong>{p.category.split(" · ")[0]}</strong></div><div><p className="eyebrow">Focus</p><strong>{p.technologies.slice(0,2).join(" / ")}</strong></div></div><div className="project-story"><div><p className="eyebrow">The challenge</p><h2>{p.challenge}</h2></div><div><p className="eyebrow">The approach</p><p>{p.approach}</p></div></div><StudyGallery project={p}/><div className="project-tech"><p className="eyebrow">Technologies explored</p><div>{p.technologies.map(t=><span key={t}>{t}</span>)}</div></div><div className="study-note">This is a concept study. It is presented to illustrate an approach, not as verified client work or a performance claim.</div></section><Link className="next-chapter" href={`/work/${next.id}`}><span>Next study / {next.number}</span><strong>{next.name}</strong><span aria-hidden="true">↗</span></Link></>}

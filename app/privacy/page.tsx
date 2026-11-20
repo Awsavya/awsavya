@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Check, Lock, Shield, Eye, Database, Trash2, Mail } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { siteConfig } from "@/lib/site";
+import AnimatedSiteLayout from "@/components/AnimatedSiteLayout";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -58,7 +59,7 @@ const breadcrumbSchema = {
 
 export default function PrivacyPage() {
   return (
-    <>
+    <AnimatedSiteLayout>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -235,6 +236,6 @@ export default function PrivacyPage() {
           </article>
         </div>
       </section>
-    </>
+    </AnimatedSiteLayout>
   );
 }

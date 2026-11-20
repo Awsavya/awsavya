@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, ArrowUp, Sparkles, Mail } from "lucide-react";
 
 export default function SiteFooter() {
@@ -21,7 +22,9 @@ export default function SiteFooter() {
             </Link>
           </div>
           <div className="footer-side">
-            <Link href="/" className="footer-brand">AWSAVYA<span>.</span></Link>
+            <Link href="/" className="footer-brand" aria-label="AWSAVYA home">
+              <Image src="/Logo.png" alt="AWSAVYA" width={180} height={180} />
+            </Link>
             <p>Digital products, custom software, AI and automated systems made with intention.</p>
             <a href="mailto:hello@awsavya.in" className="footer-email-link">
               <Mail size={13} /> hello@awsavya.in

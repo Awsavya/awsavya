@@ -37,6 +37,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/animated",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/animated/:path*",
+        destination: "/:path*",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [
           {

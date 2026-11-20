@@ -14,78 +14,7 @@ import {
 } from "lucide-react";
 import ProjectVisual from "@/components/ProjectVisual";
 import { projects } from "@/lib/site";
-
-interface StudyDetail {
-  architecturePattern: string;
-  interfaceParadigm: string;
-  problemHypothesis: string;
-  architecturalDecisions: string[];
-  techStack: string[];
-  takeaway: string;
-}
-
-const studyDetails: Record<string, StudyDetail> = {
-  tripsplit: {
-    architecturePattern: "Offline-First Room Caching & Graph-Based Debt Minimization",
-    interfaceParadigm: "Ergonomic Android Jetpack Compose with Zero-Friction App Links",
-    problemHypothesis:
-      "Most group expense apps force participants through tedious account registration and break without cellular coverage. TripSplit explores frictionless deep-link claiming, offline Room SQLite persistence, and bidirectional Firestore sync.",
-    architecturalDecisions: [
-      "Dynamic Android App Links allowing instant expedition join without mandatory credentials",
-      "First-claim cryptographic link burning in Firestore to prevent invite interception",
-      "Graph-theoretic settlement algorithm reducing n-way debts into the absolute minimum transactions",
-      "Local Room database cache ensuring 100% offline creation, calculation, and balance viewing",
-    ],
-    techStack: ["Kotlin 2.0", "Jetpack Compose (M3)", "Room Database (SQLite)", "Firebase Firestore", "Coroutines"],
-    takeaway:
-      "Consumer utility apps win on friction elimination: zero-signup joining and zero-latency offline operation.",
-  },
-  build2buzz: {
-    architecturePattern: "Evidence-Isolated LLM Ingestion & Headless Browser Telemetry",
-    interfaceParadigm: "Human-in-the-loop publisher with verifiable citation attribution",
-    problemHypothesis:
-      "Commercial AI marketing agents produce confident hallucinations because they rely purely on prompt assumptions. Build2Buzz isolates README documentation from live headless browser observations before synthesizing verified release announcements.",
-    architecturalDecisions: [
-      "SSRF-protected Playwright headless browser automation to inspect live demonstration environments",
-      "Strict separation between documented facts, observed runtime behaviors, and generated claims",
-      "Human-in-the-loop editor enforcing character caps, evidence references, and manual signoff",
-      "Direct integration with LinkedIn's official REST API with OAuth 2.0 token management",
-    ],
-    techStack: ["Python 3.12", "Playwright / Chromium", "Anthropic / OpenAI API", "LinkedIn REST API", "PySide / Qt UI"],
-    takeaway:
-      "AI reliability requires grounding in verifiable runtime evidence, not just prompt engineering.",
-  },
-  "har-apparels": {
-    architecturePattern: "Role-Segregated Industrial ERP & Shop-Floor Batch State Machine",
-    interfaceParadigm: "High-contrast, glove-friendly mobile UI designed for factory floor workers",
-    problemHypothesis:
-      "Apparel and denim manufacturing facilities lose productivity through handwritten fabric consumption sheets, lost material requisitions, and disjointed shift handoffs. Har Apparels digitizes the entire floor lifecycle from raw denim roll to finished garment.",
-    architecturalDecisions: [
-      "Role-based access separation between factory supervisors, cutting masters, and floor line workers",
-      "Denim roll consumption ledger with real-time yardage tracking and scrap-rate analytics",
-      "Batch workflow state machine tracking program stages from cutting to sewing to final QC",
-      "Shift-end reconciliation reporting delivering instant insight into daily production targets",
-    ],
-    techStack: ["Kotlin", "Android SDK", "Material Design", "Room / Local Storage", "RESTful Backend"],
-    takeaway:
-      "Industrial software succeeds when it respects factory physical realities: large touch targets, minimal taps, and instant feedback.",
-  },
-  quicklycart: {
-    architecturePattern: "Four-Role State Machine & Coordinated Marketplace Dispatch",
-    interfaceParadigm: "Responsive multi-portal commerce experience for shoppers, merchants, and riders",
-    problemHypothesis:
-      "Local multi-vendor commerce struggles with brittle order states when merchants, customers, and delivery riders operate on separate channels. QuicklyCart unifies product catalogs, checkout, vendor fulfillment, and rider dispatch into an idempotent state machine.",
-    architecturalDecisions: [
-      "Strict multi-role authorization architecture for Customers, Sellers, Delivery Riders, and Platform Admins",
-      "Idempotent order lifecycle transitions preventing double-claims or orphaned deliveries",
-      "Merchant stock management with instant availability toggles and vendor balance ledgers",
-      "Rider verification workflows paired with localized route assignment and delivery confirmation",
-    ],
-    techStack: ["Django / Python", "PostgreSQL", "Tailored CSS & JavaScript", "REST API", "Bootstrap 5"],
-    takeaway:
-      "Marketplace resilience relies on deterministic order state machines and transparent operational handoffs.",
-  },
-};
+import { projectStudies as studyDetails } from "@/lib/project-studies";
 
 export default function WorkShowcase() {
   const [activeSlug, setActiveSlug] = useState<string>("tripsplit");
