@@ -20,6 +20,6 @@ export function UniverseExplorer() {
   const [active,setActive]=useState(0);
   return <div className="universe-explorer">
     <div className="universe-map" aria-label="Explore connected capabilities">{universe.map((item,index)=><button key={item.name} className={`universe-node node-${index+1} ${active===index?"selected":""}`} type="button" onClick={()=>setActive(index)} aria-label={`Explore ${item.name}`}><span className="node-pulse" /><span>{item.name}</span></button>)}<div className="map-orbit orbit-one"/><div className="map-orbit orbit-two"/><div className="map-core">A<span>✳</span></div></div>
-    <div className="universe-readout" aria-live="polite"><span className="eyebrow">Signal 0{active+1} / 05</span><h3>{universe[active].name}</h3><p>{universe[active].detail}</p><span className="readout-line" /></div>
+    <div className="universe-readout" aria-live="polite"><div className="readout-inner" key={active}><span className="eyebrow">Signal 0{active+1} / 05</span><h3>{universe[active].name}</h3><p>{universe[active].detail}</p></div><span className="readout-line" /></div>
   </div>;
 }

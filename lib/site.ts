@@ -83,7 +83,7 @@ export const projects = [
     slug: "tripsplit",
     name: "TripSplit",
     category: "Mobile App · FinTech & Debt Settlement",
-    type: "Concept study",
+    type: "Built project",
     description: "Effortless, privacy-first group expense sharing and optimal debt settlement for Android.",
     visual: "tripsplit",
     number: "01",
@@ -96,7 +96,7 @@ export const projects = [
     slug: "build2buzz",
     name: "Build2Buzz",
     category: "Applied AI · Workflow Automation",
-    type: "Concept study",
+    type: "Built project",
     description: "Grounding AI content generation in verified repository facts and browser demo telemetry.",
     visual: "build2buzz",
     number: "02",
@@ -109,7 +109,7 @@ export const projects = [
     slug: "har-apparels",
     name: "Har Apparels",
     category: "Custom Software · Manufacturing ERP",
-    type: "Concept study",
+    type: "Built project",
     description: "Shop-floor operations and batch tracking software for a denim manufacturing plant.",
     visual: "har-apparels",
     number: "03",
@@ -122,7 +122,7 @@ export const projects = [
     slug: "quicklycart",
     name: "QuicklyCart",
     category: "Web Experiences · Multi-Vendor Commerce",
-    type: "Concept study",
+    type: "Built project",
     description: "Local commerce marketplace connecting customers, multi-vendor stores, and delivery riders.",
     visual: "quicklycart",
     number: "04",
@@ -131,6 +131,11 @@ export const projects = [
     problemExplored: "Local commerce requires strict coordination across customers, merchant stock, rider dispatch, and platform governance. QuicklyCart models state-safe checkout flows, vendor payouts, and rider route tracking in one coherent system.",
     demonstratedCapability: "Role-based permission gating, real-time order state progression, multi-vendor product catalogues, and responsive customer-to-rider delivery tracking.",
   },
+];
+
+export const founders = [
+  { name: "Vivek", role: "Co-founder", initial: "V" },
+  { name: "Yash", role: "Co-founder", initial: "Y" },
 ];
 
 export const processSteps = [

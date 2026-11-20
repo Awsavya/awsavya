@@ -146,6 +146,68 @@ function Sculpture({ motion, detail }: { motion: MutableRefObject<HeroMotionStat
   </group>;
 }
 
+// Glass objects orbit the sculpture on springs; the cursor pushes them away and they drift back.
+type PebbleShape = "sphere" | "capsule" | "torus" | "gem";
+const PEBBLES: { shape: PebbleShape; size: number; home: [number, number, number] }[] = [
+  { shape: "sphere", size: .34, home: [1.75, 1.05, .4] },
+  { shape: "capsule", size: .27, home: [2.1, -.6, -.2] },
+  { shape: "torus", size: .24, home: [.75, -1.6, .6] },
+  { shape: "gem", size: .22, home: [-.9, 1.55, .2] },
+  { shape: "sphere", size: .3, home: [-.45, -1.75, -.4] },
+  { shape: "sphere", size: .17, home: [1.45, .1, 1.15] },
+  { shape: "capsule", size: .19, home: [-1.6, -1.05, .9] },
+  { shape: "sphere", size: .4, home: [2.65, .55, -.9] },
+  { shape: "torus", size: .26, home: [.6, 1.8, -.6] },
+];
+
+function PebbleGeometry({ shape, size }: { shape: PebbleShape; size: number }) {
+  if (shape === "capsule") return <capsuleGeometry args={[size * .55, size * 1.3, 10, 28]} />;
+  if (shape === "torus") return <torusGeometry args={[size * .78, size * .32, 28, 72]} />;
+  if (shape === "gem") return <icosahedronGeometry args={[size, 0]} />;
+  return <sphereGeometry args={[size, 48, 48]} />;
+}
+
+function GlassPebbles({ motion, high }: { motion: MutableRefObject<HeroMotionState>; high: boolean }) {
+  const list = useMemo(() => PEBBLES.slice(0, high ? PEBBLES.length : 5), [high]);
+  const meshes = useRef<(THREE.Mesh | null)[]>([]);
+  const bodies = useMemo(() => list.map((pebble, index) => ({ home: new THREE.Vector3(...pebble.home), pos: new THREE.Vector3(...pebble.home), vel: new THREE.Vector3(), spin: new THREE.Vector3(.2 + index * .05, .3 - index * .03, .1) })), [list]);
+  const target = useMemo(() => new THREE.Vector3(), []);
+  const cursor = useMemo(() => new THREE.Vector3(), []);
+  const push = useMemo(() => new THREE.Vector3(), []);
+  useFrame(({ clock }, delta) => {
+    const dt = Math.min(delta, 1 / 30), t = clock.elapsedTime;
+    const { pointerX, pointerY, progress, hovering } = motion.current;
+    cursor.set(pointerX * 2.7 - .6, pointerY * 1.7, .4);
+    bodies.forEach((body, index) => {
+      const mesh = meshes.current[index];
+      if (!mesh) return;
+      const angle = t * .12 + index;
+      target.copy(body.home).applyAxisAngle(THREE.Object3D.DEFAULT_UP, Math.sin(angle) * .18).multiplyScalar(1 + progress * 1.7);
+      target.y += Math.sin(t * .8 + index * 1.7) * .08;
+      const force = target.sub(body.pos).multiplyScalar(14);
+      if (hovering) {
+        push.copy(body.pos).sub(cursor);
+        const distance = push.length();
+        if (distance < 1.35) force.add(push.normalize().multiplyScalar((1.35 - distance) * 70));
+      }
+      body.vel.addScaledVector(force, dt).multiplyScalar(Math.exp(-5 * dt));
+      body.pos.addScaledVector(body.vel, dt);
+      mesh.position.copy(body.pos);
+      mesh.rotation.x += (body.spin.x + body.vel.y * .6) * dt;
+      mesh.rotation.y += (body.spin.y + body.vel.x * .6) * dt;
+      mesh.rotation.z += body.spin.z * dt;
+    });
+  });
+  return <group position={[.6, 0, 0]}>
+    {list.map((pebble, index) => <mesh key={index} ref={node => { meshes.current[index] = node; }} position={pebble.home}>
+      <PebbleGeometry shape={pebble.shape} size={pebble.size} />
+      {high
+        ? <meshPhysicalMaterial color="#e6fbfd" transmission={1} thickness={.9} roughness={.06} ior={1.45} iridescence={1} iridescenceIOR={1.35} iridescenceThicknessRange={[120, 520]} clearcoat={1} clearcoatRoughness={.05} attenuationColor="#8fdbe6" attenuationDistance={2.4} envMapIntensity={1.4} />
+        : <meshStandardMaterial color="#cdeff3" metalness={.92} roughness={.14} envMapIntensity={1.3} />}
+    </mesh>)}
+  </group>;
+}
+
 function Scene({ motion, count }: { motion: MutableRefObject<HeroMotionState>; count: number }) {
   return <>
     <BackgroundField motion={motion} />
@@ -160,6 +222,7 @@ function Scene({ motion, count }: { motion: MutableRefObject<HeroMotionState>; c
     </Environment>
     <ParticleField motion={motion} count={count} />
     <Sculpture motion={motion} detail={count > 1000 ? 5 : 4} />
+    <GlassPebbles motion={motion} high={count > 1000} />
   </>;
 }
 

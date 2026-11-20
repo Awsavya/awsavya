@@ -6,7 +6,7 @@ A responsive multi-page website starter for AWSAVYA, a technology studio focused
 
 - `/` — homepage with animated hero, capability cards, concept portfolio, process and CTA
 - `/services` — five service detail sections
-- `/work` — concept portfolio (explicitly labelled as concept studies, not client projects)
+- `/work` — built projects by the founders (not client engagements; previews use sample data)
 - `/about` — brand story and working principles
 - `/contact` — validated project enquiry form
 - `/api/contact` — server-side email delivery endpoint using Resend
@@ -84,7 +84,7 @@ DNS changes can make an existing service unavailable. Since the site is not buil
 ## 5. Brand and content to personalise
 
 - `lib/site.ts` contains service content, portfolio concepts, process steps and base metadata.
-- The current portfolio entries are **concept studies**, not claimed client engagements. Replace them with real project case studies as your portfolio grows.
+- The current portfolio entries are the founders' own **built projects**, not claimed client engagements. Add client case studies only with permission.
 - Update the About page with actual founder biographies once you want to publish them.
 - Add a real public contact email when you have configured one; no email address is assumed in the current design.
 - The selected service and budget options are starter copy and can be changed in `components/ContactForm.tsx`.

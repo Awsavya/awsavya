@@ -4483,11 +4483,7 @@ svg { flex: 0 0 auto; }
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    scroll-behavior: auto !important;
+html[data-motion="off"] *,html[data-motion="off"] *::before,html[data-motion="off"] *::after{scroll-behavior: auto !important;
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-}
+    transition-duration: .01ms !important;}

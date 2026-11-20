@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteShell } from "@/components/SiteShell";
 import { ScrollMotion } from "@/components/ScrollMotion";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { Preloader } from "@/components/Preloader";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -14,5 +15,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}:{children:React.ReactNode}) {
-  return <html lang="en"><body><SiteShell>{children}</SiteShell><SmoothScroll /><ScrollMotion /></body></html>;
+  return <html lang="en"><body><Preloader /><SiteShell>{children}</SiteShell><SmoothScroll /><ScrollMotion /></body></html>;
 }

@@ -5,9 +5,12 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { nav, site } from "@/lib/site";
+import { applyMotionAttribute, motionOff } from "@/lib/motion";
+import { MotionToggle } from "./MotionToggle";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
+  useEffect(() => { applyMotionAttribute(); }, []);
   const pathname = usePathname();
   useEffect(() => {
     document.body.classList.toggle("menu-open", open);
@@ -21,7 +24,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
   useEffect(() => {
-    if (!open || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!open || motionOff()) return;
     const entrance = gsap.fromTo(".menu-panel-inner > a", { y: 75, opacity: 0, rotateX: -18 }, { y: 0, opacity: 1, rotateX: 0, duration: .72, stagger: .07, ease: "power3.out", delay: .16 });
     return () => { entrance.kill(); };
   }, [open]);
@@ -48,14 +51,15 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     </nav>
     <Cursor />
     <main id="main">{children}</main>
-    <footer className="site-footer"><div><Link href="/" className="footer-wordmark">AWSAVYA<span>.</span></Link><p>Curiosity, translated into digital form.</p></div><div className="footer-links">{nav.map(item => <Link href={item.href} key={item.href}>{item.label}</Link>)}</div><div className="footer-end"><a href={`mailto:${site.email}`}>{site.email}</a><span>© {new Date().getFullYear()} AWSAVYA</span></div></footer>
+    <footer className="site-footer"><div><Link href="/" className="footer-wordmark">AWSAVYA<span>.</span></Link><p>Curiosity, translated into digital form.</p></div><div className="footer-links">{nav.map(item => <Link href={item.href} key={item.href}>{item.label}</Link>)}</div><div className="footer-end"><a href={`mailto:${site.email}`}>{site.email}</a><MotionToggle /><span>© {new Date().getFullYear()} AWSAVYA</span></div><div className="footer-giant" aria-hidden="true">{"AWSAVYA".split("").map((letter, index) => <span key={index}>{letter}</span>)}</div></footer>
+    <svg className="fx-defs" aria-hidden="true" focusable="false"><filter id="awsavya-liquid" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence id="awsavya-liquid-noise" type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="2" seed="7" result="noise" /><feDisplacementMap id="awsavya-liquid-map" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" /></filter></svg>
   </>;
 }
 
 function Cursor() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (!matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)").matches) return;
+    if (motionOff() || !matchMedia("(pointer: fine)").matches) return;
     const el = ref.current;
     if (!el) return;
     document.body.classList.add("custom-cursor-ready");

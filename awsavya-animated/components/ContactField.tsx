@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motionOff } from "@/lib/motion";
 
 type Particle = { x: number; y: number; vx: number; vy: number; radius: number; phase: number };
 export function ContactField({ subtle = false }: { subtle?: boolean }) {
@@ -12,7 +13,7 @@ export function ContactField({ subtle = false }: { subtle?: boolean }) {
     if (!element || !host) return;
     const context = element.getContext("2d");
     if (!context) return;
-    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = motionOff();
     const coarse = matchMedia("(pointer: coarse)").matches;
     const count = coarse ? 85 : 230;
     const particles: Particle[] = Array.from({ length: count }, (_, i) => ({
