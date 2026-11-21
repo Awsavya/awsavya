@@ -42,7 +42,7 @@ const organization = {
   alternateName: site.alternateName,
   url: site.url,
   sameAs: site.sameAs,
-  logo: `${site.url}/favicon-512.png`, // a 512px square; Logo.png is 5016px and far heavier
+  logo: `${site.url}/favicon-512.png`, // the 512px square VY icon; the full logo files live in /brand/
   image: `${site.url}/opengraph-image`,
   email: site.email,
   description: site.description,

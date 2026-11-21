@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { cta, nav, site } from "@/lib/site";
 import { BarLink } from "./Bar";
 import { DeliverLink } from "./DeliverLink";
+import { Logo } from "./Logo";
 
 export const isCurrent = (pathname: string, href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
@@ -14,7 +15,7 @@ export function Header() {
     <header className="hdr" style={{ viewTransitionName: "site-header" }}>
       <div className="wrap hdr__wrap">
         <div className="grid7 hdr__in">
-          <DeliverLink href="/" className="hdr__mark" aria-label={`${site.name}, home`} data-text={site.name}>{site.name}</DeliverLink>
+          <DeliverLink href="/" className="hdr__mark" aria-label={`${site.name}, home`}><Logo className="hdr__logo" /></DeliverLink>
           <nav className="hdr__nav" aria-label="Main">
             <ul className="hdr__list">
               {nav.map(item => (

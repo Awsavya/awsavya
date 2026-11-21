@@ -71,6 +71,17 @@ The visitor's browser sends each brief straight to Web3Forms (`components/pages/
 - Every failure message ends with the email address, and the visitor's text is kept. The form posts with `method="post"`, so a submit before hydration never puts fields in the URL; without JavaScript the button is hidden and the email is the way in.
 - Changing the key in Vercel needs a redeploy, because the key is read at build time.
 
+## Logo
+
+The AWSAVYA logo is a pixel wordmark: each letter on a 5 x 7 grid, V and Y (Vivek and Yash) solid, the other letters grey. The grid lives in `lib/brand.ts`; the header draws it in the current text colour (`components/chrome/Logo.tsx`) and the share card draws it too. Ready-made files are in `public/brand/`:
+
+- `awsavya-logo.svg` / `.png`: for light backgrounds (transparent PNG, 2460 x 420).
+- `awsavya-logo-light.svg` / `.png`: for dark backgrounds.
+- `awsavya-icon.svg` / `.png`: white VY on a black tile (app icon, 1024 px).
+- `awsavya-mark.svg` / `.png` and `-light`: the VY mark alone, transparent.
+
+The favicons (`app/icon.png`, `app/apple-icon.png`, `public/favicon*.png`, `public/favicon.ico`) are drawn on whole pixels so they stay sharp at 16 and 32 px.
+
 ## SEO and sharing
 
 - Every page sets its own canonical URL and share text through `pageMetadata()` in `lib/meta.ts`. The base address is fixed to `https://www.awsavya.in` in `lib/site.ts` (as on the classic site), so previews and local builds still name the production address.

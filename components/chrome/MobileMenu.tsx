@@ -8,6 +8,7 @@ import { D, DRIVE, SETTLE, STAGGER, registerEases } from "@/lib/ease";
 import { motionOff } from "@/lib/motion";
 import { DeliverLink } from "./DeliverLink";
 import { isCurrent } from "./Header";
+import { Logo } from "./Logo";
 import { MotionToggle } from "./MotionToggle";
 
 const LINKS = [...nav, cta];
@@ -105,8 +106,8 @@ export function MobileMenu() {
       <div className="menu__top">
         <div className="wrap">
           <div className="grid7 menu__bar">
-            <DeliverLink href="/" className="hdr__mark" aria-label={`${site.name}, home`} data-text={site.name}
-              onClick={() => { if (pathname === "/") close(true); }}>{site.name}</DeliverLink>
+            <DeliverLink href="/" className="hdr__mark" aria-label={`${site.name}, home`}
+              onClick={() => { if (pathname === "/") close(true); }}><Logo className="hdr__logo" /></DeliverLink>
             <button ref={closeBtn} type="button" className="btn btn--line menu__close" onClick={() => close(true)}>
               <span className="btn__label" data-text="Close">Close</span>
             </button>

@@ -144,14 +144,14 @@ html[data-header-ground="stamp"] .hdr{ --hdr-bg: var(--stamp); --hdr-fg: var(--p
 .hdr__in, .menu__bar{ height: 100%; align-items: center; }
 .hdr__mark{
   grid-column: a1 / a4; justify-self: start; position: relative;
-  display: inline-flex; flex-direction: column; justify-content: center; align-items: flex-start; min-height: 44px;
-  font-size: .9375rem; font-weight: 720; --wdth: 125; letter-spacing: .02em; line-height: 1; text-decoration: none; color: inherit;
-  transition: --wdth var(--d-2) var(--ease-settle);
+  display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; color: inherit;
 }
-.hdr__mark::after{ content: attr(data-text); content: attr(data-text) / ""; --wdth: 125; height: 0; overflow: hidden; visibility: hidden; pointer-events: none; }
-@media (hover: hover){ .hdr__mark:hover{ --wdth: 62; } }
-.hdr__mark:is(:focus-visible, :active){ --wdth: 62; }
-html[data-motion="off"] .hdr__mark{ --wdth: 125 !important; }
+/* The pixel logo: 21 px tall is exactly 3 px per grid cell, so every block lands on whole pixels. */
+.hdr__logo{ display: block; height: 21px; width: auto; }
+.logo__hot{ fill: currentColor; }
+.logo__dim{ fill: currentColor; opacity: .5; transition: opacity var(--d-1) linear; }
+@media (hover: hover){ .hdr__mark:hover .logo__dim{ opacity: 1; } }
+.hdr__mark:is(:focus-visible, :active) .logo__dim{ opacity: 1; }
 
 .hdr__nav{ display: none; grid-column: a4 / y; }
 .hdr__list{ display: flex; flex-wrap: wrap; column-gap: var(--s-4); }
