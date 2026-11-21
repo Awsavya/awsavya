@@ -1,105 +1,45 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { services, site } from "@/lib/site";
 
-export const alt = "AWSAVYA — Digital Product Studio";
-export const size = {
-  width: 1200,
-  height: 630,
-};
+// The share card for every route: Paper, the wordmark in Ink, one violet stamp. Colours are the :root tokens.
+// Archivo comes from @fontsource/archivo (WOFF, which ImageResponse can read); the card is drawn at build time.
+export const alt = site.title;
+export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function Image() {
+const PAPER = "#F5F4F8", INK = "#15131C", GRAPHITE = "#57536A", RULE = "#C9C6D2", STAMP = "#672891";
+const font = (weight: number) => readFile(join(process.cwd(), `node_modules/@fontsource/archivo/files/archivo-latin-${weight}-normal.woff`));
+
+export default async function Image() {
+  const [regular, heavy] = await Promise.all([font(400), font(800)]);
   return new ImageResponse(
     (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "space-between",
-          backgroundColor: "#faf9f6",
-          padding: "80px",
-          position: "relative",
-        }}
-      >
-        {/* Top header row */}
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <div
-            style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "12px",
-              backgroundColor: "#14171a",
-              color: "#ffffff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "26px",
-              fontWeight: 700,
-            }}
-          >
-            A
-          </div>
-          <span style={{ fontSize: "28px", fontWeight: 700, letterSpacing: "-0.03em", color: "#14171a" }}>
-            AWSAVYA<span style={{ color: "#2563eb" }}>.</span>
-          </span>
-          <span
-            style={{
-              marginLeft: "16px",
-              fontSize: "13px",
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "#5e6673",
-              border: "1px solid #e6e4dc",
-              padding: "4px 12px",
-              borderRadius: "20px",
-              backgroundColor: "#ffffff",
-            }}
-          >
-            Digital Product Studio
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", backgroundColor: PAPER, padding: "64px 72px", color: INK, fontFamily: "Archivo" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 22, letterSpacing: "0.16em", textTransform: "uppercase", color: GRAPHITE }}>
+          <span>Vivek and Yash</span>
+          <span>{site.url.replace(/^https?:\/\//, "")}</span>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", position: "relative" }}>
+          <span style={{ fontSize: 204, fontWeight: 800, lineHeight: 0.9, letterSpacing: "-0.035em" }}>{site.name}</span>
+          <span style={{ position: "absolute", right: 0, bottom: -40, display: "flex", backgroundColor: STAMP, color: PAPER, fontSize: 60, fontWeight: 800, padding: "2px 22px 6px", textTransform: "uppercase" }}>
+            Settled
           </span>
         </div>
 
-        {/* Center content */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "920px" }}>
-          <h1
-            style={{
-              fontSize: "64px",
-              fontWeight: 700,
-              lineHeight: 1.12,
-              letterSpacing: "-0.03em",
-              color: "#14171a",
-              margin: 0,
-            }}
-          >
-            Technology for your next move.
-          </h1>
-          <p style={{ fontSize: "24px", color: "#5e6673", margin: 0, lineHeight: 1.4 }}>
-            Apps, Web, Custom Software, Applied AI &amp; Automation
-          </p>
-        </div>
-
-        {/* Footer row */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "100%",
-            borderTop: "1px solid #e6e4dc",
-            paddingTop: "24px",
-            color: "#88909e",
-            fontSize: "16px",
-          }}
-        >
-          <span>https://www.awsavya.in</span>
-          <span>Crafted with intention</span>
+        <div style={{ display: "flex", borderTop: `2px solid ${RULE}`, paddingTop: 24, fontSize: 24, color: GRAPHITE }}>
+          {services.map(s => s.name).join("  ·  ")}
         </div>
       </div>
     ),
     {
       ...size,
-    }
+      fonts: [
+        { name: "Archivo", data: regular, weight: 400, style: "normal" },
+        { name: "Archivo", data: heavy, weight: 800, style: "normal" },
+      ],
+    },
   );
 }

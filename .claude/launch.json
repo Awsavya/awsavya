@@ -6,12 +6,6 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 3000
-    },
-    {
-      "name": "awsavya-animated",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "awsavya-animated", "run", "dev", "--", "-p", "3001"],
-      "port": 3001
     }
   ]
 }

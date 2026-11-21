@@ -1,186 +1,77 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Archivo, Martian_Mono } from "next/font/google";
+import { founders, services, site } from "@/lib/site";
+import { HeadScript } from "@/components/chrome/HeadScript";
+import { Header } from "@/components/chrome/Header";
+import { Footer } from "@/components/chrome/Footer";
+import { MobileMenu } from "@/components/chrome/MobileMenu";
+import { GroundWatcher } from "@/components/chrome/GroundWatcher";
+import { SmoothScroll } from "@/components/chrome/SmoothScroll";
+import { ReadyFlag } from "@/components/chrome/ReadyFlag";
 import "./globals.css";
-import "./animated.css";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import MotionProvider from "@/components/MotionProvider";
-import { siteConfig } from "@/lib/site";
+import "./styles/chrome.css";
+import "./styles/home.css";
+import "./styles/work.css";
+import "./styles/pages.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
+// Archivo sets every word; hierarchy comes from its width axis. Martian Mono is for live data only.
+const archivo = Archivo({ subsets: ["latin"], style: ["normal"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
+const martian = Martian_Mono({ subsets: ["latin"], axes: ["wdth"], variable: "--font-martian", display: "swap", preload: false });
 
+// Each page sets its own canonical. The share image comes from app/opengraph-image.tsx for every route.
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.canonicalUrl),
-  alternates: {
-    canonical: "/",
-  },
-  title: {
-    default: "AWSAVYA — Apps, Web, Software, AI & Automation",
-    template: "%s — AWSAVYA",
-  },
-  description: siteConfig.description,
-  keywords: siteConfig.keywords,
-  applicationName: "AWSAVYA",
-  category: "technology",
-  icons: {
-    icon: "/Logo.png",
-    shortcut: "/Logo.png",
-    apple: "/Logo.png",
-  },
-  openGraph: {
-    type: "website",
-    url: siteConfig.canonicalUrl,
-    siteName: "AWSAVYA",
-    title: "AWSAVYA — Apps, Web, Software, AI & Automation",
-    description: siteConfig.description,
-    locale: "en_US",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "AWSAVYA — Apps, Web, Software, AI & Automation",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "AWSAVYA — Apps, Web, Software, AI & Automation",
-    description: siteConfig.description,
-    images: ["/opengraph-image"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: "%s · AWSAVYA" },
+  description: site.description,
+  applicationName: site.name,
+  openGraph: { title: site.title, description: site.description, type: "website", siteName: site.name, locale: "en_US" },
+  twitter: { card: "summary_large_image", title: site.title, description: site.description },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   manifest: "/site.webmanifest",
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#f8f9fb",
-};
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#F5F4F8" };
 
-// Verified Organization & ProfessionalService structured data
-const organizationSchema = {
+// Built only from lib/site.ts, so it never claims more than the pages do.
+const organization = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "ProfessionalService"],
-  "@id": `${siteConfig.canonicalUrl}#organization`,
-  name: "AWSAVYA",
-  alternateName: ["AWSAVYA Studio", "awsavya.in", "AWSAVYA Technologies"],
-  url: siteConfig.canonicalUrl,
-  logo: `${siteConfig.canonicalUrl}/Logo.png`,
-  image: `${siteConfig.canonicalUrl}/opengraph-image`,
-  email: siteConfig.email,
-  description: siteConfig.description,
-  knowsAbout: [
-    "Custom Software Development",
-    "Mobile App Development",
-    "React Native",
-    "Android Jetpack Compose",
-    "Next.js Web Platforms",
-    "Applied Artificial Intelligence",
-    "Large Language Model Integration",
-    "Workflow Automation",
-    "API Integration",
-    "Enterprise ERP Systems",
-    "PostgreSQL",
-    "Full-Stack Software Engineering",
-  ],
-  serviceType: [
-    "Custom Software Development",
-    "Mobile Application Development",
-    "Web Application Development",
-    "Applied AI Engineering",
-    "Workflow Automation",
-  ],
+  // Organization only: ProfessionalService is a LocalBusiness type and would need a street address we don't publish.
+  "@type": "Organization",
+  "@id": `${site.url}#organization`,
+  name: site.name,
+  url: site.url,
+  logo: `${site.url}/Logo.png`,
+  image: `${site.url}/opengraph-image`,
+  email: site.email,
+  description: site.description,
+  founder: founders.map(f => ({ "@type": "Person", name: f.name })),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "AWSAVYA Core Services",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "App Development",
-          description: "Cross-platform mobile apps built with React Native and Android Jetpack Compose with offline-first local database sync.",
-          url: `${siteConfig.canonicalUrl}/services#app`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Web Experiences",
-          description: "Performant, accessible, server-rendered Next.js web applications and platforms.",
-          url: `${siteConfig.canonicalUrl}/services#web`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Custom Software",
-          description: "Tailored operations dashboards, internal tools, and manufacturing ERP systems.",
-          url: `${siteConfig.canonicalUrl}/services#software`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Applied AI",
-          description: "Source-grounded domain assistants, document search, and verified AI pipelines that eliminate hallucinations.",
-          url: `${siteConfig.canonicalUrl}/services#ai`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Automation",
-          description: "Resilient event-driven webhook pipelines, API integrations, and repeatable business process automation.",
-          url: `${siteConfig.canonicalUrl}/services#automation`,
-        },
-      },
-    ],
+    name: "AWSAVYA services",
+    itemListElement: services.map(s => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: s.name, description: s.short, url: `${site.url}/services/${s.slug}` },
+    })),
   },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    email: siteConfig.email,
-    url: `${siteConfig.canonicalUrl}/contact`,
-  },
+  contactPoint: { "@type": "ContactPoint", contactType: "customer service", email: site.email, url: `${site.url}/contact` },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-motion="on" className={`${archivo.variable} ${martian.variable}`} suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
+        <HeadScript />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }} />
       </head>
-      <body id="top" className={`${inter.variable} ${inter.className}`}>
-        <a className="skip-link" href="#main-content">Skip to content</a>
-        <MotionProvider>
-          <SiteHeader />
-          <main id="main-content">{children}</main>
-          <SiteFooter />
-        </MotionProvider>
+      <body>
+        <a className="skip-link" href="#main">Skip to content</a>
+        <Header />
+        <main id="main">{children}</main>
+        <Footer />
+        <MobileMenu />
+        <GroundWatcher />
+        <SmoothScroll />
+        <ReadyFlag />
       </body>
     </html>
   );

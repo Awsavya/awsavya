@@ -2,199 +2,81 @@ import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-// In-memory sliding window rate-limiter for basic abuse throttling.
-// Note: In serverless environments with multiple instances, each instance maintains its own map.
-// For distributed production rate limiting at scale, an external store (e.g. Upstash Redis / Vercel KV) is recommended.
-const ipRequestWindow = new Map<string, { count: number; resetAt: number }>();
-const RATE_LIMIT_MAX = 5; // Maximum 5 requests
-const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes window
+// Kept: 16 KB cap, 5 tries per IP per 10 minutes, the website_url honeypot, the validation rules,
+// an explicit 503 when WEB3FORMS_ACCESS_KEY is missing, and Web3Forms delivery.
+// Added: an elapsed_ms check (time since the form mounted, measured on the visitor's one clock with
+// performance.now(), so a skewed device clock never matters); anything sent within 3s is rejected.
+// The limiter is per server instance. Add a distributed one before the form is promoted.
+const LIMIT = 5, WINDOW = 10 * 60 * 1000, MAX_BYTES = 16_384, MIN_FILL_MS = 3000;
+const attempts = new Map<string, { count: number; reset: number }>();
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function getClientIp(request: Request): string {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) {
-    return forwarded.split(",")[0].trim();
-  }
-  return request.headers.get("x-real-ip") || "unknown-client";
+const MSG = {
+  sent: "Sent. We'll reply from awsavya@gmail.com.",
+  unconfigured: "Not sent. Email delivery isn't set up on this site yet. Write to awsavya@gmail.com and we'll pick it up there.",
+  undelivered: "Not sent. We couldn't deliver it. Write to awsavya@gmail.com instead.",
+  limited: "Too many tries from this connection. Wait ten minutes, or write to awsavya@gmail.com.",
+  invalid: "Not sent. Please check the highlighted fields.",
+  tooLong: "Not sent. That's longer than we can take here. Write to awsavya@gmail.com instead.",
+  tooFast: "Not sent. Please take a moment and try again.",
+  blocked: "Not sent. Our spam filter stopped it.",
+} as const;
+
+type Field = "name" | "email" | "service" | "message";
+function response(message: string, status: number, fields?: Field[]) {
+  return NextResponse.json(fields ? { message, fields } : { message }, { status });
 }
-
-function checkRateLimit(ip: string): boolean {
-  if (ip === "unknown-client") return true;
-  const now = Date.now();
-  const entry = ipRequestWindow.get(ip);
-
-  if (!entry || now > entry.resetAt) {
-    ipRequestWindow.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
-    return true;
-  }
-
-  if (entry.count >= RATE_LIMIT_MAX) {
-    return false;
-  }
-
-  entry.count += 1;
-  return true;
-}
-
-// Clean up stale IP records periodically
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, entry] of ipRequestWindow.entries()) {
-    if (now > entry.resetAt) {
-      ipRequestWindow.delete(ip);
-    }
-  }
-}, 5 * 60 * 1000).unref?.();
-
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
-  // Constrain request payload size to mitigate memory exhaustion
-  const contentLength = request.headers.get("content-length");
-  if (contentLength && parseInt(contentLength, 10) > 32768) {
-    return NextResponse.json(
-      { message: "Payload too large. Please shorten your message." },
-      { status: 413 }
-    );
-  }
+  if (Number(request.headers.get("content-length") || 0) > MAX_BYTES) return response(MSG.tooLong, 413);
 
-  const clientIp = getClientIp(request);
-  if (!checkRateLimit(clientIp)) {
-    return NextResponse.json(
-      { message: "Too many enquiries sent from this network. Please wait a few minutes before trying again." },
-      { status: 429 }
-    );
-  }
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  const now = Date.now();
+  // Drop expired counts on every request, so an IP address is held only while its 10-minute window is open.
+  for (const [key, value] of attempts) if (value.reset < now) attempts.delete(key);
+  const prior = attempts.get(ip);
+  const entry = prior && prior.reset > now ? prior : { count: 0, reset: now + WINDOW };
+  if (entry.count >= LIMIT) return response(MSG.limited, 429);
+  entry.count++;
+  attempts.set(ip, entry);
 
+  // Read the body ourselves so the cap also holds when no content-length header is sent.
+  let raw: string;
+  try { raw = await request.text(); } catch { return response(MSG.invalid, 400); }
+  if (new TextEncoder().encode(raw).length > MAX_BYTES) return response(MSG.tooLong, 413);
   let body: Record<string, unknown>;
-  try {
-    body = (await request.json()) as Record<string, unknown>;
-  } catch {
-    return NextResponse.json(
-      { message: "Invalid submission data. Please check the form and try again." },
-      { status: 400 }
-    );
-  }
+  try { body = JSON.parse(raw); } catch { return response(MSG.invalid, 400); }
+  if (!body || typeof body !== "object" || Array.isArray(body)) return response(MSG.invalid, 400);
 
-  // Honeypot spam field check
-  if (body.botcheck || body.honeypot || body.website_url) {
-    // Spambot filled the hidden trap field
-    return NextResponse.json(
-      { message: "Submission flagged by spam protection." },
-      { status: 400 }
-    );
-  }
+  if (body.website_url) return response(MSG.blocked, 400);
+  const elapsed = typeof body.elapsed_ms === "number" ? body.elapsed_ms : Number.NaN;
+  if (!Number.isFinite(elapsed) || elapsed < MIN_FILL_MS) return response(MSG.tooFast, 400);
 
   const name = typeof body.name === "string" ? body.name.trim() : "";
   const email = typeof body.email === "string" ? body.email.trim() : "";
-  const company = typeof body.company === "string" ? body.company.trim() : "";
   const service = typeof body.service === "string" ? body.service.trim() : "";
-  const budget = typeof body.budget === "string" ? body.budget.trim() : "";
   const message = typeof body.message === "string" ? body.message.trim() : "";
+  const bad: Field[] = [];
+  if (name.length < 2 || name.length > 100) bad.push("name");
+  if (!emailPattern.test(email) || email.length > 254) bad.push("email");
+  if (!service || service.length > 120) bad.push("service");
+  if (message.length < 10 || message.length > 5000) bad.push("message");
+  if (bad.length) return response(MSG.invalid, 400, bad);
 
-  // Field validation
-  if (name.length < 2 || name.length > 100) {
-    return NextResponse.json(
-      { message: "Please provide a valid name between 2 and 100 characters." },
-      { status: 400 }
-    );
-  }
-
-  if (!EMAIL_REGEX.test(email) || email.length > 254) {
-    return NextResponse.json(
-      { message: "Please provide a valid email address." },
-      { status: 400 }
-    );
-  }
-
-  if (!service || service.length > 120) {
-    return NextResponse.json(
-      { message: "Please select a valid service area." },
-      { status: 400 }
-    );
-  }
-
-  if (message.length < 10 || message.length > 5000) {
-    return NextResponse.json(
-      { message: "Please describe your project in between 10 and 5,000 characters." },
-      { status: 400 }
-    );
-  }
-
-  if (company.length > 140) {
-    return NextResponse.json(
-      { message: "Company name must be under 140 characters." },
-      { status: 400 }
-    );
-  }
-
-  if (budget.length > 120) {
-    return NextResponse.json(
-      { message: "Budget selection must be under 120 characters." },
-      { status: 400 }
-    );
-  }
-
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY || "ee49443e-3566-4722-948f-7a54f4113e55";
-
-  // Unconfigured email delivery must return an explicit 503 error rather than pretending success
-  if (
-    !accessKey ||
-    accessKey === "your_web3forms_key_here"
-  ) {
-    return NextResponse.json(
-      {
-        message:
-          "The contact form is not yet connected to an active email service in deployment settings. Please configure WEB3FORMS_ACCESS_KEY. Your message has not been sent.",
-      },
-      { status: 503 }
-    );
-  }
+  const key = process.env.WEB3FORMS_ACCESS_KEY;
+  if (!key) return response(MSG.unconfigured, 503);
 
   try {
-    const response = await fetch("https://api.web3forms.com/submit", {
+    const delivery = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        access_key: accessKey,
-        subject: `AWSAVYA website enquiry — ${name} (${service})`,
-        from_name: "AWSAVYA Website",
-        replyto: email,
-        name,
-        email,
-        company: company || "Not provided",
-        service,
-        budget: budget || "Not provided",
-        message,
-        botcheck: (body.botcheck as string) || "",
-      }),
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ access_key: key, subject: `AWSAVYA enquiry — ${service}`, from_name: "AWSAVYA Website", replyto: email, name, email, service, message }),
       cache: "no-store",
     });
-
-    const data = (await response.json().catch(() => ({}))) as {
-      success?: boolean;
-      message?: string;
-    };
-
-    if (!response.ok || !data.success) {
-      console.error("Web3Forms API rejected message delivery:", response.status, data.message);
-      return NextResponse.json(
-        { message: data.message || "We couldn't deliver your enquiry right now. Please try again or email us directly at hello@awsavya.in." },
-        { status: 502 }
-      );
-    }
-
-    return NextResponse.json(
-      { message: "Thank you for reaching out. Your enquiry has been received and we will get back to you shortly." },
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error("Web3Forms delivery network exception:", error);
-    return NextResponse.json(
-      { message: "We couldn't deliver your enquiry right now. Please try again or reach out at hello@awsavya.in." },
-      { status: 502 }
-    );
+    const result = await delivery.json().catch(() => ({ success: false }));
+    if (!delivery.ok || !result.success) return response(MSG.undelivered, 502);
+    return response(MSG.sent, 200);
+  } catch {
+    return response(MSG.undelivered, 502);
   }
 }

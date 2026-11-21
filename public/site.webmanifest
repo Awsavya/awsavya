@@ -1,23 +1,13 @@
 {
   "name": "AWSAVYA",
   "short_name": "AWSAVYA",
-  "description": "AWSAVYA — Digital Product Studio. Apps, Web, Custom Software, Applied AI & Automation.",
+  "description": "Vivek and Yash design and build mobile apps, websites and web platforms, custom software, and applied AI and automation.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f8f9fb",
-  "theme_color": "#191B22",
+  "background_color": "#F5F4F8",
+  "theme_color": "#F5F4F8",
   "icons": [
-    {
-      "src": "/Logo.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/Logo.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }
