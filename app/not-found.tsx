@@ -8,7 +8,7 @@ import { notFound } from "@/lib/site";
 // Replaces the layout's "index, follow" so a missing page carries only noindex.
 export const metadata: Metadata = { title: "Page not found", description: notFound.statement, robots: { index: false, follow: true } };
 
-// One Ink screen. The letters never settle, and there is no violet anywhere (pages.css, chrome.css).
+// One Ink screen. The letters never settle, and nothing is stamped done (pages.css, chrome.css).
 export default function NotFound() {
   return (
     <Page id="404">

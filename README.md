@@ -66,7 +66,7 @@ A word missing from `POSTER_ADV` in `lib/fit.ts` falls back to a conservative es
 
 The visitor's browser sends each brief straight to Web3Forms (`components/pages/BriefForm.tsx`), which emails it to the address the access key was created for. Web3Forms' free plan refuses calls from a server (HTTP 403, "Pro plan is required"), and its access key is public by design, so there is no API route. The contact page reads `WEB3FORMS_ACCESS_KEY` when the site is built and hands it to the form. Never hard-code the key or commit a real `.env`.
 
-- Without the key the form says **Not sent** with the email address and never shows success. Success (and the one violet flood on the site) happens only when Web3Forms answers `success: true`.
+- Without the key the form says **Not sent** with the email address and never shows success. Success (and the one ink flood on the site) happens only when Web3Forms answers `success: true`.
 - Spam controls before sending: a hidden honeypot field (`hp_field`; anything in it stops the send) and a 3-second minimum time on the form, measured with `performance.now()` so a skewed device clock never blocks a real brief. Web3Forms adds its own spam filter and per-IP limit (HTTP 429 shows "Too many tries"). If spam becomes a problem, Web3Forms supports hCaptcha.
 - Every failure message ends with the email address, and the visitor's text is kept. The form posts with `method="post"`, so a submit before hydration never puts fields in the URL; without JavaScript the button is hidden and the email is the way in.
 - Changing the key in Vercel needs a redeploy, because the key is read at build time.

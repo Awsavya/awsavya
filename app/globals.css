@@ -6,7 +6,7 @@
 :root{
   --paper:#F5F4F8; --sheet:#FCFBFE; --silver:#DEDCE5; --rule:#C9C6D2; --alloy:#A9A5B5; --graphite:#57536A;
   --ink:#15131C; --ink-2:#24212E; --ink-rule:#36323F; --mist:#A19DAD;
-  --stamp:#672891; --stamp-press:#521F78; --stamp-lift:#CDA8EA; --fault:#B3261E; --fault-lift:#FF8A80;
+  --stamp:#15131C; --stamp-press:#24212E; --stamp-lift:#F5F4F8; /* no purple (owner decision): the accent is ink, off-white on dark */ --fault:#B3261E; --fault-lift:#FF8A80;
   --font-sans: var(--font-archivo), Arial, sans-serif; --font-data: var(--font-martian), ui-monospace, monospace;
   --t-display: clamp(2.25rem, 1.2rem + 3.6vw, 5rem); --t-statement: clamp(1.375rem, .95rem + 1.75vw, 2.625rem);
   --t-body: clamp(1.0625rem, 1rem + .25vw, 1.25rem); --t-small: .9375rem;

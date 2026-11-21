@@ -1,6 +1,6 @@
 # AWSAVYA project guidance for Antigravity
 
-- Keep the visual system clean, premium, white/silver, and typography-led. Violet is an accent, not a dominant color.
+- Keep the visual system clean, premium, white/silver/ink, and typography-led. No purple or violet anywhere (owner decision, November 2026): the accent is ink, or off-white on dark grounds.
 - Preserve responsive behavior and accessible keyboard focus states.
 - Animations run on every device by default (owner decision): do not gate motion on the OS `prefers-reduced-motion` setting. Gate it on the site's footer toggle instead — `motionOff()` / `useMotionOff()` from `lib/motion.ts` and the `html[data-motion="off"]` CSS selector. When motion is off, keep opacity fades and drop movement (slides, parallax, 3D, skew, pinning, smooth scroll). Animated components run their setup through `useMotionScope` from `lib/ease.ts`, which re-runs when the toggle changes.
 - The four portfolio entries (TripSplit, Build2Buzz, Har Apparels, QuicklyCart) are the founders' own **Built projects**, not client engagements; never present them as client work. Their interactive previews use sample data and must stay labelled as such. Do not invent clients, metrics, testimonials, partner logos, founder bios, or business claims.

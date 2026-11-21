@@ -7,7 +7,7 @@ import { useMotionOff } from "@/lib/motion";
 import { hashSeed, mulberry32 } from "@/lib/settle";
 
 /**
- * The violet DONE stamp: the only meaning violet has. Inactive = invisible, layout reserved.
+ * The DONE stamp: an ink bar (off-white on dark grounds) that means finished. Inactive = invisible, layout reserved.
  * The first time it becomes active (motion on): the bar draws (0.54s DRIVE), then the letters SETTLE in
  * from a jostle seeded by the word. Later activations are instant. A stamp that mounts active is static.
  * Motion Off: a 0.18s fade (CSS). Switching Motion Off mid-landing reverts it at once to the final CSS state.

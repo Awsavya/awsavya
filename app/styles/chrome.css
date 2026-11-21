@@ -205,7 +205,7 @@ html.menu-open{ overflow: hidden; }
 }
 .mtog__note{ min-height: 1.45em; margin-top: var(--s-2); }
 
-/* ------------------------------------------------------------------ footer: Ink, one violet end mark */
+/* ------------------------------------------------------------------ footer: Ink, one off-white end mark */
 .ftr{ padding-block: var(--s-8) var(--s-5); }
 .ftr__row{ row-gap: var(--s-6); align-items: start; }
 .ftr__email{ justify-self: start; font-size: var(--t-statement); font-weight: 460; --wdth: 100; line-height: 1.14; letter-spacing: -.012em; text-decoration: none; overflow-wrap: anywhere; }
@@ -246,14 +246,15 @@ html[data-js][data-motion="off"]:not([data-js-failed]) .ftr-done:not([data-drawn
   .close__title, .close__body, .close__actions{ grid-column: a1 / end; }
 }
 
-/* ------------------------------------------------------------------ DONE stamp: the violet means finished */
+/* ------------------------------------------------------------------ DONE stamp: an ink bar means finished (off-white on dark grounds) */
 .stamp{
   position: relative; display: inline-block; padding: .1em .22em;
   font-size: var(--stamp-m); font-weight: 860; --wdth: 62; line-height: .9; letter-spacing: 0;
-  text-transform: uppercase; white-space: nowrap; color: var(--paper);
+  text-transform: uppercase; white-space: nowrap; color: var(--stamp-fg, var(--paper));
 }
+[data-ground="ink"] .stamp, [data-ground="stamp"] .stamp{ --stamp-bg: var(--paper); --stamp-fg: var(--ink); }
 .stamp--s{ font-size: var(--stamp-s); }
-.stamp__bar{ position: absolute; inset: 0; background: var(--stamp); transform-origin: left center; }
+.stamp__bar{ position: absolute; inset: 0; background: var(--stamp-bg, var(--stamp)); transform-origin: left center; }
 .stamp__word{ position: relative; display: inline-block; }
 .stamp__char{ display: inline-block; }
 .stamp:not([data-active]){ visibility: hidden; opacity: 0; }

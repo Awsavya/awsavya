@@ -3,7 +3,7 @@ import { BarLink } from "./Bar";
 import { Section } from "./Section";
 
 /**
- * The ask that ends every page except Contact and 404: the page's last display-size line. No violet, no flood:
+ * The ask that ends every page except Contact and 404: the page's last display-size line. No flood:
  * the footer's end mark is the one "done". The email follows straight after, in the footer.
  */
 export function CloseRow({ ground }: { ground?: "paper" | "silver" }) {
