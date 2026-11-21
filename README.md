@@ -64,12 +64,12 @@ A word missing from `POSTER_ADV` in `lib/fit.ts` falls back to a conservative es
 
 ## Contact form
 
-Delivery is server-side only, in `app/api/contact/route.ts`, through Web3Forms. Set `WEB3FORMS_ACCESS_KEY` in the server environment (never in client code, never in a committed `.env`).
+The visitor's browser sends each brief straight to Web3Forms (`components/pages/BriefForm.tsx`), which emails it to the address the access key was created for. Web3Forms' free plan refuses calls from a server (HTTP 403, "Pro plan is required"), and its access key is public by design, so there is no API route. The contact page reads `WEB3FORMS_ACCESS_KEY` when the site is built and hands it to the form. Never hard-code the key or commit a real `.env`.
 
-- Without the key the endpoint returns **503** with a clear "Not sent" message, and the form never shows success. Success (and the one violet flood on the site) happens only on HTTP 200.
-- Spam controls: a honeypot field (`hp_field` in the form, sent as `website_url`), a minimum time-on-form check (the form sends `elapsed_ms`, measured with `performance.now()` on the visitor's own clock, so a skewed device clock never blocks a real brief; under 3 s is rejected), a 16 KB size cap, and an in-memory limit of 5 per IP per 10 minutes.
-- Every failure message ends with the email address. The form posts with `method="post"`, so a submit before hydration never puts fields in the URL; without JavaScript the button is hidden and the email is the way in.
-- **Before promoting the form publicly, add a distributed rate limiter** suited to the host. The in-memory limit does not hold across serverless instances.
+- Without the key the form says **Not sent** with the email address and never shows success. Success (and the one violet flood on the site) happens only when Web3Forms answers `success: true`.
+- Spam controls before sending: a hidden honeypot field (`hp_field`; anything in it stops the send) and a 3-second minimum time on the form, measured with `performance.now()` so a skewed device clock never blocks a real brief. Web3Forms adds its own spam filter and per-IP limit (HTTP 429 shows "Too many tries"). If spam becomes a problem, Web3Forms supports hCaptcha.
+- Every failure message ends with the email address, and the visitor's text is kept. The form posts with `method="post"`, so a submit before hydration never puts fields in the URL; without JavaScript the button is hidden and the email is the way in.
+- Changing the key in Vercel needs a redeploy, because the key is read at build time.
 
 ## SEO and sharing
 
@@ -77,12 +77,12 @@ Delivery is server-side only, in `app/api/contact/route.ts`, through Web3Forms. 
 - `app/layout.tsx` adds Organization structured data built only from `lib/site.ts`. `app/privacy/page.tsx` adds a breadcrumb.
 - `app/opengraph-image.tsx` draws the share card for every route.
 - `next.config.ts` sends security headers (HSTS, frame, referrer, permissions), redirects `awsavya.in` to `www.awsavya.in`, and redirects old URLs (`/animated/*` and the previous service slugs).
-- The privacy policy (`privacy` in `lib/site.ts`) describes exactly what the site does today: the brief form's fields, Web3Forms delivery, the in-memory spam limit and the one `localStorage` key. Update it when any of those change.
+- The privacy policy (`privacy` in `lib/site.ts`) describes exactly what the site does today: the brief form's fields, browser-to-Web3Forms delivery to the Gmail inbox and the one `localStorage` key. Update it when any of those change.
 
 ## Deploy (Vercel)
 
 1. The Vercel project builds this repository's root with the default Next.js settings. No `vercel.json` is needed.
-2. In the project's **Settings → Environment Variables** (not the separate "Environments" page), add `WEB3FORMS_ACCESS_KEY` as type **Secret** for Production and Preview. Web3Forms delivers briefs to the email address the key was created for. Without the key, the contact form says "Not sent" and points people to the email address. A `NEXT_PUBLIC_SITE_URL` variable, if one exists, is no longer read.
+2. In the project's **Settings → Environment Variables** (not the separate "Environments" page), add `WEB3FORMS_ACCESS_KEY` for Production and Preview. Web3Forms delivers briefs to the email address the key was created for. Without the key, the contact form says "Not sent" and points people to the email address. A `NEXT_PUBLIC_SITE_URL` variable, if one exists, is no longer read.
 3. Check the preview deployment first, including sending a real brief, then promote it to production.
 4. Domains and DNS: use the exact records Vercel shows for `awsavya.in` and `www.awsavya.in`. Don't remove MX or unrelated TXT records; they may carry email or verification.
 

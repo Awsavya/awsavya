@@ -20,7 +20,8 @@ export default function Contact() {
         <div className="grid7 pg-hero">
           <FitText as="h1" id="contact-h1" size="l" className="pg-contact-h1" tabIndex={-1} lines={[{ text: l1, indent: "a1" }, { text: l2, indent: "a4" }]} />
           <p className="t-statement pg-c-a4">{contact.statement}</p>
-          <div className="pg-form-col"><BriefForm /></div>
+          {/* Web3Forms keys are public by design; read at build time from the Vercel variable. */}
+          <div className="pg-form-col"><BriefForm accessKey={process.env.WEB3FORMS_ACCESS_KEY} /></div>
           <p className="t-small pg-aside">
             {asideLead}<a className="inline-link" href={`mailto:${site.email}`}>{site.email}</a>{asideTail}{" "}
             {contact.privacyLead} <DeliverLink href="/privacy" className="inline-link">{contact.privacyLink}</DeliverLink>.

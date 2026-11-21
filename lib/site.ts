@@ -277,6 +277,14 @@ export const contact = {
   submit: "Send brief", sending: "Sending…", rail: ["Draft", "Sending", "Sent"], sentWord: "Sent",
   sent: "Sent. We'll reply from awsavya@gmail.com.", notSent: "Not sent", fallback: "Write to awsavya@gmail.com instead.",
   again: "Send another brief",
+  // Shown when a brief can't go. Every one ends with the email address, so there is always a way forward.
+  failures: {
+    unconfigured: "Not sent. Email delivery isn't set up on this site yet. Write to awsavya@gmail.com and we'll pick it up there.",
+    tooFast: "Not sent. Please take a moment and try again.",
+    blocked: "Not sent. Our spam filter stopped it. Write to awsavya@gmail.com instead.",
+    limited: "Not sent. Too many tries from this connection. Wait a while, or write to awsavya@gmail.com.",
+    undelivered: "Not sent. We couldn't deliver it. Write to awsavya@gmail.com instead.",
+  },
   errors: {
     name: "Add your name (at least 2 characters).",
     email: "Add an email we can reply to.",
@@ -304,8 +312,8 @@ export const footer = {
   privacy: "Privacy",
 } as const;
 
-// Matches what the site actually does: the brief form's fields, Web3Forms delivery to the Gmail inbox, the
-// in-memory spam limiter (app/api/contact/route.ts), and one localStorage key (the Motion choice).
+// Matches what the site actually does: the brief form's fields, sent from the browser to Web3Forms and on to
+// the Gmail inbox (components/pages/BriefForm.tsx), and one localStorage key (the Motion choice).
 // Update this if any of those change, including when the address moves off Gmail.
 export const privacy = {
   h1: "Privacy.",
@@ -320,11 +328,11 @@ export const privacy = {
   ],
   detailTitle: "In detail.",
   detail: [
-    { title: "What we collect", body: ["Only what you type into the brief form, or send us by email: your name, your email, the kind of work, how it works today and what has to work at the end. The form also sends how long it was open, as a spam check.", "We don't ask for payment details, government IDs or your location."] },
+    { title: "What we collect", body: ["Only what you type into the brief form, or send us by email: your name, your email, the kind of work, how it works today and what has to work at the end.", "We don't ask for payment details, government IDs or your location."] },
     { title: "How we use it", body: ["To reply, to scope and estimate the work, and to follow up on the conversation you started. We won't add you to a newsletter without asking first."] },
-    { title: "How it reaches us", body: ["The form sends your brief over HTTPS to our server, which passes it to our inbox through Web3Forms, a form-delivery service. The key for that service stays on the server and never reaches your browser.", "Briefs and emails arrive in our Gmail inbox, so Google stores them for us."] },
+    { title: "How it reaches us", body: ["When you press Send, your browser sends the brief over HTTPS to Web3Forms, a form-delivery service, which emails it to us. Nothing goes through our own server.", "Briefs and emails arrive in our Gmail inbox, so Google stores them for us."] },
     { title: "Cookies and storage", body: ["This site sets no cookies. One setting is kept in your browser: your Motion On/Off choice. It stays on your device and is never sent to us."] },
-    { title: "Logs", body: ["Like most websites, our hosting provider keeps standard access logs (time, page, browser and IP address) for security and to stop abuse. To stop spam, the form also counts briefs per IP address over ten minutes; that count lives only in the server's memory and is never written to disk or a database."] },
+    { title: "Logs", body: ["Like most websites, our hosting provider keeps standard access logs (time, page, browser and IP address) for security and to stop abuse. When you send a brief, Web3Forms also receives your IP address, as any website you connect to does, and uses it to stop spam."] },
     { title: "How long we keep it", body: ["Only as long as we need it to discuss your project, or while we work together. If a brief doesn't turn into a project, we keep it only as long as it takes to reply."] },
     { title: "Your choices", body: ["You can ask for a copy of what we hold about you, ask us to correct it, ask us to delete it, or ask us to stop writing to you."] },
   ],

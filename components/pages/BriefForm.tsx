@@ -13,9 +13,11 @@ type Field = "name" | "email" | "today";
 type Values = { name: string; email: string; service: string; today: string; end: string };
 
 const EMPTY: Values = { name: "", email: "", service: contact.chips[contact.chips.length - 1], today: "", end: "" };
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // the same rule the server applies
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const FIELDS: readonly Field[] = ["name", "email", "today"];
-const MAX = { name: 100, email: 254, today: 3000, end: 1800 } as const; // message stays under the server's 5000
+const MAX = { name: 100, email: 254, today: 3000, end: 1800 } as const; // the message stays under 5000 characters
+const MIN_FILL_MS = 3000; // a brief sent within 3s of the form being ready is treated as a bot
+const ENDPOINT = "https://api.web3forms.com/submit";
 
 function check(v: Values): Record<Field, string> {
   return {
@@ -24,9 +26,6 @@ function check(v: Values): Record<Field, string> {
     today: v.today.trim().length >= 10 ? "" : contact.errors.today,
   };
 }
-
-/** Server field names → the field that shows the error. "message" is built from the "today" box. */
-const SERVER_FIELD: Record<string, Field | undefined> = { name: "name", email: "email", message: "today" };
 
 /** Puts a real mailto link wherever the address appears in a message. */
 function withMailto(text: string) {
@@ -41,14 +40,17 @@ function withFallback(text: string) {
 }
 
 /**
- * The brief ticket. Wired to /api/contact: success shows only after a real HTTP 200, then the section
+ * The brief ticket. The visitor's browser sends it straight to Web3Forms: their free plan refuses calls
+ * from a server (HTTP 403), and its access key is public by design (it can only send to our inbox). The key
+ * comes in as a prop, read from WEB3FORMS_ACCESS_KEY when the page is built; without it the form says
+ * "Not sent" and never shows success. Success shows only when Web3Forms answers success, then the section
  * floods Stamp (the site's one earned flood) and the ticket gives way to a SENT poster, the message and
- * "Send another brief". Anything else is "Not sent", with the server's words and the email fallback; the
- * visitor's text is kept. The rail is real: DRAFT fills one tick per valid required field, SENDING ticks
- * only while the request is pending. The bot check sends elapsed time from one clock (performance.now),
- * so a visitor whose device clock is off is never turned away.
+ * "Send another brief". Anything else is "Not sent" with the email fallback; the visitor's text is kept.
+ * Spam checks before sending: the hidden field must stay empty, and the form must have been open 3s
+ * (measured with performance.now, so a skewed device clock never matters). Web3Forms filters spam too.
+ * The rail is real: DRAFT fills one tick per valid required field, SENDING ticks only while sending.
  */
-export function BriefForm() {
+export function BriefForm({ accessKey }: { accessKey?: string }) {
   const uid = useId();
   const id = (k: string) => `${uid}-${k}`;
   const off = useMotionOff();
@@ -140,16 +142,24 @@ export function BriefForm() {
       return;
     }
 
+    const fail = (text: string) => { setMessage(withFallback(text)); setStage("failed"); };
     const honeypot = (form.current?.elements.namedItem("hp_field") as HTMLInputElement | null)?.value ?? "";
+    if (honeypot) return fail(contact.failures.blocked);
+    if (performance.now() - startedAt.current < MIN_FILL_MS) return fail(contact.failures.tooFast);
+    if (!accessKey) return fail(contact.failures.unconfigured);
+
+    const name = values.name.trim();
+    const email = values.email.trim();
     const today = values.today.trim();
     const end = values.end.trim();
     const body = {
-      name: values.name.trim(),
-      email: values.email.trim(),
+      access_key: accessKey,
+      subject: `AWSAVYA enquiry — ${values.service}`,
+      from_name: "AWSAVYA Website",
+      replyto: email,
+      name, email,
       service: values.service,
       message: end ? `How it works today:\n${today}\n\nWhat has to work at the end:\n${end}` : `How it works today:\n${today}`,
-      website_url: honeypot,
-      elapsed_ms: Math.round(performance.now() - startedAt.current),
     };
 
     request.current?.abort();
@@ -160,40 +170,30 @@ export function BriefForm() {
     setServerErr({});
 
     let code = 0;
-    let text = "";
-    let fields: string[] = [];
+    let ok = false;
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(ENDPOINT, {
         method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(body), signal: ctrl.signal,
       });
       code = res.status;
       const data: unknown = await res.json().catch(() => null);
-      if (data && typeof data === "object") {
-        const d = data as { message?: unknown; fields?: unknown };
-        if (typeof d.message === "string") text = d.message;
-        if (Array.isArray(d.fields)) fields = d.fields.filter((x): x is string => typeof x === "string");
-      }
+      ok = res.ok && Boolean(data && typeof data === "object" && (data as { success?: unknown }).success === true);
     } catch {
       if (ctrl.signal.aborted) return; // unmounted
     }
     request.current = null;
 
-    if (code === 200) {
+    if (ok) {
       setValues(EMPTY);
       setShown({ name: false, email: false, today: false });
       startedAt.current = performance.now();
-      setMessage(text || contact.sent);
+      setMessage(contact.sent);
       setStage("sent");
       floodSection();
       return;
     }
-
-    const flagged: Partial<Record<Field, boolean>> = {};
-    for (const f of fields) { const k = SERVER_FIELD[f]; if (k) flagged[k] = true; }
-    setServerErr(flagged);
-    setMessage(withFallback(text));
-    setStage("failed");
+    fail(code === 429 ? contact.failures.limited : contact.failures.undelivered);
   }
 
   const field = (f: Field, label: string, input: (describedBy: string | undefined, invalid: boolean) => React.ReactNode) => {
@@ -255,7 +255,7 @@ export function BriefForm() {
       </div>
 
       {/* Honeypot: people never see or reach it, and its name and label give autofill nothing to match.
-          Anything typed here is rejected by the server (sent as website_url). */}
+          If anything is typed here, the brief is not sent. */}
       <div className="pg-hp" aria-hidden="true">
         <label>Leave this empty <input name="hp_field" type="text" tabIndex={-1} autoComplete="off" defaultValue="" /></label>
       </div>
