@@ -1,0 +1,154 @@
+/* HOME unit styles. Classes start with home-. Shared classes and tokens come from chrome.css and globals.css; do not redefine them. */
+
+/* ================================================================== 1. Hero: Settle up (§4.1, §5.1) */
+.home-hero{ padding-block: clamp(36px, 6svh, 72px) var(--s-5); }
+.home-hero__head{ row-gap: var(--s-4); }
+.home-hero__h1{ grid-column: a1 / y; }
+.home-hero__lede{ grid-column: a4 / end; }
+.home-hero__play{ position: relative; padding-top: var(--s-5); }
+@media (max-width: 639px){
+  .home-hero__h1, .home-hero__lede{ grid-column: a1 / end; }
+  .home-hero__play{ padding-top: var(--s-4); }
+}
+/* Desktop pins the hero for the Baseline flood. It fills the first screen exactly, so the pin never shifts what is
+   in view, the statement sits at the top and the mark at the foot, and the flood ends on the screen's bottom edge. */
+@media (min-width: 1024px) and (pointer: fine){
+  .home-hero{ display: flex; flex-direction: column; min-height: calc(100svh - var(--header-h)); }
+  .home-hero > .wrap{ flex: 1 0 auto; display: flex; flex-direction: column; }
+  .home-hero__play{ margin-top: auto; padding-top: var(--s-4); }
+}
+
+/* ------------------------------------------------------------------ the band: seven letters, one per column */
+.home-band{ container-type: inline-size; }
+/* --mark-size lives on the child of the container (cqi resolves against an ancestor). One letter may use its
+   whole pitch (column + gutter): W is 1em wide at wdth 100 (desktop's widest drag stretch), .8em at wdth 72. */
+.home-band__stage{
+  --mark-adv: 1;
+  --mark-size: min(calc((100cqi + var(--gutter)) / 7 / var(--mark-adv)), 32svh);
+  position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); column-gap: var(--gutter);
+  height: calc(var(--mark-size) * 1.9); font-size: var(--mark-size); line-height: .78;
+}
+@media (max-width: 639px){ .home-band__stage{ --mark-adv: .8; } }
+
+/* Letters sit with their centres at 45% of the stage (.855em); the baseline is .335em below that, at 1.19em. */
+.home-letter{
+  position: relative; z-index: 3; display: block; justify-self: center; align-self: start; margin-top: .465em;
+  font-weight: 900; --wdth: 62; line-height: .78; letter-spacing: 0; text-transform: uppercase; white-space: nowrap;
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y pinch-zoom; /* vertical swipes always scroll the page, pinch still zooms; a 300ms hold grabs */
+}
+/* Seeded jostle, written at SSR. Only with JS and motion on: no-JS, a failed boot and Motion Off see the set word. */
+html[data-js][data-motion="on"]:not([data-js-failed]) .home-letter{ transform: translate3d(0, var(--jy), 0) rotate(var(--jr)); --wdth: var(--jw); }
+@media (max-width: 639px){
+  html[data-js][data-motion="on"]:not([data-js-failed]) .home-letter{ transform: translate3d(0, var(--jy-m), 0) rotate(var(--jr-m)); --wdth: var(--jw-m); }
+}
+html[data-motion="on"] .home-hero__play:not([data-nodrag]) .home-band[data-live] .home-letter{ cursor: grab; will-change: transform; }
+html[data-motion="on"] .home-hero__play[data-holding] .home-letter{ cursor: grabbing; }
+
+/* The baseline: an Ink bar .08em tall under the feet. Its box is full-bleed and clipped back to a1 / end, so the
+   flood can open it to the screen edges with the clip while scaleY carries it down to the hero's bottom edge
+   (transform keeps GroundWatcher's geometry honest). Drawn with scaleX from the a1 line. */
+.home-band__base{
+  position: absolute; z-index: 2; top: 1.19em; left: calc(-1 * var(--margin)); right: calc(-1 * var(--margin));
+  height: .08em; background: var(--ink); pointer-events: none;
+  transform-origin: var(--margin) 0;
+  clip-path: inset(0 calc(var(--margin) * (1 - var(--flood, 0))));
+}
+html[data-js]:not([data-js-failed]) .home-band:not([data-live]) .home-band__base{ transform: scaleX(0); }
+
+.home-band__svg{ position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+/* pathLength=1: a dash of 1 and a gap of 2, so an offset of 1 hides the path and 0 shows all of it. */
+.home-thread{ fill: none; stroke: var(--graphite); stroke-width: 1.25; stroke-dasharray: 1 2; stroke-dashoffset: 1; }
+.home-transfer{ fill: none; stroke: var(--stamp); stroke-width: 2.5; stroke-dasharray: 1 2; stroke-dashoffset: 1; }
+.home-head{ fill: var(--stamp); opacity: 0; }
+
+/* Amount tags: Martian (live data) on a Sheet chip. Before settling, the three largest threads; after, the transfers. */
+.home-tag{
+  position: absolute; left: 0; top: 0; z-index: 1; pointer-events: none; opacity: 0;
+  padding: 1px 5px; background: var(--sheet); border: 1px solid var(--rule); color: var(--ink);
+  font-family: var(--font-data); font-size: var(--t-data); --wdth: 87.5; font-weight: 430; line-height: 1.35;
+  font-variant-numeric: tabular-nums; letter-spacing: 0; white-space: nowrap;
+}
+.home-tag--transfer{ color: var(--stamp); }
+@media (max-width: 639px){ .home-tag{ --wdth: 75; padding: 0 4px; } }
+
+/* ------------------------------------------------------------------ the row under the band */
+.home-hero__controls{ row-gap: var(--s-2); align-items: start; padding-top: var(--s-3); }
+html:not([data-js]) .home-hero__controls{ display: none; }
+.home-readout{ grid-column: a1 / a4; display: grid; row-gap: var(--s-1); }
+.home-readout__line{ min-height: 52px; display: flex; align-items: center; text-transform: uppercase; }
+.home-readout__m{ display: none; }
+.home-readout__caption{ display: none; max-width: 62ch; }
+.home-hero__cta{ grid-column: a4 / y; justify-self: start; }
+.home-hint{ grid-column: y / end; min-height: 52px; display: flex; align-items: center; color: var(--fg-2); }
+.home-hint__coarse{ display: none; }
+@media not all and (pointer: fine){
+  .home-hint__fine{ display: none; }
+  .home-hint__coarse{ display: inline; }
+}
+html[data-motion="off"] .home-hint, .home-hero__play[data-nodrag] .home-hint{ visibility: hidden; }
+@media (min-width: 1024px){ .home-readout__caption{ display: block; } }
+/* 640–1023px: a4 / y is narrower than "Tangle it again"; the button takes a4 / end and the hint drops a row. */
+@media (max-width: 1023px){
+  .home-hero__cta{ grid-column: a4 / end; }
+  .home-hint{ grid-row: 2; grid-column: a4 / end; }
+}
+/* Phones: readout, button and hint each take a full row. */
+@media (max-width: 639px){
+  .home-readout__d{ display: none; }
+  .home-readout__m{ display: inline; }
+  .home-readout{ grid-column: a1 / end; }
+  .home-hero__cta{ grid-column: a1 / end; grid-row: auto; justify-self: start; }
+  .home-hint{ grid-column: a1 / end; grid-row: auto; min-height: 0; }
+}
+
+/* ================================================================== 6. What we take on (§4.1) */
+.home-take__title{ grid-column: a1 / v; }
+ul.home-take__list{ margin-top: var(--s-6); border-bottom: 1px solid var(--hair); } /* ul.: outranks the ul[class] reset */
+.home-take__item{ border-top: 1px solid var(--hair); }
+.home-take__row{ row-gap: var(--s-3); padding-block: var(--s-5); color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.home-take__name{ grid-column: a1 / v; grid-row: 1; max-width: none; }
+.home-take__proof{ grid-column: y / end; grid-row: 1; align-self: start; padding-top: .6em; color: var(--fg-2); }
+.home-take__short{ grid-column: a4 / end; grid-row: 2; }
+/* Wide screens: the line starts level with the name's second line (names stay clear of a4, even widened). */
+@media (min-width: 1280px){ .home-take__short{ grid-row: 1; margin-top: calc(var(--t-display) * .98); } }
+/* WIDEN, display size: wdth 88 → 112 with the bar drawing in. Each poster line is nowrap and free to overhang
+   into the empty columns beside it, so the widen never re-wraps the row. Fine pointers and keyboard only:
+   on touch the bar draws on press and the width stays (the 9-character width budget on mobile). */
+.home-take__text{ position: relative; display: inline-block; --wdth: 88; transition: --wdth var(--d-2) var(--ease-settle); }
+.home-take__line{ display: block; white-space: nowrap; }
+.home-take__text::after{
+  content: ""; position: absolute; left: 0; right: 0; bottom: -.1em; height: max(2px, .08em);
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform var(--d-2) var(--ease-drive);
+}
+@media (hover: hover) and (pointer: fine){
+  .home-take__row:hover .home-take__text{ --wdth: 112; }
+  .home-take__row:hover .home-take__text::after{ transform: scaleX(1); }
+}
+.home-take__row:is(:focus-visible, :active) .home-take__text::after{ transform: scaleX(1); }
+@media (min-width: 640px){ .home-take__row:focus-visible .home-take__text{ --wdth: 112; } }
+html[data-motion="off"] .home-take__text{ --wdth: 88 !important; }
+.home-take__more{ margin-top: var(--s-5); }
+.home-take__all{ grid-column: a4 / end; justify-self: start; }
+@media (max-width: 1023px){
+  .home-take__name{ grid-column: a1 / end; }
+  .home-take__proof{ grid-column: a4 / end; grid-row: 3; padding-top: 0; }
+}
+@media (max-width: 639px){
+  .home-take__short, .home-take__proof, .home-take__all{ grid-column: a1 / end; }
+}
+
+/* ================================================================== 7. V × Y teaser (§4.1) */
+.home-vy__grid{ row-gap: var(--s-4); align-items: end; }
+.home-vy__mark{ grid-column: a1 / a4; grid-row: 1; --wdth: 100; letter-spacing: 0; line-height: .9; max-width: none; white-space: nowrap; }
+.home-vy__dim{ color: var(--alloy); }
+.home-vy__title{ grid-column: a4 / end; grid-row: 1; }
+.home-vy__body, .home-vy__link{ grid-column: a4 / end; }
+@media (max-width: 1023px){
+  .home-vy__mark{ grid-column: a1 / end; }
+  .home-vy__title{ grid-row: auto; }
+}
+@media (max-width: 639px){
+  .home-vy__title, .home-vy__body, .home-vy__link{ grid-column: a1 / end; }
+}

@@ -1,6 +1,25 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { projects } from "@/lib/site";
-import { ProjectArt } from "@/components/ProjectArt";
-export const metadata:Metadata={title:"Concept Studies",description:"Explore AWSAVYA concept studies in applications, software, AI, and web platforms."};
-export default function Work(){return <><section className="page-hero page-hero-light"><p className="eyebrow">02 / Explorations</p><h1>Ideas made<br/><em>tangible.</em></h1><p>Selected concept studies that explore product challenges, interaction ideas, and technical approaches.</p><span className="page-hero-glyph" aria-hidden="true">✳</span></section><section className="work-section section-pad work-page"><div className="section-meta"><span>Concept studies</span><span>01 — 04</span></div><div className="project-list">{projects.map(project=><Link className="project-row" href={`/work/${project.id}`} key={project.id}><div className="project-row-meta"><span>{project.number} / 04</span><span>{project.category}</span></div><ProjectArt project={project}/><div className="project-row-title"><h2>{project.name}</h2><span className="project-go" aria-hidden="true">↗</span></div><p>{project.summary}</p></Link>)}</div></section></>}
+import { CloseRow } from "@/components/chrome/CloseRow";
+import { Page } from "@/components/chrome/Page";
+import { Section } from "@/components/chrome/Section";
+import { WorkBoard } from "@/components/work/WorkBoard";
+import { pageMeta, work } from "@/lib/site";
+
+export const metadata: Metadata = { title: pageMeta.work.title, description: pageMeta.work.description };
+
+/** Work index (spec §4.2): Paper head, the Silver board, the close row. */
+export default function Work() {
+  return (
+    <Page id="work">
+      <Section ground="paper" className="work-head" labelledBy="work-h1">
+        <div className="grid7 work-head__grid">
+          <h1 id="work-h1" className="t-display work-head__title" tabIndex={-1}>{work.h1}</h1>
+          <p className="t-statement work-head__lead">{work.statement}</p>
+          <p className="t-label fg-2 work-head__label">{work.label}</p>
+        </div>
+      </Section>
+      <WorkBoard />
+      <CloseRow ground="paper" />
+    </Page>
+  );
+}

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test lib/settle.test.mjs",
+    "check:rules": "node scripts/check-rules.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",

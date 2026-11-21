@@ -1,0 +1,302 @@
+/* AWSAVYA END STATE — shared classes (FOUNDATION). Units compose these; they never redefine them.
+   Unit classes live in home.css (home-), work.css (work-), pages.css (pg-). */
+
+/* ------------------------------------------------------------------ utilities */
+.sr-only{ position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.fg-2{ color: var(--fg-2); }
+
+/* ------------------------------------------------------------------ layout: seven columns, one per letter */
+.page{ display: block; }
+.wrap{ padding-inline: var(--margin); }
+.grid7{
+  display: grid; column-gap: var(--gutter);
+  grid-template-columns: [a1] minmax(0,1fr) [w] minmax(0,1fr) [s] minmax(0,1fr) [a4] minmax(0,1fr) [v] minmax(0,1fr) [y] minmax(0,1fr) [a7] minmax(0,1fr) [end];
+}
+:where(.grid7) > *{ grid-column: a1 / end; min-width: 0; }
+.sec{ position: relative; padding-block: var(--sec-y); }
+.sec--tight{ padding-block: var(--s-7); }
+
+/* ------------------------------------------------------------------ type */
+.t-display{ font-size: var(--t-display); font-weight: 640; --wdth: 88; line-height: .98; letter-spacing: -.012em; max-width: 18ch; text-wrap: balance; }
+.t-statement{ font-size: var(--t-statement); font-weight: 460; --wdth: 100; line-height: 1.14; letter-spacing: -.012em; max-width: 28ch; text-wrap: pretty; }
+.t-statement--strong{ font-weight: 600; }
+.t-body{ font-size: var(--t-body); font-weight: 400; --wdth: 100; line-height: 1.5; max-width: 62ch; text-wrap: pretty; }
+.t-small{ font-size: var(--t-small); font-weight: 460; --wdth: 100; line-height: 1.45; }
+.t-label{ font-size: var(--t-label); font-weight: 650; --wdth: 125; text-transform: uppercase; letter-spacing: .06em; line-height: 1.2; }
+.t-data{ font-family: var(--font-data); font-size: var(--t-data); --wdth: 87.5; font-weight: 430; font-variant-numeric: tabular-nums; line-height: 1.35; letter-spacing: 0; }
+@media (max-width: 639px){ .t-data{ --wdth: 75; } }
+
+/* Poster type, fitted by lib/fit.ts: font-size = k × measure, capped. Pure CSS, no measuring.
+   The A4 indent assumes the .fit spans a1 / end. Units may scale a poster with --fit-scale (e.g. the 404's × .9). */
+.fit{ display: block; container-type: inline-size; }
+.fit--xl{ --cap: var(--cap-xl); }
+.fit--l{ --cap: var(--cap-l); }
+.fit--m{ --cap: var(--cap-m); }
+.fit__line{
+  display: block; white-space: nowrap; overflow-x: clip;
+  font-size: min(calc(var(--k) * var(--fit-scale, 1) * 100cqi), var(--cap));
+  font-weight: 860; --wdth: 62; line-height: .84; letter-spacing: 0; text-transform: uppercase;
+  margin-inline-start: -.03em;
+}
+.fit__line[data-indent="a4"]{ margin-inline-start: calc((100cqi - 6 * var(--gutter)) * 3 / 7 + 3 * var(--gutter) - .03em); }
+/* Once the webfonts are in, a fitted line wraps instead of clipping when a reader's own text spacing widens it
+   (WCAG 1.4.12). At default spacing a line is at most 98% of its measure, so it never wraps. Before the fonts
+   arrive (wider fallback) and on per-character lines (404, V×Y animate their width), the clip stays. */
+html[data-fonts] .fit__line:not(:has(.fit__char)){ white-space: normal; overflow-x: visible; overflow-wrap: anywhere; }
+/* First load only (data-first, cleared by ReadyFlag): an inner page's poster H1 lands from a small tilt.
+   Transform only, so the text paints on the first frame and LCP is untouched. Motion Off: none (globals). */
+html[data-js][data-motion="on"][data-first] .page:not([data-page="404"]) > .sec:first-child h1.fit .fit__line{
+  animation: fit-land var(--d-4) var(--ease-settle) both; transform-origin: 0 100%;
+}
+html[data-js][data-motion="on"][data-first] .page:not([data-page="404"]) > .sec:first-child h1.fit .fit__line + .fit__line{ animation-delay: calc(var(--d-1) / 2); }
+@keyframes fit-land{ from{ transform: translateY(.14em) rotate(-2deg); } }
+.fit__text{ display: inline-block; }
+.fit__char{ display: inline-block; }
+
+/* ------------------------------------------------------------------ the bar, as button */
+.btn{
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  min-height: 52px; padding: 0 var(--s-4); border: 1px solid transparent; border-radius: 0;
+  background: var(--btn-bg); color: var(--btn-fg);
+  font-size: .875rem; font-weight: 650; text-transform: uppercase; letter-spacing: .06em; line-height: 1.2;
+  text-decoration: none; white-space: nowrap; user-select: none; -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--d-1) linear, color var(--d-1) linear, border-color var(--d-1) linear;
+}
+.btn--line{ background: transparent; color: var(--fg); border-color: var(--line); }
+.btn[aria-disabled="true"], .btn:disabled{ cursor: default; }
+
+/* WIDEN: the label's width axis opens 100 → 125. A hidden copy at 125 reserves the width, so the button never resizes. */
+.btn__label{ position: relative; display: inline-flex; flex-direction: column; align-items: center; --wdth: 100; transition: --wdth var(--d-2) var(--ease-settle); }
+.btn__label::after{ content: attr(data-text); content: attr(data-text) / ""; --wdth: 125; height: 0; overflow: hidden; visibility: hidden; pointer-events: none; }
+.btn__label::before{
+  content: ""; position: absolute; left: 0; right: 0; bottom: -.36em; height: max(2px, .08em);
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform var(--d-2) var(--ease-drive);
+}
+@media (hover: hover){
+  .btn:not([aria-disabled="true"], :disabled):hover .btn__label{ --wdth: 125; }
+  .btn:not([aria-disabled="true"], :disabled):hover .btn__label::before{ transform: scaleX(1); }
+}
+.btn:not([aria-disabled="true"], :disabled):is(:focus-visible, :active) .btn__label{ --wdth: 125; }
+.btn:not([aria-disabled="true"], :disabled):is(:focus-visible, :active) .btn__label::before{ transform: scaleX(1); }
+html[data-motion="off"] .btn .btn__label{ --wdth: 100 !important; }
+/* Phones: width-axis animation is kept for the mark, stamps, V×Y and 404 (§8). Buttons draw the bar on press and keep their width. */
+@media (max-width: 639px){
+  .btn__label::after{ display: none; }
+  .btn .btn__label{ --wdth: 100 !important; }
+}
+
+/* WIDEN for any other label (footer email, rows): put .widen + data-text on the text span inside a link or button. */
+.widen{ position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; --wdth: 100; transition: --wdth var(--d-2) var(--ease-settle); }
+.widen::after{ content: attr(data-text); content: attr(data-text) / ""; --wdth: 125; height: 0; overflow: hidden; visibility: hidden; pointer-events: none; white-space: nowrap; }
+@media (hover: hover){ :is(a, button, .widen-host):hover .widen{ --wdth: 125; } }
+:is(a, button, .widen-host):is(:focus-visible, :active) .widen{ --wdth: 125; }
+html[data-motion="off"] .widen{ --wdth: 100 !important; }
+
+/* ------------------------------------------------------------------ the bar, as link */
+.bar-link{
+  --tap: 44px; position: relative; display: inline-block;
+  padding-block: max(0px, (var(--tap) - 1lh) / 2);
+  color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent;
+}
+.bar-link::after{
+  content: ""; position: absolute; left: 0; right: 0; bottom: max(0px, (var(--tap) - 1lh) / 2);
+  height: max(2px, .08em); background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform var(--d-2) var(--ease-drive);
+}
+@media (pointer: coarse){ .bar-link{ --tap: 48px; } }
+@media (hover: hover){ .bar-link:hover::after{ transform: scaleX(1); } }
+.bar-link:is(:focus-visible, :active)::after{ transform: scaleX(1); }
+.bar-link[aria-current="page"]::after{ transform: scaleX(1); background: var(--fg, currentColor); }
+
+.inline-link{ color: inherit; text-decoration: underline; text-decoration-thickness: .08em; text-underline-offset: .18em; }
+
+.sample-tag{
+  display: inline-block; padding: 2px 6px; border: 1px solid var(--line, currentColor);
+  font-family: var(--font-data); font-size: var(--t-data); --wdth: 87.5; font-weight: 430; line-height: 1.35;
+  font-variant-numeric: tabular-nums; text-transform: uppercase; letter-spacing: .02em; white-space: nowrap;
+}
+@media (max-width: 639px){ .sample-tag{ --wdth: 75; } }
+
+/* ------------------------------------------------------------------ skip link */
+.skip-link{
+  position: fixed; top: 12px; left: 12px; z-index: 200; padding: 14px 18px;
+  background: var(--ink); color: var(--paper); --focus: var(--stamp-lift);
+  font-size: var(--t-label); font-weight: 650; --wdth: 125; text-transform: uppercase; letter-spacing: .06em; line-height: 1.2;
+  text-decoration: none; transform: translateY(calc(-100% - 24px));
+}
+.skip-link:focus{ transform: none; }
+
+/* ------------------------------------------------------------------ header: sticky, never hides, takes the ground under it */
+.hdr{
+  --hdr-bg: var(--paper); --hdr-fg: var(--ink); --hdr-hair: var(--rule);
+  --bg: var(--hdr-bg); --fg: var(--hdr-fg); --line: var(--graphite); --focus: var(--stamp); --btn-bg: var(--ink); --btn-fg: var(--paper);
+  position: sticky; top: 0; z-index: 50; height: var(--header-h);
+  background: var(--hdr-bg); color: var(--hdr-fg); border-bottom: 1px solid var(--hdr-hair);
+  transition: background-color var(--d-1) linear, color var(--d-1) linear, border-color var(--d-1) linear;
+}
+html[data-header-ground="silver"] .hdr{ --hdr-bg: var(--silver); --hdr-fg: var(--ink); --hdr-hair: var(--alloy); }
+html[data-header-ground="ink"] .hdr{ --hdr-bg: var(--ink); --hdr-fg: var(--paper); --hdr-hair: var(--ink-rule); --line: var(--mist); --focus: var(--stamp-lift); --btn-bg: var(--paper); --btn-fg: var(--ink); }
+html[data-header-ground="stamp"] .hdr{ --hdr-bg: var(--stamp); --hdr-fg: var(--paper); --hdr-hair: rgb(245 244 248 / .4); --line: var(--paper); --focus: var(--paper); --btn-bg: var(--paper); --btn-fg: var(--stamp); }
+.hdr ::selection{ background: var(--hdr-fg); color: var(--hdr-bg); }
+
+.hdr__wrap, .menu__top > .wrap{ height: 100%; }
+.hdr__in, .menu__bar{ height: 100%; align-items: center; }
+.hdr__mark{
+  grid-column: a1 / a4; justify-self: start; position: relative;
+  display: inline-flex; flex-direction: column; justify-content: center; align-items: flex-start; min-height: 44px;
+  font-size: .9375rem; font-weight: 720; --wdth: 125; letter-spacing: .02em; line-height: 1; text-decoration: none; color: inherit;
+  transition: --wdth var(--d-2) var(--ease-settle);
+}
+.hdr__mark::after{ content: attr(data-text); content: attr(data-text) / ""; --wdth: 125; height: 0; overflow: hidden; visibility: hidden; pointer-events: none; }
+@media (hover: hover){ .hdr__mark:hover{ --wdth: 62; } }
+.hdr__mark:is(:focus-visible, :active){ --wdth: 62; }
+html[data-motion="off"] .hdr__mark{ --wdth: 125 !important; }
+
+.hdr__nav{ display: none; grid-column: a4 / y; }
+.hdr__list{ display: flex; flex-wrap: wrap; column-gap: var(--s-4); }
+.hdr__actions{ grid-column: a4 / end; justify-self: end; display: flex; align-items: center; gap: var(--s-2); }
+.hdr .btn{ min-height: 44px; }
+@media (pointer: coarse){ .hdr .btn{ min-height: 48px; } }
+.hdr .hdr__menu{ min-width: 48px; min-height: 48px; padding-inline: var(--s-3); }
+@media (max-width: 639px){ .hdr__cta{ display: none; } }
+@media (min-width: 1024px){
+  .hdr__nav{ display: block; }
+  .hdr__actions{ grid-column: y / end; }
+  .hdr__menu{ display: none; }
+}
+
+/* ------------------------------------------------------------------ mobile menu: native modal dialog, Ink */
+.menu{
+  position: fixed; inset: 0; width: 100%; height: 100dvh; max-width: none; max-height: none;
+  margin: 0; border: 0; padding: 0; overflow-y: auto; overscroll-behavior: contain;
+  background: var(--bg); color: var(--fg);
+}
+.menu::backdrop{ background: transparent; }
+.menu[open]{ view-transition-name: site-menu; }
+html.menu-open{ overflow: hidden; }
+.menu__top{ height: var(--header-h); border-bottom: 1px solid var(--hair); }
+.menu__close{ grid-column: a4 / end; justify-self: end; min-width: 48px; min-height: 48px; }
+.menu__body{ row-gap: var(--s-6); padding-block: var(--s-6) var(--s-7); }
+.menu__links{ display: grid; justify-items: start; row-gap: var(--s-1); }
+.menu__link{ font-size: var(--t-display); font-weight: 640; --wdth: 88; line-height: .98; letter-spacing: -.012em; --tap: 48px; }
+.menu__meta{ display: grid; justify-items: start; row-gap: var(--s-5); padding-top: var(--s-5); border-top: 1px solid var(--hair); }
+.menu__email{ text-decoration: none; }
+@media (min-width: 640px){ .menu__meta{ grid-column: a4 / end; } }
+
+/* ------------------------------------------------------------------ motion toggle: native radios as a segmented bar */
+.mtog{ display: block; }
+.mtog__legend{ display: block; margin-bottom: var(--s-2); }
+.mtog__opts{ display: inline-flex; border: 1px solid var(--line); }
+.mtog__opt{ position: relative; display: inline-flex; }
+.mtog__input{ position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; appearance: none; }
+.mtog__face{
+  display: inline-flex; align-items: center; justify-content: center; min-width: 64px; min-height: 44px; padding: 0 var(--s-3);
+  font-size: var(--t-label); font-weight: 650; --wdth: 125; text-transform: uppercase; letter-spacing: .06em; line-height: 1.2;
+  transition: background-color var(--d-1) linear, color var(--d-1) linear;
+}
+.mtog__input:checked + .mtog__face{ background: var(--fg); color: var(--bg); }
+.mtog__input:focus-visible + .mtog__face{ outline: 3px solid var(--focus); outline-offset: 3px; position: relative; z-index: 1; }
+@media (pointer: coarse){ .mtog__face{ min-height: 48px; } }
+/* Touch targets: 48px on coarse pointers (the header is 56px tall on phones, so the mark fits). */
+@media (pointer: coarse){
+  .hdr__mark{ min-height: 48px; }
+  .ftr__email, .menu__email{ display: inline-block; padding-block: max(0px, (48px - 1lh) / 2); }
+}
+.mtog__note{ min-height: 1.45em; margin-top: var(--s-2); }
+
+/* ------------------------------------------------------------------ footer: Ink, one violet end mark */
+.ftr{ padding-block: var(--s-8) var(--s-5); }
+.ftr__row{ row-gap: var(--s-6); align-items: start; }
+.ftr__email{ justify-self: start; font-size: var(--t-statement); font-weight: 460; --wdth: 100; line-height: 1.14; letter-spacing: -.012em; text-decoration: none; overflow-wrap: anywhere; }
+.ftr__list{ display: grid; justify-items: start; }
+.ftr__meta{ display: grid; justify-items: start; row-gap: var(--s-4); }
+.ftr__sign{ margin-top: var(--s-8); padding-top: var(--s-3); border-top: 1px solid var(--hair); row-gap: var(--s-2); }
+.ftr__sign > *{ grid-column: auto; }
+/* The grid signs off in the mark's cut, one letter per column. */
+.ftr__letter{ display: block; font-size: var(--t-statement); font-weight: 860; --wdth: 62; line-height: .84; letter-spacing: 0; text-transform: uppercase; }
+.ftr__endrow{ margin-top: var(--s-5); }
+.ftr__end{ grid-column: y / end; justify-self: end; text-align: right; }
+.ftr-done{
+  grid-column: a7 / end; display: block; height: max(3px, calc(var(--t-statement) * .08)); margin-top: var(--s-2);
+  background: var(--stamp-lift); transform-origin: left center;
+  transition: transform var(--d-3) var(--ease-drive);
+}
+html[data-js][data-motion="on"]:not([data-js-failed]) .ftr-done:not([data-drawn]){ transform: scaleX(0); }
+html[data-js][data-motion="off"]:not([data-js-failed]) .ftr-done:not([data-drawn]){ opacity: 0; }
+.ftr-done[data-snap]{ transition: none !important; }
+:root:has([data-page="404"]) .ftr-done{ display: none; }
+@media (min-width: 640px){
+  .ftr__email{ grid-column: a1 / end; }
+  .ftr__nav{ grid-column: a1 / a4; }
+  .ftr__meta{ grid-column: a4 / end; }
+}
+@media (min-width: 1024px){
+  .ftr__email{ grid-column: a1 / a4; }
+  .ftr__nav{ grid-column: a4 / y; }
+  .ftr__meta{ grid-column: y / end; }
+}
+
+/* ------------------------------------------------------------------ close row */
+.close__grid{ row-gap: var(--s-5); }
+.close__title{ grid-column: a1 / a7; }
+.close__body{ grid-column: a4 / end; }
+.close__actions{ grid-column: a4 / end; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-5); }
+@media (max-width: 639px){
+  .close__title, .close__body, .close__actions{ grid-column: a1 / end; }
+}
+
+/* ------------------------------------------------------------------ DONE stamp: the violet means finished */
+.stamp{
+  position: relative; display: inline-block; padding: .1em .22em;
+  font-size: var(--stamp-m); font-weight: 860; --wdth: 62; line-height: .9; letter-spacing: 0;
+  text-transform: uppercase; white-space: nowrap; color: var(--paper);
+}
+.stamp--s{ font-size: var(--stamp-s); }
+.stamp__bar{ position: absolute; inset: 0; background: var(--stamp); transform-origin: left center; }
+.stamp__word{ position: relative; display: inline-block; }
+.stamp__char{ display: inline-block; }
+.stamp:not([data-active]){ visibility: hidden; opacity: 0; }
+
+/* ------------------------------------------------------------------ boot: pre-hide only what asks for it, never on failure */
+html[data-js][data-motion="on"]:not([data-js-failed]) [data-arrive]:not([data-arrived]){ visibility: hidden; }
+
+/* ------------------------------------------------------------------ DELIVER: page transitions (React <ViewTransition>) */
+html{ --vt-x: 0px; --vt-y: 0px; --vt-w: 100vw; --vt-h: 0px; }
+::view-transition{ pointer-events: none; }
+::view-transition-old(root), ::view-transition-new(root){ animation: none; }
+::view-transition-group(site-header){ animation: none; z-index: 100; }
+::view-transition-old(site-header){ display: none; }
+::view-transition-new(site-header){ animation: none; }
+::view-transition-group(site-menu){ animation: none; z-index: 1; }
+::view-transition-old(site-menu){ animation: vt-hold var(--d-3) linear both; }
+::view-transition-group(.deliver-out){ z-index: 1; }
+::view-transition-group(.deliver-in){ z-index: 2; animation: none; }
+::view-transition-old(.deliver-out){ animation: vt-hold var(--d-3) linear both; }
+::view-transition-new(.deliver-in){ animation: deliver-in var(--d-3) var(--ease-drive) both; }
+::view-transition-group(.deliver-title){ z-index: 3; animation-duration: var(--d-3); animation-timing-function: var(--ease-drive); }
+/* Motion Off backstop: no group ever travels or scales (the * kill switch cannot reach these pseudo-elements). */
+html[data-motion="off"]::view-transition-group(*){ animation: none !important; }
+::view-transition-old(.quick-out){ animation: vt-fade var(--d-1) linear both reverse; }
+::view-transition-new(.quick-in){ animation: vt-fade var(--d-1) linear both; }
+@keyframes vt-hold{ from, to{ opacity: 1; } }
+@keyframes vt-fade{ from{ opacity: 0; } to{ opacity: 1; } }
+@keyframes deliver-in{ /* leg 1: the clicked row widens to the screen edges; leg 2: it drops to fill */
+  0%  { clip-path: inset(var(--vt-y) calc(100% - var(--vt-x) - var(--vt-w)) calc(100% - var(--vt-y) - var(--vt-h)) var(--vt-x)); }
+  34% { clip-path: inset(var(--vt-y) 0 calc(100% - var(--vt-y) - var(--vt-h)) 0); }
+  100%{ clip-path: inset(0); }
+}
+
+/* ------------------------------------------------------------------ Lenis (package CSS not imported) */
+html.lenis, html.lenis body{ height: auto; }
+.lenis.lenis-stopped{ overflow: clip; }
+.lenis.lenis-smooth iframe{ pointer-events: none; }
+[data-lenis-prevent]{ overscroll-behavior: contain; }
+
+/* ------------------------------------------------------------------ dev grid overlay (?grid=1). The one gradient on the site. */
+html[data-grid] body::after{
+  content: ""; position: fixed; inset: 0 var(--margin); z-index: 1000; pointer-events: none;
+  background: repeating-linear-gradient(to right,
+    rgb(103 40 145 / .09) 0 calc((100% - 6 * var(--gutter)) / 7),
+    transparent calc((100% - 6 * var(--gutter)) / 7) calc((100% - 6 * var(--gutter)) / 7 + var(--gutter)));
+}

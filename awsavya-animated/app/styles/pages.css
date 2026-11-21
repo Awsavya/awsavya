@@ -1,0 +1,276 @@
+/* PAGES unit styles (services, service detail, about, contact, 404). Classes start with pg-.
+   Shared classes and tokens come from chrome.css and globals.css: composed here, never redefined. */
+
+/* ------------------------------------------------------------------ scaffolding: placement on the A-lines */
+.pg-hero, .pg-block{ row-gap: var(--s-6); align-items: start; }
+@media (max-width: 639px){ .pg-hero, .pg-block{ row-gap: var(--s-5); } }
+
+.pg-c-title{ grid-column: a1 / a5; }
+.pg-c-a4{ grid-column: a4 / end; }
+.pg-c-meta{ grid-column: y / end; }
+@media (max-width: 1023px){
+  .pg-c-title{ grid-column: a1 / a7; }
+  .pg-c-meta{ grid-column: a4 / end; }
+}
+@media (max-width: 639px){
+  .pg-c-title, .pg-c-a4, .pg-c-meta{ grid-column: a1 / end; }
+}
+
+.pg-key{ margin-bottom: var(--s-1); }
+.pg-links{ display: grid; justify-items: start; }
+.pg-dots{ display: flex; flex-wrap: wrap; row-gap: var(--s-1); }
+.pg-dots > li + li::before{ content: "·"; content: "·" / ""; margin-inline: .7ch; color: var(--fg-2); }
+
+/* Ruled rows: a hair above each, one under the last. Rows are full grids, so content keeps the A-lines. */
+.pg-rows{ border-bottom: 1px solid var(--hair); }
+.pg-rows__row{ row-gap: var(--s-3); padding-block: var(--s-5); border-top: 1px solid var(--hair); align-items: baseline; }
+
+/* ------------------------------------------------------------------ services index: rows on Silver */
+.pg-srow{ min-height: 36svh; row-gap: var(--s-4); align-content: start; padding-block: var(--s-6); }
+.pg-srow:first-child{ padding-top: 0; }
+.pg-srow:last-child{ padding-bottom: 0; }
+.pg-srow + .pg-srow{ border-top: 1px solid var(--hair); }
+.pg-srow__name{ grid-column: a1 / a5; }
+.pg-srow__lede{ grid-column: a4 / end; }
+.pg-srow__stack{ grid-column: a4 / end; }
+@media (max-width: 1023px){
+  .pg-srow__name{ grid-column: a1 / a7; }
+}
+@media (max-width: 639px){
+  .pg-srow{ min-height: 0; }
+  .pg-srow > *{ grid-column: a1 / end; }
+}
+
+/* WIDEN on a display name (the link to the service): the link and a hidden wide copy share one grid cell, so
+   the box is already as big as the wide setting and nothing around it moves. The bar draws under the name. */
+.pg-srow__name{ display: grid; justify-self: start; width: fit-content; }
+.pg-srow__link, .pg-srow__name::after{ grid-area: 1 / 1; }
+.pg-srow__name::after{ content: attr(data-text); content: attr(data-text) / ""; --wdth: 100; visibility: hidden; pointer-events: none; }
+.pg-srow__link{ position: relative; display: block; color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.pg-srow__nm{ --wdth: 88; transition: --wdth var(--d-2) var(--ease-settle); }
+.pg-srow__link::before{
+  content: ""; position: absolute; left: 0; right: 0; bottom: -.12em; height: max(2px, .08em);
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform var(--d-2) var(--ease-drive);
+}
+@media (hover: hover){
+  .pg-srow__link:hover .pg-srow__nm{ --wdth: 100; }
+  .pg-srow__link:hover::before{ transform: scaleX(1); }
+}
+.pg-srow__link:is(:focus-visible, :active) .pg-srow__nm{ --wdth: 100; }
+.pg-srow__link:is(:focus-visible, :active)::before{ transform: scaleX(1); }
+html[data-motion="off"] .pg-srow__nm{ --wdth: 88 !important; }
+
+/* ------------------------------------------------------------------ cross-reference table */
+.pg-xref-wrap{ grid-column: a1 / end; }
+.pg-xref{ width: 100%; table-layout: fixed; }
+.pg-xref__corner{ width: calc(200% / 7); }
+.pg-xref :is(th, td){
+  padding: var(--s-2) var(--s-2) var(--s-2) 0; text-align: left; vertical-align: middle;
+  border-top: 1px solid var(--hair); transition: background-color var(--d-1) linear;
+}
+.pg-xref tbody tr:last-child > *{ border-bottom: 1px solid var(--hair); }
+.pg-xref thead :is(th, td){ border-top: 0; vertical-align: bottom; padding-bottom: var(--s-3); }
+.pg-xref__col{ overflow-wrap: break-word; }
+@media (max-width: 1023px){ .pg-xref__col{ --wdth: 75; letter-spacing: .02em; } } /* QUICKLYCART fits a 1/7 column at 640px */
+.pg-xref__svc{ font-weight: 600; padding-right: var(--s-4); }
+.pg-xref__hit{
+  display: inline-flex; align-items: center; gap: var(--s-2); min-width: 44px; min-height: 44px;
+  color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent;
+}
+@media (pointer: coarse){ .pg-xref__hit{ min-width: 48px; min-height: 48px; } }
+.pg-xref__bar{ display: block; flex: none; width: 24px; height: .25em; background: var(--fg); }
+.pg-xref__nm{ display: none; }
+.pg-xref__empty{ padding-left: var(--s-1); }
+.pg-xref__legend{ margin-top: var(--s-4); max-width: 62ch; }
+
+/* Hover or focus on a filled cell tints its row and its column. */
+.pg-xref{ --pg-tint: color-mix(in srgb, var(--fg) 6%, var(--bg)); }
+.pg-xref tbody tr:has(> [data-filled]:is(:hover, :focus-within)) > *{ background: var(--pg-tint); }
+.pg-xref:has(tbody [data-filled]:nth-child(2):is(:hover, :focus-within)) :is(th, td):nth-child(2),
+.pg-xref:has(tbody [data-filled]:nth-child(3):is(:hover, :focus-within)) :is(th, td):nth-child(3),
+.pg-xref:has(tbody [data-filled]:nth-child(4):is(:hover, :focus-within)) :is(th, td):nth-child(4),
+.pg-xref:has(tbody [data-filled]:nth-child(5):is(:hover, :focus-within)) :is(th, td):nth-child(5),
+.pg-xref:has(tbody [data-filled]:nth-child(6):is(:hover, :focus-within)) :is(th, td):nth-child(6){ background: var(--pg-tint); }
+
+/* Below 640px: one block per service. The explicit roles keep the table semantics through display: block. */
+@media (max-width: 639px){
+  .pg-xref, .pg-xref :is(tbody, tr, th, td){ display: block; }
+  .pg-xref thead{ position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .pg-xref :is(th, td){ padding: 0; border: 0; background: none !important; }
+  .pg-xref tbody tr:last-child > *{ border: 0; }
+  .pg-xref__row{ display: flex !important; flex-wrap: wrap; column-gap: var(--s-4); padding-block: var(--s-3) var(--s-2); border-top: 1px solid var(--hair); }
+  .pg-xref__row:last-child{ border-bottom: 1px solid var(--hair); }
+  .pg-xref__svc{ flex-basis: 100%; }
+  .pg-xref__empty{ position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .pg-xref__hit{ min-height: 48px; }
+  .pg-xref__nm{ display: inline; }
+}
+
+/* ------------------------------------------------------------------ service detail */
+.pg-stack__name{ grid-column: a1 / a4; font-weight: 600; }
+.pg-stack__use{ grid-column: a4 / y; }
+.pg-stack__where{ grid-column: y / end; }
+@media (max-width: 1023px){ .pg-stack__use, .pg-stack__where{ grid-column: a4 / end; } }
+@media (max-width: 639px){ .pg-stack > *{ grid-column: a1 / end; } }
+
+.pg-also{ row-gap: var(--s-3); margin-top: var(--s-6); }
+.pg-also__key{ grid-column: a1 / a4; }
+.pg-also__list{ grid-column: a4 / end; display: grid; row-gap: var(--s-2); }
+@media (max-width: 639px){ .pg-also__key, .pg-also__list{ grid-column: a1 / end; } }
+
+.pg-next-sec{ border-top: 1px solid var(--hair); } /* the tail of the Paper stack section, under a full-width rule */
+.pg-next{ row-gap: var(--s-2); align-items: baseline; }
+.pg-next__key{ grid-column: a1 / a4; }
+.pg-next__line{ grid-column: a4 / end; }
+.pg-next__link{ --tap: 48px; }
+@media (max-width: 1023px){ .pg-next__key, .pg-next__line{ grid-column: a1 / end; } }
+
+/* ------------------------------------------------------------------ about: V × Y hero */
+.pg-vy-h1{ display: block; }
+.pg-vy{ position: relative; display: block; }
+/* The measuring row: AWSAVYA at --cap-l in the top band. Never seen; it only gives the FLIP its first boxes. */
+.pg-vy__measure{ position: absolute; inset: 0 0 auto 0; visibility: hidden; pointer-events: none; }
+.pg-vy__small{ margin-bottom: var(--s-5); }
+.pg-vy__small > .pg-vy__ch{ grid-column: auto; display: block; color: var(--alloy); }
+.pg-vy__small > [data-gap]{ color: var(--fg); }
+.pg-vy__names{ display: block; }
+.pg-vy__name{ display: block; width: fit-content; }
+.pg-vy__name + .pg-vy__name{ margin-top: var(--s-6); }
+.pg-vy__sig{ display: block; --pg-vy-size: min(calc(var(--k) * 100cqi), var(--cap)); }
+.pg-vy__bar{
+  display: block; height: max(3px, calc(var(--pg-vy-size) * .08)); margin-top: calc(var(--pg-vy-size) * .06);
+  background: var(--fg); transform-origin: left center;
+}
+.pg-vy__role{ display: block; margin-top: var(--s-3); }
+@media (max-width: 639px){ .pg-vy__name + .pg-vy__name{ margin-top: var(--s-5); } }
+
+/* about: ruled pairs (How we work), bars between lines (What we won't do), phases */
+.pg-pair__k{ grid-column: a1 / a4; }
+.pg-pair__v{ grid-column: a4 / end; }
+@media (max-width: 1023px){ .pg-pair__k{ grid-column: a1 / end; } }
+@media (max-width: 639px){ .pg-pair__v{ grid-column: a1 / end; } }
+
+.pg-wont{ grid-column: a4 / end; container-type: inline-size; --pg-cols: 4; }
+.pg-wont__item{ padding-block: var(--s-4); }
+.pg-wont__item + .pg-wont__item::before{
+  content: ""; display: block; width: calc((100cqi - (var(--pg-cols) - 1) * var(--gutter)) / var(--pg-cols));
+  height: max(3px, .08em); margin-bottom: var(--s-5); background: var(--fg);
+}
+@media (max-width: 639px){ .pg-wont{ grid-column: a1 / end; --pg-cols: 7; } }
+
+.pg-phase__label{ grid-column: a1 / a4; grid-row: 1; }
+.pg-phase__time{ grid-column: y / end; grid-row: 1; }
+.pg-phase__sum{ grid-column: a4 / y; grid-row: 1; }
+@media (max-width: 1023px){
+  .pg-phase__label{ grid-column: a1 / end; }
+  .pg-phase__time{ grid-column: a4 / end; grid-row: 2; }
+  .pg-phase__sum{ grid-column: a4 / end; grid-row: 3; }
+}
+@media (max-width: 639px){ .pg-phase > *{ grid-column: a1 / end; } }
+
+/* ------------------------------------------------------------------ contact: the brief ticket */
+/* The poster gets its own cap between --cap-l and --cap-xl, so the first field stays above the fold. */
+.pg-contact-h1{ --cap: min(13rem, 24svh); }
+.pg-form-col{ grid-column: a1 / a5; }
+.pg-aside{ grid-column: y / end; align-self: start; padding-top: var(--s-4); border-top: 1px solid var(--hair); }
+@media (max-width: 1023px){
+  .pg-form-col{ grid-column: a1 / end; }
+  .pg-aside{ grid-column: a4 / end; }
+}
+@media (max-width: 639px){ .pg-aside{ grid-column: a1 / end; } }
+
+.pg-brief{ --pg-fault: var(--fault); display: grid; row-gap: var(--s-6); padding-top: var(--s-5); border-top: 4px solid var(--fg); }
+[data-ground="ink"] .pg-brief{ --pg-fault: var(--fault-lift); }
+[data-ground="stamp"] .pg-brief{ --pg-fault: var(--paper); }
+@media (max-width: 639px){ .pg-brief{ row-gap: var(--s-5); } }
+.pg-brief__pair{ display: grid; gap: var(--s-6) var(--gutter); }
+@media (min-width: 640px){ .pg-brief__pair{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 639px){ .pg-brief__pair{ row-gap: var(--s-5); } }
+
+.pg-field{ display: grid; row-gap: var(--s-2); align-content: start; min-width: 0; }
+.pg-field__label{ display: flex; flex-wrap: wrap; align-items: baseline; column-gap: var(--s-2); }
+.pg-field__hint{ text-transform: none; letter-spacing: 0; }
+.pg-input{
+  display: block; width: 100%; min-height: 48px; margin: 0; padding: var(--s-2) 0 calc(var(--s-2) + 1px);
+  border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--fg);
+  font-size: 1.0625rem; font-weight: 460; --wdth: 100; line-height: 1.4; appearance: none;
+  transition: border-color var(--d-1) linear;
+}
+.pg-input:focus{ border-bottom: 2px solid var(--fg); padding-bottom: var(--s-2); }
+.pg-input::placeholder{ color: var(--fg-2); opacity: 1; }
+textarea.pg-input{ min-height: 9.8em; padding-inline: var(--s-2); border: 1px solid var(--line); resize: vertical; }
+textarea.pg-input:focus{ border: 1px solid var(--fg); border-bottom-width: 2px; }
+.pg-input[aria-invalid="true"]{ border-color: var(--pg-fault); }
+.pg-err{ color: var(--pg-fault); font-weight: 560; }
+
+.pg-chips{ display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-2); }
+.pg-chips__legend{ margin-bottom: var(--s-2); }
+.pg-chip{ position: relative; display: inline-flex; }
+.pg-chip__input{ position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; appearance: none; }
+.pg-chip__face{
+  display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--s-3);
+  border: 1px solid var(--line); font-size: var(--t-small); font-weight: 560; --wdth: 100; line-height: 1.2;
+  transition: background-color var(--d-1) linear, color var(--d-1) linear, border-color var(--d-1) linear;
+}
+@media (hover: hover){ .pg-chip__input:hover + .pg-chip__face{ border-color: var(--fg); } }
+.pg-chip__input:checked + .pg-chip__face{ background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.pg-chip__input:focus-visible + .pg-chip__face{ outline: 3px solid var(--focus); outline-offset: 3px; position: relative; z-index: 1; }
+
+/* The rail: DRAFT · SENDING · SENT. Ticks hop (TRACK); bars never overshoot, so fills use DRIVE. */
+.pg-rail{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); }
+.pg-rail__seg{ position: relative; display: grid; row-gap: var(--s-2); align-content: start; }
+.pg-rail__name{ color: var(--fg-2); transition: color var(--d-1) linear; }
+.pg-rail__seg[data-on] .pg-rail__name{ color: var(--fg); }
+.pg-rail__ticks{ position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); column-gap: 3px; height: 8px; }
+.pg-tick{ position: relative; border: 1px solid var(--line); }
+.pg-tick::after{
+  content: ""; position: absolute; inset: -1px; background: var(--fg);
+  transform: scaleX(0); transform-origin: left center; transition: transform var(--d-1) var(--ease-drive);
+}
+.pg-tick[data-on]::after{ transform: scaleX(1); }
+.pg-rail__cursor{
+  position: absolute; top: 0; bottom: 0; left: 0; width: calc((100% - 9px) / 4); background: var(--fg);
+  transform: translateX(calc(var(--pg-i, 0) * (100% + 3px))); transition: transform var(--d-1) var(--ease-settle);
+}
+.pg-rail__cursor[data-snap]{ transition: none; }
+html[data-motion="off"] .pg-rail__cursor{ display: none; }
+html[data-motion="off"] .pg-brief[data-stage="sending"] .pg-rail__seg--send .pg-tick::after{ transform: scaleX(1); }
+.pg-rail__seg--end[data-failed] .pg-rail__name{ color: var(--pg-fault); }
+.pg-rail__seg--end[data-failed] .pg-tick{ border-color: var(--pg-fault); }
+
+.pg-brief__actions{ display: grid; row-gap: var(--s-5); }
+.pg-brief__submit{ justify-self: start; }
+.pg-brief[data-stage="sending"] .pg-brief__submit{ background: var(--stamp-press); color: var(--paper); border-color: var(--stamp-press); }
+.pg-brief__status:focus{ outline: none; }
+.pg-brief__status:focus-visible{ outline: 3px solid var(--focus); outline-offset: 3px; }
+.pg-brief__status[data-tone="failed"]{ color: var(--pg-fault); font-weight: 560; }
+/* Sent: the ticket gives way to the payoff (a SENT poster, the message, Send another brief). */
+.pg-brief[data-stage="sent"] > :not(.pg-brief__actions, .pg-flood),
+.pg-brief[data-stage="sent"] .pg-rail, .pg-brief[data-stage="sent"] .pg-brief__submit{ display: none; }
+.pg-brief__sent{ display: block; }
+.pg-brief__again{ justify-self: start; }
+/* No JS: the form cannot send, so the button goes and the email is the way in. */
+html:not([data-js]) .pg-brief__submit{ display: none; }
+html:not([data-js]) .pg-aside{ font-size: var(--t-statement); font-weight: 600; line-height: 1.14; }
+
+.pg-hp{ position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+/* Contact success: the one earned flood. A Stamp sheet rises over the section, then the ground swaps under it. */
+.pg-flood{ position: absolute; inset: 0; z-index: 2; display: none; background: var(--stamp); pointer-events: none; }
+
+/* ------------------------------------------------------------------ 404: one Ink screen that never settles */
+.pg-nf{ display: flex; flex-direction: column; min-height: calc(100svh - var(--header-h)); }
+.pg-nf > .wrap{ display: flex; flex: 1; flex-direction: column; }
+.pg-nf__grid{ flex: 1; align-content: space-between; row-gap: var(--s-7); }
+.pg-nf__mark{ --fit-scale: var(--pg-nf-s, .9); }
+.pg-nf__mark .fit__line + .fit__line{ margin-top: .14em; }
+.pg-nf__mark .fit__char{ transform: translate3d(0, var(--jy, 0em), 0) rotate(var(--jr, 0deg)); --wdth: var(--jw, 62); }
+@media (max-width: 639px){
+  .pg-nf__mark{ --fit-scale: var(--pg-nf-s-m, .9); }
+  .pg-nf__mark .fit__char{ transform: translate3d(0, var(--jy-m, 0em), 0) rotate(var(--jr-m, 0deg)); --wdth: var(--jw-m, 62); }
+}
+.pg-nf__foot{ row-gap: var(--s-5); }
+.pg-nf__links{ display: flex; flex-wrap: wrap; gap: 0 var(--s-6); }
+.pg-nf__link{ font-weight: 600; }
+/* No violet anywhere on the 404: the focus ring on Ink turns Paper (16.8:1) and the footer end mark is hidden (chrome.css). */
+:root:has([data-page="404"]){ --stamp-lift: var(--paper); }

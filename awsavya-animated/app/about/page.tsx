@@ -1,4 +1,86 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-export const metadata:Metadata={title:"About",description:"A closer look at the curiosity and craft behind AWSAVYA's digital exploration."};
-export default function About(){return <><section className="page-hero page-hero-dark about-page-hero"><p className="eyebrow light">03 / The thinking</p><h1>Question<br/><em>everything.</em></h1><p>We believe the strongest digital work begins with an open mind and a precise question.</p><span className="page-hero-glyph" aria-hidden="true">✳</span></section><section className="about-body section-pad"><div className="section-meta"><span>What guides the work</span><span>Curiosity in practice</span></div><h2 className="display-statement">Built to question<br/><span>what’s possible.</span></h2><div className="about-principles"><div><span>01 / Understand</span><h3>Find the real problem.</h3><p>Listen closely, map the constraints, and define what the experience needs to make possible.</p></div><div><span>02 / Explore</span><h3>Make ideas tangible.</h3><p>Use prototypes and experiments to test assumptions before they become expensive decisions.</p></div><div><span>03 / Refine</span><h3>Care about the details.</h3><p>Bring clarity to structure, attention to motion, and discipline to the underlying code.</p></div></div></section><section className="about-close section-pad"><p className="eyebrow light">A conversation is a beginning</p><h2>What could we<br/><em>make together?</em></h2><Link href="/contact" className="pill-button light-button">Start a project <span aria-hidden="true">↗</span></Link></section></>}
+import { CloseRow } from "@/components/chrome/CloseRow";
+import { Page } from "@/components/chrome/Page";
+import { Section } from "@/components/chrome/Section";
+import { VYMark } from "@/components/pages/VYMark";
+import { about, founders, pageMeta, phases, timelineDisclaimer } from "@/lib/site";
+
+export const metadata: Metadata = { title: pageMeta.about.title, description: pageMeta.about.description };
+
+// Paper V×Y → Ink how → Silver won't → Paper first project → (Silver own words) → close. Light 75%.
+export default function About() {
+  // Founder-written notes only. Never filled with placeholder text: both must exist or the section stays out.
+  const notes = founders.every(f => f.note);
+
+  return (
+    <Page id="about">
+      <Section ground="paper" labelledBy="about-h1">
+        <div className="grid7 pg-hero">
+          <p className="t-statement pg-c-title">{about.lead}</p>
+          <h1 id="about-h1" className="pg-vy-h1" tabIndex={-1}>
+            <span className="sr-only">{about.h1}</span>
+            <VYMark />
+          </h1>
+          <p className="sr-only">{founders.map(f => `${f.name}, ${f.role}.`).join(" ")}</p>
+        </div>
+      </Section>
+
+      <Section ground="ink" labelledBy="how-title">
+        <div className="grid7 pg-block">
+          <h2 id="how-title" className="t-display pg-c-title">{about.howTitle}</h2>
+          <ul className="pg-rows">
+            {about.how.map(h => (
+              <li key={h.title} className="grid7 pg-rows__row pg-pair">
+                <h3 className="t-statement t-statement--strong pg-pair__k">{h.title}</h3>
+                <p className="t-body pg-pair__v">{h.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      <Section ground="silver" labelledBy="wont-title">
+        <div className="grid7 pg-block">
+          <h2 id="wont-title" className="t-display pg-c-title">{about.wontTitle}</h2>
+          <ul className="pg-wont">
+            {about.wont.map(w => <li key={w} className="t-statement pg-wont__item">{w}</li>)}
+          </ul>
+        </div>
+      </Section>
+
+      <Section ground="paper" labelledBy="phases-title">
+        <div className="grid7 pg-block">
+          <h2 id="phases-title" className="t-display pg-c-title">{about.phasesTitle}</h2>
+          <ol className="pg-rows">
+            {phases.map(p => (
+              <li key={p.label} className="grid7 pg-rows__row pg-phase">
+                <h3 className="t-statement t-statement--strong pg-phase__label">{p.label}</h3>
+                <p className="t-label pg-phase__time">{p.duration}</p>
+                <p className="t-body pg-phase__sum">{p.summary}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="t-small fg-2 pg-c-a4">{timelineDisclaimer}</p>
+        </div>
+      </Section>
+
+      {notes && (
+        <Section ground="silver" labelledBy="words-title">
+          <div className="grid7 pg-block">
+            <h2 id="words-title" className="t-display pg-c-title">{about.ownWordsTitle}</h2>
+            <ul className="pg-rows">
+              {founders.map(f => (
+                <li key={f.name} className="grid7 pg-rows__row pg-pair">
+                  <h3 className="t-label pg-pair__k">{f.name}</h3>
+                  <p className="t-body pg-pair__v">{f.note}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Section>
+      )}
+
+      <CloseRow ground={notes ? "paper" : "silver"} />
+    </Page>
+  );
+}

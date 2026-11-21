@@ -1,2 +1,25 @@
-import Link from "next/link";
-export default function NotFound(){return <section className="not-found"><p className="eyebrow light">Signal lost / 404</p><h1>This route is<br/><em>unexplored.</em></h1><Link href="/" className="pill-button light-button">Return home ↗</Link></section>}
+import { DeliverLink } from "@/components/chrome/DeliverLink";
+import { Page } from "@/components/chrome/Page";
+import { Section } from "@/components/chrome/Section";
+import { NotFoundMark } from "@/components/pages/NotFoundMark";
+import { notFound } from "@/lib/site";
+
+// One Ink screen. The letters never settle, and there is no violet anywhere (pages.css, chrome.css).
+export default function NotFound() {
+  return (
+    <Page id="404">
+      <Section ground="ink" className="pg-nf" labelledBy="nf-h1">
+        <div className="grid7 pg-nf__grid">
+          <NotFoundMark />
+          <div className="grid7 pg-nf__foot">
+            <p className="t-statement pg-c-a4">{notFound.statement}</p>
+            <ul className="pg-c-a4 pg-nf__links">
+              <li><DeliverLink href="/" className="bar-link t-body pg-nf__link">{notFound.home}</DeliverLink></li>
+              <li><DeliverLink href="/work" className="bar-link t-body pg-nf__link">{notFound.work}</DeliverLink></li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+    </Page>
+  );
+}
