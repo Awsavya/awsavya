@@ -1,11 +1,13 @@
 /* PAGES unit styles (services, service detail, about, contact, 404). Classes start with pg-.
    Shared classes and tokens come from chrome.css and globals.css: composed here, never redefined. */
 
-/* ------------------------------------------------------------------ scaffolding: placement on the A-lines */
+/* ------------------------------------------------------------------ scaffolding: placement on the A-lines
+   The grid's lines are named after the letters: [a1] w s [a4] v y [a7] end. There is no "a5": a line name that
+   does not exist silently adds a phantom column, so titles span a1 / v (the first four columns). */
 .pg-hero, .pg-block{ row-gap: var(--s-6); align-items: start; }
 @media (max-width: 639px){ .pg-hero, .pg-block{ row-gap: var(--s-5); } }
 
-.pg-c-title{ grid-column: a1 / a5; }
+.pg-c-title{ grid-column: a1 / v; }
 .pg-c-a4{ grid-column: a4 / end; }
 .pg-c-meta{ grid-column: y / end; }
 @media (max-width: 1023px){
@@ -30,7 +32,7 @@
 .pg-srow:first-child{ padding-top: 0; }
 .pg-srow:last-child{ padding-bottom: 0; }
 .pg-srow + .pg-srow{ border-top: 1px solid var(--hair); }
-.pg-srow__name{ grid-column: a1 / a5; }
+.pg-srow__name{ grid-column: a1 / v; }
 .pg-srow__lede{ grid-column: a4 / end; }
 .pg-srow__stack{ grid-column: a4 / end; }
 @media (max-width: 1023px){
@@ -173,7 +175,7 @@ html[data-motion="off"] .pg-srow__nm{ --wdth: 88 !important; }
 /* ------------------------------------------------------------------ contact: the brief ticket */
 /* The poster gets its own cap between --cap-l and --cap-xl, so the first field stays above the fold. */
 .pg-contact-h1{ --cap: min(13rem, 24svh); }
-.pg-form-col{ grid-column: a1 / a5; }
+.pg-form-col{ grid-column: a1 / v; }
 .pg-aside{ grid-column: y / end; align-self: start; padding-top: var(--s-4); border-top: 1px solid var(--hair); }
 @media (max-width: 1023px){
   .pg-form-col{ grid-column: a1 / end; }
