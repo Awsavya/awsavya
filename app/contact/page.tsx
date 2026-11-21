@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/meta";
+import { breadcrumbList, pageMetadata } from "@/lib/meta";
+import { JsonLd } from "@/components/chrome/JsonLd";
 import { DeliverLink } from "@/components/chrome/DeliverLink";
 import { FitText } from "@/components/chrome/FitText";
 import { Page } from "@/components/chrome/Page";
@@ -28,6 +29,7 @@ export default function Contact() {
           </p>
         </div>
       </Section>
+      <JsonLd data={breadcrumbList([{ name: "Contact", path: "/contact" }])} />
     </Page>
   );
 }

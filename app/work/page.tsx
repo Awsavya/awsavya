@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/meta";
+import { breadcrumbList, pageMetadata } from "@/lib/meta";
+import { JsonLd } from "@/components/chrome/JsonLd";
 import { CloseRow } from "@/components/chrome/CloseRow";
 import { Page } from "@/components/chrome/Page";
 import { Section } from "@/components/chrome/Section";
@@ -21,6 +22,7 @@ export default function Work() {
       </Section>
       <WorkBoard />
       <CloseRow ground="paper" />
+      <JsonLd data={breadcrumbList([{ name: "Work", path: "/work" }])} />
     </Page>
   );
 }

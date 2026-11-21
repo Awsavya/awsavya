@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/meta";
+import { breadcrumbList, pageMetadata } from "@/lib/meta";
+import { JsonLd } from "@/components/chrome/JsonLd";
 import { notFound } from "next/navigation";
 import { CloseRow } from "@/components/chrome/CloseRow";
 import { DeliverLink } from "@/components/chrome/DeliverLink";
@@ -17,7 +18,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const s = serviceBySlug((await params).slug);
-  return s ? pageMetadata({ title: s.name, description: s.lede, path: `/services/${s.slug}` }) : {};
+  return s ? pageMetadata({ title: s.name, description: s.metaDescription, path: `/services/${s.slug}` }) : {};
 }
 
 // Ink poster → Paper questions → Silver proof → Paper stack, then the next service under a rule → Silver close.
@@ -91,6 +92,7 @@ export default async function ServiceDetail({ params }: Props) {
       </Section>
 
       <CloseRow ground="silver" />
+      <JsonLd data={breadcrumbList([{ name: "Services", path: "/services" }, { name: s.name, path: `/services/${s.slug}` }])} />
     </Page>
   );
 }

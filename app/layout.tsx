@@ -39,7 +39,9 @@ const organization = {
   "@type": "Organization",
   "@id": `${site.url}#organization`,
   name: site.name,
+  alternateName: site.alternateName,
   url: site.url,
+  sameAs: site.sameAs,
   logo: `${site.url}/favicon-512.png`, // a 512px square; Logo.png is 5016px and far heavier
   image: `${site.url}/opengraph-image`,
   email: site.email,

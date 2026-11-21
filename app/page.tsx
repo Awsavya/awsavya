@@ -17,7 +17,9 @@ const website = {
   "@type": "WebSite",
   "@id": `${site.url}#website`,
   name: site.name,
+  alternateName: site.alternateName,
   url: site.url,
+  description: site.description,
   publisher: { "@id": `${site.url}#organization` },
 };
 

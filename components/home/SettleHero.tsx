@@ -113,8 +113,9 @@ export default function SettleHero() {
       <div className="grid7 home-hero__controls">
         <div className="home-readout">
           <p className="t-data home-readout__line">
-            <span className="home-readout__d">{readout(false)}</span>
-            <span className="home-readout__m">{readout(true)}</span>
+            {/* data-nosnippet: sample numbers, not for search snippets or AI answers (Google honours it on spans) */}
+            <span className="home-readout__d" data-nosnippet="">{readout(false)}</span>
+            <span className="home-readout__m" data-nosnippet="">{readout(true)}</span>
           </p>
           <p className="t-small fg-2 home-readout__caption">{home.caption}</p>
         </div>
@@ -131,7 +132,7 @@ export default function SettleHero() {
       <p id="home-band-desc" hidden>{home.caption}</p>
       <p className="sr-only" aria-live="polite" aria-atomic="true">{live}</p>
       {/* sr-only on a wrapper: overflow does not clip a table box, and its long rows must not widen the page. */}
-      <div className="sr-only">
+      <div className="sr-only" data-nosnippet="">
         <table>
           <caption>{home.tableCaption}</caption>
           <tbody>

@@ -11,7 +11,7 @@ export function DeviceFrame({ kind, product, label, className, children }: {
   kind: "android" | "browser"; product: string; label: string; className?: string; children: ReactNode;
 }) {
   return (
-    <div className={["work-device", `work-device--${kind}`, className].filter(Boolean).join(" ")} role="img" aria-label={label}>
+    <div className={["work-device", `work-device--${kind}`, className].filter(Boolean).join(" ")} role="img" aria-label={label} data-nosnippet="">
       {kind === "browser" && (
         <div className="work-device__bar" aria-hidden="true">
           <span className="work-device__nav"><span /><span /></span>

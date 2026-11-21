@@ -12,7 +12,11 @@ export const site = {
   url: "https://www.awsavya.in",
   updated: "2026-11-21", // sitemap lastModified: the day this edition went live. Bump it when pages change.
   title: "AWSAVYA — mobile apps, websites, custom software and applied AI",
-  description: "AWSAVYA is Vivek and Yash, a two-person studio that designs and builds mobile apps, websites and web platforms, custom software, and applied AI and automation. See four products we built ourselves.",
+  // The definitional sentence: kept under 160 characters so search results show it whole.
+  description: "AWSAVYA is Vivek and Yash's two-person studio. We design and build mobile apps, websites, custom software, and applied AI and automation.",
+  alternateName: ["awsavya.in"], // Google's site-name docs: the lowercase domain as the last alternate
+  // Official profiles only, each one linking back to the site. Add LinkedIn and others when they exist.
+  sameAs: ["https://github.com/Awsavya"],
 } as const;
 
 export const nav = [
@@ -129,6 +133,7 @@ export const nextProject = (slug: ProjectSlug) => projects[(projects.findIndex(p
 export type Service = {
   slug: ServiceSlug; name: string; short: string; lede: string; lines: readonly string[]; // lines = H1 poster split (all a1)
   questions: readonly [string, string, string]; proof: readonly ProjectSlug[]; thisSite: boolean;
+  metaDescription: string; // search snippet, 160 characters or fewer, names AWSAVYA
   stack: readonly { name: string; usedFor: string; where: string }[]; also: readonly string[]; formChip: string;
 };
 export const services: readonly Service[] = [
@@ -147,6 +152,7 @@ export const services: readonly Service[] = [
     ],
     also: ["Cross-platform apps with React Native, when that fits better", "Installable web apps (PWAs)", "Offline-first apps that sync when they can"],
     formChip: "Mobile app",
+    metaDescription: "AWSAVYA builds Android apps for people who use them away from a desk, backed by two of our own builds: TripSplit and Har Apparels.",
   },
   {
     slug: "websites-and-web-platforms", name: "Websites and web platforms", lines: ["Websites and", "web platforms"],
@@ -162,6 +168,7 @@ export const services: readonly Service[] = [
     ],
     also: ["Company and product websites", "Web platforms with several kinds of user", "Accessible, fast pages"],
     formChip: "Website or web platform",
+    metaDescription: "AWSAVYA builds websites that say plainly what you do, and web platforms where several kinds of user share one system. Backed by QuicklyCart.",
   },
   {
     slug: "custom-software", name: "Custom software", lines: ["Custom", "software"],
@@ -176,6 +183,7 @@ export const services: readonly Service[] = [
     ],
     also: ["Operations dashboards", "Client portals", "Internal tools", "API integrations"],
     formChip: "Custom software",
+    metaDescription: "AWSAVYA builds custom software shaped around how one operation actually runs, backed by Har Apparels and QuicklyCart.",
   },
   {
     slug: "applied-ai-and-automation", name: "Applied AI and automation", lines: ["Applied AI and", "automation"],
@@ -191,13 +199,14 @@ export const services: readonly Service[] = [
     ],
     also: ["Assistants that answer from your own documents", "Search across your documents", "Workflow automation between the tools you already use", "Webhooks and scheduled jobs"],
     formChip: "AI or automation",
+    metaDescription: "AWSAVYA uses AI where its output can be checked, and builds automations that take repeat work off people. Backed by Build2Buzz.",
   },
 ];
 export const serviceBySlug = (slug: string) => services.find(s => s.slug === slug);
 export const nextService = (slug: ServiceSlug) => services[(services.findIndex(s => s.slug === slug) + 1) % services.length];
 
 export const home = {
-  h1: "We design and build mobile apps, websites, custom software, and applied AI and automation.",
+  h1: "AWSAVYA designs and builds mobile apps, websites, custom software, and applied AI and automation.",
   lede: "We're Vivek and Yash. Tell us how something works today, and we'll build the version that settles it.",
   // Readouts are set in mixed case (screen readers say "IOUs") and uppercased in CSS. Totals are sums of the sample amounts.
   readoutBefore: (ious: number, owed: string) => `${ious} IOUs · ${owed} owed · sample data`,
@@ -247,6 +256,8 @@ export const servicesPage = {
 
 export const about = {
   lead: "There's a V and a Y in AWSAVYA.", h1: "Vivek and Yash", smallLine: "AWSA··A",
+  // Published by the owners on the classic site (classic-site-final: components/AnimatedSite.tsx).
+  meaning: "AWSAVYA brings together Apps, Web, Software, Artificial Intelligence and Automation. The V and Y in the name stand for the founders, Vivek and Yash.",
   howTitle: "How we work.",
   how: [
     { title: "You talk to the people who write the code.", body: "No account managers in between. The two of us scope it, design it and build it." },
@@ -257,6 +268,16 @@ export const about = {
   wontTitle: "What we won't do.",
   wont: ["Show logos of clients we don't have.", "Put a number on this site we can't back up.", "Ship an AI feature that can't show where its answer came from."],
   phasesTitle: "How a first project usually runs.", ownWordsTitle: "In our own words.",
+  // Plain answers for people and answer engines. Every answer repeats facts stated elsewhere on the site.
+  faqTitle: "Questions about AWSAVYA.",
+  faq: [
+    { q: "What is AWSAVYA?", a: "AWSAVYA is a two-person software studio run by Vivek and Yash. We design and build mobile apps, websites and web platforms, custom software, and applied AI and automation." },
+    { q: "What does the name AWSAVYA mean?", a: "AWSAVYA brings together Apps, Web, Software, Artificial Intelligence and Automation. The V and Y in the name stand for the founders, Vivek and Yash." },
+    { q: "Who will I work with?", a: "Vivek and Yash. You talk to the two people who scope, design and build the work, with no account managers in between." },
+    { q: "What has AWSAVYA built?", a: "Four products of our own: TripSplit, an offline-first Android app for group expenses; Build2Buzz, an AI pipeline that drafts release posts from evidence for a person to review; Har Apparels, an Android shop-floor app for a denim manufacturing plant; and QuicklyCart, a local commerce web platform. They are built projects, not client work, and the previews on this site use sample data." },
+    { q: "How long does a first project take?", a: "As an indicative estimate: an architecture sprint of about 1–2 weeks, then a focused MVP of about 3–6 weeks. Larger products take about 8–12 weeks or longer. Schedules are confirmed after scoping." },
+    { q: "How do I start a project with AWSAVYA?", a: "Send a brief from the contact page, or write to awsavya@gmail.com. One of us replies." },
+  ],
 } as const;
 export const phases = [
   { label: "Architecture sprint", duration: "About 1–2 weeks", summary: "A feasibility check, an interactive prototype and a plan, before full development starts." },
@@ -340,10 +361,11 @@ export const privacy = {
   ask: "Write to awsavya@gmail.com about any of this, including a request to delete your details.",
 } as const;
 
+// Brand-first titles (absolute: shown as written, without the " · AWSAVYA" suffix). Descriptions stay under 160 characters.
 export const pageMeta = {
-  work: { title: "Four builds", description: "Two Android apps, an AI pipeline and a web platform, designed and built by Vivek and Yash. Shown with sample data." },
-  services: { title: "Services", description: "Mobile apps, websites and web platforms, custom software, and applied AI and automation. Each one backed by something we built." },
-  about: { title: "About", description: "AWSAVYA is Vivek and Yash. You talk to the two people who design and build it." },
-  contact: { title: "Start a brief", description: "Tell us how it works today and what has to work at the end. Or write to awsavya@gmail.com." },
+  work: { title: "AWSAVYA work: four built projects", absolute: true, description: "TripSplit, Build2Buzz, Har Apparels and QuicklyCart: two Android apps, an AI pipeline and a web platform, built by AWSAVYA. Shown with sample data." },
+  services: { title: "AWSAVYA services: apps, websites, software and AI", absolute: true, description: "AWSAVYA builds mobile apps, websites and web platforms, custom software, and applied AI and automation. Each one is backed by something we built." },
+  about: { title: "About AWSAVYA: Vivek and Yash's software studio", absolute: true, description: "AWSAVYA is Vivek and Yash's two-person software studio. What the name means, how we work, and answers to common questions." },
+  contact: { title: "Contact AWSAVYA: start a brief", absolute: true, description: "Tell AWSAVYA how it works today and what has to work at the end. Or write to awsavya@gmail.com." },
   privacy: { title: "Privacy", description: "What AWSAVYA collects when you send a brief, how it's used and delivered, and how to have it corrected or deleted." },
 } as const;

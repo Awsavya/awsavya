@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/meta";
+import { breadcrumbList, pageMetadata } from "@/lib/meta";
+import { JsonLd } from "@/components/chrome/JsonLd";
 import { notFound } from "next/navigation";
 import { CloseRow } from "@/components/chrome/CloseRow";
 import { DeliverLink } from "@/components/chrome/DeliverLink";
@@ -78,7 +79,10 @@ export default async function ProjectDetail({ params }: Props) {
 
       <Section ground="paper" className="work-try" labelledBy="try-title">
         <h2 id="try-title" className="t-display">{work.tryTitle[p.slug]}</h2>
-        <Run project={p} />
+        {/* data-nosnippet: the run is sample data, so search and AI answers should not quote it */}
+        <div data-nosnippet="">
+          <Run project={p} />
+        </div>
         <p className="t-small fg-2 work-try__note">{work.tryNote}</p>
       </Section>
 
@@ -104,6 +108,7 @@ export default async function ProjectDetail({ params }: Props) {
       </Section>
 
       <CloseRow ground="silver" />
+      <JsonLd data={breadcrumbList([{ name: "Work", path: "/work" }, { name: p.name, path: `/work/${p.slug}` }])} />
     </Page>
   );
 }
