@@ -11,6 +11,16 @@ import { home, site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({ description: site.description, path: "/" });
 
+// Tells search engines the site's name is AWSAVYA (home page only, as Google's site-name docs ask).
+const website = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${site.url}#website`,
+  name: site.name,
+  url: site.url,
+  publisher: { "@id": `${site.url}#organization` },
+};
+
 // Home (§4.1): the Settle up hero and its Baseline flood, the Lineup, what we take on, V × Y, the close row.
 // The H1 and lede are server-rendered and never animate, so the LCP is never held back by the hero's JS.
 export default function Home() {
@@ -27,6 +37,8 @@ export default function Home() {
       <TakeOn />
       <VYTeaser />
       <CloseRow ground="paper" />
+      {/* Last, so the first Section stays the page's first child. */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
     </Page>
   );
 }

@@ -40,7 +40,7 @@ const organization = {
   "@id": `${site.url}#organization`,
   name: site.name,
   url: site.url,
-  logo: `${site.url}/Logo.png`,
+  logo: `${site.url}/favicon-512.png`, // a 512px square; Logo.png is 5016px and far heavier
   image: `${site.url}/opengraph-image`,
   email: site.email,
   description: site.description,

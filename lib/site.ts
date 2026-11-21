@@ -10,6 +10,7 @@ export const site = {
   // Fixed, as on the classic site: canonicals, sitemap and structured data always name the production address,
   // whatever environment the build runs in (previews included).
   url: "https://www.awsavya.in",
+  updated: "2026-11-21", // sitemap lastModified: the day this edition went live. Bump it when pages change.
   title: "AWSAVYA — mobile apps, websites, custom software and applied AI",
   description: "AWSAVYA is Vivek and Yash, a two-person studio that designs and builds mobile apps, websites and web platforms, custom software, and applied AI and automation. See four products we built ourselves.",
 } as const;
