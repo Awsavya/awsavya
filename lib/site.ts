@@ -6,7 +6,7 @@ export type ServiceSlug = "mobile-apps" | "websites-and-web-platforms" | "custom
 
 export const site = {
   name: "AWSAVYA",
-  email: "awsavya@gmail.com",
+  email: "hello@awsavya.in",
   // Fixed, as on the classic site: canonicals, sitemap and structured data always name the production address,
   // whatever environment the build runs in (previews included).
   url: "https://www.awsavya.in",
@@ -276,7 +276,7 @@ export const about = {
     { q: "Who will I work with?", a: "Vivek and Yash. You talk to the two people who scope, design and build the work, with no account managers in between." },
     { q: "What has AWSAVYA built?", a: "Four products of our own: TripSplit, an offline-first Android app for group expenses; Build2Buzz, an AI pipeline that drafts release posts from evidence for a person to review; Har Apparels, an Android shop-floor app for a denim manufacturing plant; and QuicklyCart, a local commerce web platform. They are built projects, not client work, and the previews on this site use sample data." },
     { q: "How long does a first project take?", a: "As an indicative estimate: an architecture sprint of about 1–2 weeks, then a focused MVP of about 3–6 weeks. Larger products take about 8–12 weeks or longer. Schedules are confirmed after scoping." },
-    { q: "How do I start a project with AWSAVYA?", a: "Send a brief from the contact page, or write to awsavya@gmail.com. One of us replies." },
+    { q: "How do I start a project with AWSAVYA?", a: "Send a brief from the contact page, or write to hello@awsavya.in. One of us replies." },
   ],
 } as const;
 export const phases = [
@@ -288,23 +288,23 @@ export const timelineDisclaimer = "Timelines are indicative estimates based on t
 
 export const contact = {
   h1Lines: ["Start a", "brief."],
-  statement: "Tell us how it works today and what has to work at the end. One of us replies from awsavya@gmail.com.",
-  aside: "Prefer email? Write to awsavya@gmail.com. We read every brief ourselves.",
+  statement: "Tell us how it works today and what has to work at the end. One of us replies from hello@awsavya.in.",
+  aside: "Prefer email? Write to hello@awsavya.in. We read every brief ourselves.",
   privacyLead: "We use what you send only to reply and to scope the work.", privacyLink: "How we handle it",
   name: "Your name", email: "Email", kind: "What kind of work?",
   chips: ["Mobile app", "Website or web platform", "Custom software", "AI or automation", "Not sure yet"],
   today: "How does it work today?", todayHint: "Warts and all: the spreadsheet, the paper, the group chat.",
   end: "What has to work at the end?", endHint: "Optional.",
   submit: "Send brief", sending: "Sending…", rail: ["Draft", "Sending", "Sent"], sentWord: "Sent",
-  sent: "Sent. We'll reply from awsavya@gmail.com.", notSent: "Not sent", fallback: "Write to awsavya@gmail.com instead.",
+  sent: "Sent. We'll reply from hello@awsavya.in.", notSent: "Not sent", fallback: "Write to hello@awsavya.in instead.",
   again: "Send another brief",
   // Shown when a brief can't go. Every one ends with the email address, so there is always a way forward.
   failures: {
-    unconfigured: "Not sent. Email delivery isn't set up on this site yet. Write to awsavya@gmail.com and we'll pick it up there.",
+    unconfigured: "Not sent. Email delivery isn't set up on this site yet. Write to hello@awsavya.in and we'll pick it up there.",
     tooFast: "Not sent. Please take a moment and try again.",
-    blocked: "Not sent. Our spam filter stopped it. Write to awsavya@gmail.com instead.",
-    limited: "Not sent. Too many tries from this connection. Wait a while, or write to awsavya@gmail.com.",
-    undelivered: "Not sent. We couldn't deliver it. Write to awsavya@gmail.com instead.",
+    blocked: "Not sent. Our spam filter stopped it. Write to hello@awsavya.in instead.",
+    limited: "Not sent. Too many tries from this connection. Wait a while, or write to hello@awsavya.in.",
+    undelivered: "Not sent. We couldn't deliver it. Write to hello@awsavya.in instead.",
   },
   errors: {
     name: "Add your name (at least 2 characters).",
@@ -334,8 +334,8 @@ export const footer = {
 } as const;
 
 // Matches what the site actually does: the brief form's fields, sent from the browser to Web3Forms and on to
-// the Gmail inbox (components/pages/BriefForm.tsx), and one localStorage key (the Motion choice).
-// Update this if any of those change, including when the address moves off Gmail.
+// the Gmail inbox (components/pages/BriefForm.tsx), email to hello@awsavya.in hosted at NevTan, and one
+// localStorage key (the Motion choice). Update this if any of those change, including when briefs move off Gmail.
 export const privacy = {
   h1: "Privacy.",
   statement: "We use what you send us in a brief to reply and to scope the work. Nothing else.",
@@ -351,14 +351,14 @@ export const privacy = {
   detail: [
     { title: "What we collect", body: ["Only what you type into the brief form, or send us by email: your name, your email, the kind of work, how it works today and what has to work at the end.", "We don't ask for payment details, government IDs or your location."] },
     { title: "How we use it", body: ["To reply, to scope and estimate the work, and to follow up on the conversation you started. We won't add you to a newsletter without asking first."] },
-    { title: "How it reaches us", body: ["When you press Send, your browser sends the brief over HTTPS to Web3Forms, a form-delivery service, which emails it to us. Nothing goes through our own server.", "Briefs and emails arrive in our Gmail inbox, so Google stores them for us."] },
+    { title: "How it reaches us", body: ["When you press Send, your browser sends the brief over HTTPS to Web3Forms, a form-delivery service, which emails it to us. Nothing goes through our own server.", "Briefs arrive in our Gmail inbox, so Google stores them for us. Emails you write to hello@awsavya.in arrive at NevTan, our email provider, which stores them for us."] },
     { title: "Cookies and storage", body: ["This site sets no cookies. One setting is kept in your browser: your Motion On/Off choice. It stays on your device and is never sent to us."] },
     { title: "Logs", body: ["Like most websites, our hosting provider keeps standard access logs (time, page, browser and IP address) for security and to stop abuse. When you send a brief, Web3Forms also receives your IP address, as any website you connect to does, and uses it to stop spam."] },
     { title: "How long we keep it", body: ["Only as long as we need it to discuss your project, or while we work together. If a brief doesn't turn into a project, we keep it only as long as it takes to reply."] },
     { title: "Your choices", body: ["You can ask for a copy of what we hold about you, ask us to correct it, ask us to delete it, or ask us to stop writing to you."] },
   ],
   askTitle: "Questions",
-  ask: "Write to awsavya@gmail.com about any of this, including a request to delete your details.",
+  ask: "Write to hello@awsavya.in about any of this, including a request to delete your details.",
 } as const;
 
 // Brand-first titles (absolute: shown as written, without the " · AWSAVYA" suffix). Descriptions stay under 160 characters.
@@ -366,6 +366,6 @@ export const pageMeta = {
   work: { title: "AWSAVYA work: four built projects", absolute: true, description: "TripSplit, Build2Buzz, Har Apparels and QuicklyCart: two Android apps, an AI pipeline and a web platform, built by AWSAVYA. Shown with sample data." },
   services: { title: "AWSAVYA services: apps, websites, software and AI", absolute: true, description: "AWSAVYA builds mobile apps, websites and web platforms, custom software, and applied AI and automation. Each one is backed by something we built." },
   about: { title: "About AWSAVYA: Vivek and Yash's software studio", absolute: true, description: "AWSAVYA is Vivek and Yash's two-person software studio. What the name means, how we work, and answers to common questions." },
-  contact: { title: "Contact AWSAVYA: start a brief", absolute: true, description: "Tell AWSAVYA how it works today and what has to work at the end. Or write to awsavya@gmail.com." },
+  contact: { title: "Contact AWSAVYA: start a brief", absolute: true, description: "Tell AWSAVYA how it works today and what has to work at the end. Or write to hello@awsavya.in." },
   privacy: { title: "Privacy", description: "What AWSAVYA collects when you send a brief, how it's used and delivered, and how to have it corrected or deleted." },
 } as const;
